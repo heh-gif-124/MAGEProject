@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://x18sxaygcp43"]
+
+[ext_resource type="PackedScene" uid="uid://bh5xt157myi1h" path="res://SRC/Scenes/Player/Player.tscn" id="1_idj7w"]
+[ext_resource type="Texture2D" uid="uid://dvlt3bgvn7h8f" path="res://icon.svg" id="1_r150o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5bdln"]
+size = Vector3(5.8671875, 1, 5.1794434)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_idj7w"]
+
+[sub_resource type="Sky" id="Sky_idj7w"]
+sky_material = SubResource("ProceduralSkyMaterial_idj7w")
+
+[sub_resource type="Environment" id="Environment_idj7w"]
+background_mode = 2
+sky = SubResource("Sky_idj7w")
+
+[node name="Node3D" type="Node3D" unique_id=1885697256]
+
+[node name="GridMap" type="GridMap" parent="." unique_id=1258965886]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=636150699]
+transform = Transform3D(8.005055, 0, 0, 0, 1, 0, 0, 0, 0.98035586, 0, -0.63337135, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=357443595]
+shape = SubResource("BoxShape3D_5bdln")
+
+[node name="Sprite3D" type="Sprite3D" parent="StaticBody3D" unique_id=574901904]
+transform = Transform3D(4.826442, 0, 0, 0, -1.8273121e-07, -0.9999999, 0, 4.1804028, -4.3711385e-08, 0, 0.4802255, 0)
+texture = ExtResource("1_r150o")
+
+[node name="CharacterBody3D" parent="." unique_id=1875201734 instance=ExtResource("1_idj7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23323941, 0.56766415, -0.3588009)
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=1639046697]
+transform = Transform3D(1, 0, 0, 0, 0.8944862, 0.4470955, 0, -0.4470955, 0.8944862, 0, 2.6609476, 4.3339567)
+environment = SubResource("Environment_idj7w")

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bh5xt157myi1h"]
+
+[ext_resource type="Script" uid="uid://bm6myabhgpk1k" path="res://SRC/Scenes/Player/player.gd" id="1_jsljj"]
+[ext_resource type="Texture2D" uid="uid://dvlt3bgvn7h8f" path="res://icon.svg" id="1_xti0b"]
+[ext_resource type="Script" uid="uid://d3fpfc6rcg75f" path="res://SRC/Scenes/Player/Movement.gd" id="3_axtyy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5bdln"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1875201734]
+script = ExtResource("1_jsljj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=227147839]
+shape = SubResource("CapsuleShape3D_5bdln")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=137467225]
+texture = ExtResource("1_xti0b")
+
+[node name="MainMovement" type="Node" parent="." unique_id=416590428 node_paths=PackedStringArray("player")]
+script = ExtResource("3_axtyy")
+player = NodePath("..")
+metadata/_custom_type_script = "uid://d3fpfc6rcg75f"
