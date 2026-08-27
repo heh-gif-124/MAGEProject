@@ -24,7 +24,7 @@ func _process(_delta: float) -> void:
 
 	elif parent.velocity.x != 0 or parent.velocity.z != 0:
 		animationsprite.play("Walk")
-		animationsprite.speed_scale = 7.0
+		animationsprite.speed_scale = 5.0
 	else:
 		animationsprite.play("Idle")
 		animationsprite.speed_scale = 1.0

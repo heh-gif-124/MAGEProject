@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://x18sxaygcp43"]
 
 [ext_resource type="PackedScene" uid="uid://bh5xt157myi1h" path="res://SRC/Scenes/Player/Player.tscn" id="1_idj7w"]
+[ext_resource type="Script" uid="uid://cw8hqlyhr0uqy" path="res://SRC/Scripts/VeryImportant/hole_placer.gd" id="1_kln2b"]
 [ext_resource type="Script" uid="uid://56bcgdysi632" path="res://SRC/Scripts/VeryImportant/camera_3d.gd" id="2_idj7w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5bdln"]
@@ -25,6 +26,12 @@ sky = SubResource("Sky_r150o")
 
 [node name="LevelContents" type="Node3D" parent="." unique_id=1414247877]
 
+[node name="HolePlacer" type="Node" parent="LevelContents" unique_id=1004306106]
+script = ExtResource("1_kln2b")
+
+[node name="Marker3D" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=606957621]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.212101, 0.4428841, -1.7458439)
+
 [node name="CharacterBody3D" parent="LevelContents" unique_id=1875201734 instance=ExtResource("1_idj7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23323941, 1.1659234, -0.35880136)
 axis_lock_angular_x = true
@@ -32,23 +39,25 @@ axis_lock_angular_y = true
 axis_lock_angular_z = true
 slide_on_ceiling = false
 
-[node name="StaticBody3D" type="StaticBody3D" parent="LevelContents" unique_id=636150699]
-transform = Transform3D(8.005055, 0, 0, 0, 1, 0, 0, 0, 0.98035586, 0, -0.63337135, 0)
+[node name="Map" type="Node3D" parent="LevelContents" unique_id=1758475655]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelContents/StaticBody3D" unique_id=357443595]
+[node name="StaticBody3D2" type="StaticBody3D" parent="LevelContents/Map" unique_id=302129770]
+transform = Transform3D(8.005055, 0, 0, 0, 5.0446715, 0, 0, 0, 0.98035586, 0, -1.5334654, -5.1568747)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelContents/Map/StaticBody3D2" unique_id=1407695884]
 shape = SubResource("BoxShape3D_5bdln")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelContents/StaticBody3D" unique_id=1509494717]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelContents/Map/StaticBody3D2" unique_id=56880617]
 transform = Transform3D(0.9999814, 0, 0, 0, 1, 0, 0, 0, 1, -0.013989906, 0, 0)
 mesh = SubResource("BoxMesh_r150o")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="LevelContents" unique_id=302129770]
-transform = Transform3D(8.005055, 0, 0, 0, 5.0446715, 0, 0, 0, 0.98035586, 0, -1.5334654, -5.1568747)
+[node name="StaticBody3D" type="StaticBody3D" parent="LevelContents/Map" unique_id=636150699]
+transform = Transform3D(8.005055, 0, 0, 0, 1, 0, 0, 0, 0.98035586, 0, -0.63337135, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelContents/StaticBody3D2" unique_id=1407695884]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelContents/Map/StaticBody3D" unique_id=357443595]
 shape = SubResource("BoxShape3D_5bdln")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelContents/StaticBody3D2" unique_id=56880617]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelContents/Map/StaticBody3D" unique_id=1509494717]
 transform = Transform3D(0.9999814, 0, 0, 0, 1, 0, 0, 0, 1, -0.013989906, 0, 0)
 mesh = SubResource("BoxMesh_r150o")
 
@@ -65,9 +74,9 @@ script = ExtResource("2_idj7w")
 target = NodePath("../LevelContents/CharacterBody3D")
 offset = Vector3(0, 4, 8)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2142865420]
+[node name="UI" type="CanvasLayer" parent="." unique_id=2142865420]
 
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=1137883842]
+[node name="Control" type="Control" parent="UI" unique_id=1137883842]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -75,7 +84,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control" unique_id=691448407]
+[node name="ColorRect" type="ColorRect" parent="UI/Control" unique_id=691448407]
 layout_mode = 1
 offset_left = 11.0
 offset_top = 8.0
