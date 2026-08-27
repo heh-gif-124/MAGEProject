@@ -4,5 +4,6 @@ class_name HolePlacer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for i in hole_amount:
-		print(i)
+	for i in get_children():
+		if i.is_class("Marker3D"):
+			print(i.global_position)

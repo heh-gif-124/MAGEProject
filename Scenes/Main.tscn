@@ -32,6 +32,21 @@ script = ExtResource("1_kln2b")
 [node name="Marker3D" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=606957621]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.212101, 0.4428841, -1.7458439)
 
+[node name="Marker3D6" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=1343173557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14256287, 0.4428841, -1.7458439)
+
+[node name="Marker3D2" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=120096048]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.11768, 0.4428841, -1.7458439)
+
+[node name="Marker3D3" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=822518827]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.11768, 1.7246135, -6.6682577)
+
+[node name="Marker3D4" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=628382556]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.810047, 1.7246135, -6.6682577)
+
+[node name="Marker3D5" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=989958483]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.725, -6.668)
+
 [node name="CharacterBody3D" parent="LevelContents" unique_id=1875201734 instance=ExtResource("1_idj7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23323941, 1.1659234, -0.35880136)
 axis_lock_angular_x = true
