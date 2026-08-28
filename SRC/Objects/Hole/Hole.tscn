@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://npyn3ymv3tww"]
+
+[ext_resource type="Script" uid="uid://b5el5743dp0x1" path="res://SRC/Objects/Hole/hole.gd" id="1_h5cb3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5bdln"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5bdln"]
+size = Vector3(1, 1, 0.51904297)
+
+[node name="Hole" type="Area3D" unique_id=516441182]
+script = ExtResource("1_h5cb3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=811199882]
+shape = SubResource("BoxShape3D_5bdln")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=641109131]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.24047852)
+mesh = SubResource("BoxMesh_5bdln")

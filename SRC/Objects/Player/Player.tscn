@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://bh5xt157myi1h"]
 
-[ext_resource type="Script" uid="uid://bm6myabhgpk1k" path="res://SRC/Scenes/Player/player.gd" id="1_jsljj"]
-[ext_resource type="Script" uid="uid://d3fpfc6rcg75f" path="res://SRC/Scenes/Player/Movement.gd" id="3_axtyy"]
+[ext_resource type="Script" uid="uid://bm6myabhgpk1k" path="res://SRC/Objects/Player/player.gd" id="1_jsljj"]
+[ext_resource type="Script" uid="uid://d3fpfc6rcg75f" path="res://SRC/Objects/Player/Movement.gd" id="3_axtyy"]
 [ext_resource type="Texture2D" uid="uid://da1tmv5jmn767" path="res://SRC/Sprites/Player/FREE_Samurai 2D Pixel Art v1.2/Sprites/IDLE.png" id="3_jsljj"]
 [ext_resource type="Texture2D" uid="uid://esl2nrcnvqne" path="res://SRC/Sprites/Player/FREE_Samurai 2D Pixel Art v1.2/Sprites/RUN.png" id="4_axtyy"]
-[ext_resource type="Script" uid="uid://df2mr73kh3ad8" path="res://SRC/Scenes/Player/Animations.gd" id="5_nc1dg"]
+[ext_resource type="Script" uid="uid://df2mr73kh3ad8" path="res://SRC/Objects/Player/Animations.gd" id="5_nc1dg"]
+[ext_resource type="Texture2D" uid="uid://c2yuou06jkic8" path="res://SRC/Sprites/Player/Shadow.png" id="6_5gom3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5bdln"]
 
@@ -227,8 +228,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1875201734]
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1875201734 groups=["Player"]]
 script = ExtResource("1_jsljj")
+max_scale = 0.3
+min_scale = 0.01
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=227147839]
 shape = SubResource("CapsuleShape3D_5bdln")
@@ -248,3 +251,12 @@ animation = &"Idle"
 script = ExtResource("5_nc1dg")
 animationsprite = NodePath("../AnimatedSprite3D")
 metadata/_custom_type_script = "uid://df2mr73kh3ad8"
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=475604937]
+transform = Transform3D(0.3, 0, 0, 0, -1.3113417e-08, -0.3, 0, 0.3, -1.3113417e-08, 0, -0.36352253, 0)
+modulate = Color(1, 1, 1, 0.5137255)
+texture = ExtResource("6_5gom3")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=80461961]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8614177, 0)
+target_position = Vector3(0, -10, 0)

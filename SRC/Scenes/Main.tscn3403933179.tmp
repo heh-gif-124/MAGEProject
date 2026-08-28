@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://x18sxaygcp43"]
+
+[ext_resource type="Script" uid="uid://kw1nigddulp1" path="res://SRC/Scripts/VeryImportant/game_handler.gd" id="1_dv6wd"]
+[ext_resource type="Script" uid="uid://cw8hqlyhr0uqy" path="res://SRC/Scripts/VeryImportant/hole_placer.gd" id="1_odiry"]
+[ext_resource type="PackedScene" uid="uid://npyn3ymv3tww" path="res://SRC/Objects/Hole/Hole.tscn" id="2_dv6wd"]
+[ext_resource type="PackedScene" uid="uid://bh5xt157myi1h" path="res://SRC/Objects/Player/Player.tscn" id="3_83mbk"]
+[ext_resource type="Script" uid="uid://56bcgdysi632" path="res://SRC/Scripts/VeryImportant/camera_3d.gd" id="4_8s7kp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5bdln"]
+size = Vector3(5.8671875, 1, 5.1794434)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r150o"]
+resource_local_to_scene = true
+size = Vector3(5.869568, 1, 5.7268066)
+
+[sub_resource type="Environment" id="Environment_r150o"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_idj7w"]
+
+[sub_resource type="Sky" id="Sky_r150o"]
+sky_material = SubResource("ProceduralSkyMaterial_idj7w")
+
+[sub_resource type="Environment" id="Environment_idj7w"]
+background_mode = 2
+sky = SubResource("Sky_r150o")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_odiry"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+expand_margin_left = 12.0
+expand_margin_top = 12.0
+expand_margin_right = 12.0
+expand_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dv6wd"]
+bg_color = Color(1, 0.3369266, 0.32755843, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[node name="Node3D" type="Node3D" unique_id=1885697256]
+
+[node name="LevelContents" type="Node3D" parent="." unique_id=1414247877]
+
+[node name="HolePlacer" type="Node" parent="LevelContents" unique_id=1004306106]
+script = ExtResource("1_odiry")
+hole = ExtResource("2_dv6wd")
+
+[node name="Marker3D" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=606957621]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.212101, 0.4428841, -1.7458439)
+
+[node name="Marker3D6" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=1343173557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14256287, 0.4428841, -1.7458439)
+
+[node name="Marker3D2" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=120096048]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.11768, 0.4428841, -1.7458439)
+
+[node name="Marker3D3" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=822518827]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.11768, 1.7246135, -6.6682577)
+
+[node name="Marker3D4" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=628382556]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.810047, 1.7246135, -6.6682577)
+
+[node name="Marker3D5" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=989958483]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.725, -6.668)
+
+[node name="CharacterBody3D" parent="LevelContents" unique_id=1875201734 instance=ExtResource("3_83mbk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23323941, 1.1659234, -0.35880136)
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+slide_on_ceiling = false
+
+[node name="Map" type="Node3D" parent="LevelContents" unique_id=1758475655]
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="LevelContents/Map" unique_id=302129770]
+transform = Transform3D(8.005055, 0, 0, 0, 5.0446715, 0, 0, 0, 0.98035586, 0, -1.5334654, -5.1568747)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelContents/Map/StaticBody3D2" unique_id=1407695884]
+shape = SubResource("BoxShape3D_5bdln")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelContents/Map/StaticBody3D2" unique_id=56880617]
+transform = Transform3D(0.9999814, 0, 0, 0, 1, 0, 0, 0, 1, -0.013989906, 0, 0)
+mesh = SubResource("BoxMesh_r150o")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="LevelContents/Map" unique_id=636150699]
+transform = Transform3D(8.005055, 0, 0, 0, 1, 0, 0, 0, 0.98035586, 0, -0.63337135, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelContents/Map/StaticBody3D" unique_id=357443595]
+shape = SubResource("BoxShape3D_5bdln")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelContents/Map/StaticBody3D" unique_id=1509494717]
+transform = Transform3D(0.9999814, 0, 0, 0, 1, 0, 0, 0, 1, -0.013989906, 0, 0)
+mesh = SubResource("BoxMesh_r150o")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=947205289]
+environment = SubResource("Environment_r150o")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=229835751]
+transform = Transform3D(1, 0, 0, 0, 0.30961666, 0.95086145, 0, -0.95086145, 0.30961666, 0, 11.195955, 2.8206744)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2001668656 node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 0.8944862, 0.4470955, 0, -0.4470955, 0.8944862, 0, 2.6609476, 4.3339567)
+environment = SubResource("Environment_idj7w")
+script = ExtResource("4_8s7kp")
+target = NodePath("../LevelContents/CharacterBody3D")
+offset = Vector3(0, 4, 8)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=2142865420]
+
+[node name="Minigame" type="Control" parent="UI" unique_id=1137883842]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="UI/Minigame" unique_id=1046433930]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -174.0
+offset_top = -62.0
+offset_right = 174.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_odiry")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dv6wd")
+value = 44.0
+
+[node name="GameHandler" type="Node" parent="." unique_id=1759678066]
+script = ExtResource("1_dv6wd")
+metadata/_custom_type_script = "uid://kw1nigddulp1"
