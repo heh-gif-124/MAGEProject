@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://1ye4n1o0hrwl"]
+
+[ext_resource type="Texture2D" uid="uid://cf02djobgbwo5" path="res://SRC/Sprites/Map/Map.png" id="1_7yn8b"]
+[ext_resource type="Script" uid="uid://pkqjp2xo66s0" path="res://SRC/Scripts/VeryImportantButInBlue/map.gd" id="2_7yn8b"]
+
+[node name="Map" type="Node2D" unique_id=1470246169]
+script = ExtResource("2_7yn8b")
+
+[node name="City_Map" type="Sprite2D" parent="." unique_id=1079928017]
+scale = Vector2(0.98711944, 1.0007112)
+texture = ExtResource("1_7yn8b")
+metadata/_edit_lock_ = true
+
+[node name="Sectors" type="Node2D" parent="." unique_id=899306752]
+
+[node name="Sector_Alpha" type="Area2D" parent="Sectors" unique_id=1259794869]
+position = Vector2(-363, -205)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sectors/Sector_Alpha" unique_id=2130617977]
+scale = Vector2(0.530503, 0.5027546)
+polygon = PackedVector2Array(231.85562, -216.80557, 114.98538, -226.75076, 16.965149, -85.52883, -92.36505, -135.25479, -218.66034, 147.18909, -371.02252, 222.2864, -422.24054, 204.87128, -467.48065, 264.54248, -508.95038, 280.45483, -510.8354, -292.38922, 501.411, -292.38922)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1923777294]
