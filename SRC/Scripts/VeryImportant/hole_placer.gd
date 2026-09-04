@@ -5,6 +5,13 @@ class_name HolePlacer
 var minigame_children : Array
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_place_holes()
+
+func reset_holes():
+	_remove_holes()
+	_place_holes()
+
+func _place_holes():
 	for i in get_children():
 		var rand = randi_range(1,2)
 		if rand == 2:
@@ -15,4 +22,8 @@ func _ready() -> void:
 					minigame_children.append(g)
 					get_parent().add_child.call_deferred(g)
 					print(minigame_children.size())
-			
+
+func _remove_holes():
+	for i in get_parent().get_children():
+		if i.is_in_group("Hole"):
+			i.queue_free()

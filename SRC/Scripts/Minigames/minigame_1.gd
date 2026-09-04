@@ -10,16 +10,6 @@ var won : bool = false
 var stylebox : StyleBoxFlat
 func _ready() -> void:
 	stylebox = bar.get_theme_stylebox("fill") as StyleBoxFlat
-	Global.minigame.connect(func():
-		stylebox.bg_color = Color.GRAY
-		threshold = 50.0
-		winlabel.visible = false
-		started = false
-		won = false
-		visible = true
-		await get_tree().create_timer(0.5, true, false, true).timeout
-		started = true
-	)
 
 func _physics_process(delta: float) -> void:
 	if not Global.minigame_initiated or not started or won:
@@ -37,7 +27,7 @@ func _physics_process(delta: float) -> void:
 		stylebox.bg_color = Color.GREEN
 		await get_tree().create_timer(1.5, true, false, true).timeout
 		Global.minigame_initiated = false
-		
+
 		visible = false
 		return
 
@@ -54,3 +44,14 @@ func _process(_delta: float) -> void:
 
 func _reduce_threshold(delta: float) -> void:
 	threshold -= decay_rate * delta
+
+func _reset_stuff():
+	#use at the start of every minigame
+	stylebox.bg_color = Color.GRAY
+	threshold = 50.0
+	winlabel.visible = false
+	started = false
+	won = false
+	visible = true
+	await get_tree().create_timer(0.5, true, false, true).timeout
+	started = true
