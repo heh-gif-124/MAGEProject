@@ -24,6 +24,7 @@ func _ready() -> void:
 	)
 
 func _process(_delta: float) -> void:
+	print(Global.minigames_completed)
 	if is_instance_valid(countdown) and countdown.time_left > 0:
 		countdown_label.text = str(int(ceil(countdown.time_left)))
 
@@ -32,8 +33,8 @@ func _process(_delta: float) -> void:
 		_handle_wave_completion()
 
 func _handle_wave_completion() -> void:
+	Global.minigames_completed = 0
 	print("Wave ", current_wave, " cleared!")
-	hole_placer._remove_holes()
 
 	await get_tree().create_timer(2.0, true, true, true).timeout
 
@@ -48,7 +49,7 @@ func _start_next_wave() -> void:
 	won_already = false
 
 	# Reset hole locations if HolePlacer has a reset method
-	if hole_placer and hole_placer.has_method("reset_holes"):
+	if hole_placer and hole_placer.has_method("_place_holes"):
 		hole_placer.reset_holes()
 	# Restart wave countdown
 	if countdown:

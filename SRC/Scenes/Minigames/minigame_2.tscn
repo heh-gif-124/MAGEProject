@@ -36,6 +36,7 @@ bar = NodePath("ColorRect2/ProgressBar")
 winlabel = NodePath("ColorRect2/WinLabel")
 numlabel = NodePath("ColorRect2/NumbLabel")
 numtimer = NodePath("NumberTimer")
+time = 0.78
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=655217094]
 layout_mode = 1

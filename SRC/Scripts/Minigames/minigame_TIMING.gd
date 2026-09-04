@@ -8,6 +8,7 @@ var current_number = 0
 @export var winlabel : Label
 @export var numlabel : Label
 @export var numtimer : Timer
+@export var time : float
 var stylebox : StyleBoxFlat
 func _ready() -> void:
 	stylebox = bar.get_theme_stylebox("fill") as StyleBoxFlat
@@ -20,6 +21,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if not Global.minigame_initiated or not started or won:
+		return
 	numlabel.text = str(current_number)
 	bar.value = threshold
 	if Input.is_action_just_pressed("interact") and current_number == 5:
@@ -31,6 +34,7 @@ func _process(_delta: float) -> void:
 		won = true
 		Global.minigames_completed += 1
 		winlabel.visible = true
+		bar.value = threshold
 		stylebox.bg_color = Color.GREEN
 		await get_tree().create_timer(1.5, true, false, true).timeout
 		Global.minigame_initiated = false
@@ -45,6 +49,7 @@ func _reset_stuff():
 	current_number = 0
 	winlabel.visible = false
 	numtimer.start(0)
+	numtimer.wait_time = time
 	started = false
 	won = false
 	visible = true
