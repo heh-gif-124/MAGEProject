@@ -1,23 +1,87 @@
 [gd_scene format=3 uid="uid://1ye4n1o0hrwl"]
 
-[ext_resource type="Texture2D" uid="uid://cf02djobgbwo5" path="res://SRC/Sprites/Map/Map.png" id="1_7yn8b"]
 [ext_resource type="Script" uid="uid://pkqjp2xo66s0" path="res://SRC/Scripts/VeryImportantButInBlue/map.gd" id="2_7yn8b"]
+[ext_resource type="Texture2D" uid="uid://dvu286wg4nar0" path="res://SRC/Sprites/Map/Paperfold_City.png" id="2_etk83"]
+[ext_resource type="Texture2D" uid="uid://dvlt3bgvn7h8f" path="res://SRC/icon.svg" id="3_etk83"]
 
 [node name="Map" type="Node2D" unique_id=1470246169]
 script = ExtResource("2_7yn8b")
+camera_pos = Vector2(0, -600)
+def_zoom = Vector2(0.5, 0.5)
 
 [node name="City_Map" type="Sprite2D" parent="." unique_id=1079928017]
-scale = Vector2(0.98711944, 1.0007112)
-texture = ExtResource("1_7yn8b")
+scale = Vector2(1, 1.014)
+texture = ExtResource("2_etk83")
 metadata/_edit_lock_ = true
 
-[node name="Sectors" type="Node2D" parent="." unique_id=899306752]
+[node name="Regions" type="Node2D" parent="." unique_id=899306752]
 
-[node name="Sector_Alpha" type="Area2D" parent="Sectors" unique_id=1259794869]
-position = Vector2(-363, -205)
+[node name="Region_1" type="Area2D" parent="Regions" unique_id=1259794869]
+position = Vector2(70, -999)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sectors/Sector_Alpha" unique_id=2130617977]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/Region_1" unique_id=2130617977]
 scale = Vector2(0.530503, 0.5027546)
-polygon = PackedVector2Array(231.85562, -216.80557, 114.98538, -226.75076, 16.965149, -85.52883, -92.36505, -135.25479, -218.66034, 147.18909, -371.02252, 222.2864, -422.24054, 204.87128, -467.48065, 264.54248, -508.95038, 280.45483, -510.8354, -292.38922, 501.411, -292.38922)
+polygon = PackedVector2Array(-475.02045, -433.61108, 52.780106, -175.03564, 71.63013, -208.84937, 269.55554, -107.4082, 258.2455, -79.56177, 731.3814, 99.45203, 446.74548, 747.87976, -727.6113, 155.14526)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2093791235]
+
+[node name="Level_Overview" type="TextureRect" parent="CanvasLayer" unique_id=2013438560]
+offset_left = 850.0
+offset_right = 1153.0
+offset_bottom = 647.0
+texture = ExtResource("3_etk83")
+
+[node name="Region_Title" type="RichTextLabel" parent="CanvasLayer/Level_Overview" unique_id=1077156633]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 40.0
+offset_right = 282.0
+offset_bottom = 101.0
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+text = "[b] Region_Name [/b]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Button" parent="CanvasLayer/Level_Overview" unique_id=2039077644]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 484.0
+offset_right = 280.0
+offset_bottom = 537.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "   Start   "
+
+[node name="City" type="Button" parent="CanvasLayer/Level_Overview" unique_id=2015889487]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 552.0
+offset_right = 274.0
+offset_bottom = 605.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "City Map"
+
+[node name="Clopen" type="Button" parent="CanvasLayer/Level_Overview" unique_id=27774699]
+layout_mode = 0
+offset_left = -29.0
+offset_top = 286.0
+offset_right = -3.0
+offset_bottom = 339.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "<"
+
+[node name="Menu" type="Button" parent="CanvasLayer" unique_id=657302375]
+offset_left = 890.0
+offset_top = 1104.0
+offset_right = 1144.0
+offset_bottom = 1157.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "Return"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1923777294]
+position = Vector2(0, -600)
+zoom = Vector2(0.5, 0.5)

@@ -1,0 +1,309 @@
+[gd_scene format=3 uid="uid://br7ggx35m3smc"]
+
+[ext_resource type="Script" uid="uid://b62vynrn0dtxt" path="res://SRC/Scripts/VeryImportantButInBlue/main_menu.gd" id="1_853f1"]
+[ext_resource type="Texture2D" uid="uid://db63djg7dh4r6" path="res://SRC/Sprites/Irrelevant/ja_rage.jpg" id="2_8saeu"]
+[ext_resource type="Texture2D" uid="uid://cpvgmxuelyk40" path="res://SRC/Sprites/Irrelevant/ja_disgust.jpg" id="3_ghw46"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_njqwk"]
+bg_color = Color(0.39215687, 0.39215687, 0.39215687, 0.78431374)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrivr"]
+bg_color = Color(0.39293468, 0.39293468, 0.39293468, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 4.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_13qdw"]
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 4.0
+expand_margin_bottom = 6.0
+
+[node name="Main_Menu" type="Control" unique_id=414027072]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_853f1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2094323901]
+
+[node name="Title_Panel" type="Control" parent="CanvasLayer" unique_id=1624210770]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="CanvasLayer/Title_Panel" unique_id=1214012283]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8saeu")
+expand_mode = 1
+
+[node name="Container" type="VBoxContainer" parent="CanvasLayer/Title_Panel" unique_id=511293942]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Title" type="Label" parent="CanvasLayer/Title_Panel/Container" unique_id=1041311320]
+layout_mode = 2
+theme_override_font_sizes/font_size = 160
+text = "Paper Flow"
+horizontal_alignment = 1
+
+[node name="Start" type="Button" parent="CanvasLayer/Title_Panel/Container" unique_id=1116488562]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 64
+text = "   Start   "
+
+[node name="Settings" type="Button" parent="CanvasLayer/Title_Panel/Container" unique_id=1982254447]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 64
+text = "Settings"
+
+[node name="Exit" type="Button" parent="CanvasLayer/Title_Panel/Container" unique_id=341862502]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 64
+text = "    Exit    "
+
+[node name="Settings_Panel" type="Control" parent="CanvasLayer" unique_id=1310450928]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 648.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="CanvasLayer/Settings_Panel" unique_id=1160759418]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ghw46")
+expand_mode = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Settings_Panel" unique_id=1783432208]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -272.0
+offset_right = 435.0
+offset_bottom = 264.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_njqwk")
+
+[node name="Action_Buttons" type="HBoxContainer" parent="CanvasLayer/Settings_Panel" unique_id=608575280]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 0
+offset_left = 186.0
+offset_top = 541.0
+offset_right = 1004.0
+offset_bottom = 589.0
+alignment = 1
+
+[node name="Back" type="Button" parent="CanvasLayer/Settings_Panel/Action_Buttons" unique_id=2009552596]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "< Back"
+
+[node name="Spacer" type="Control" parent="CanvasLayer/Settings_Panel/Action_Buttons" unique_id=1605308256]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Apply" type="Button" parent="CanvasLayer/Settings_Panel/Action_Buttons" unique_id=1725426066]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Save & Apply"
+
+[node name="Reset_To_Default" type="Button" parent="CanvasLayer/Settings_Panel/Action_Buttons" unique_id=1500713310]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Reset To Default
+"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Settings_Panel" unique_id=383159748]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -388.0
+offset_top = 101.0
+offset_right = 425.0
+offset_bottom = -116.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="Container" type="VBoxContainer" parent="CanvasLayer/Settings_Panel/ScrollContainer" unique_id=152379285]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Audio_Header" type="Label" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container" unique_id=1425614979]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "AUDIO SETTINGS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Master_Volume" type="VBoxContainer" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container" unique_id=528937815]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Master_Volume" unique_id=12467193]
+layout_mode = 2
+alignment = 1
+
+[node name="Mute" type="CheckBox" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Master_Volume/HBoxContainer" unique_id=317510863]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Master_Volume/HBoxContainer" unique_id=837068262]
+layout_mode = 2
+text = "Master Volume  "
+
+[node name="Spacer" type="Control" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Master_Volume/HBoxContainer" unique_id=1590920284]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Value" type="Label" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Master_Volume/HBoxContainer" unique_id=1999501189]
+layout_mode = 2
+text = "100%"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Master_Slider" type="HSlider" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Master_Volume" unique_id=37774560]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_constants/center_grabber = 0
+theme_override_styles/slider = SubResource("StyleBoxFlat_xrivr")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_13qdw")
+max_value = 1.0
+step = 0.05
+value = 0.6
+
+[node name="SFX_Volume" type="VBoxContainer" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container" unique_id=112862621]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/SFX_Volume" unique_id=2129495562]
+layout_mode = 2
+alignment = 1
+
+[node name="Mute" type="CheckBox" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/SFX_Volume/HBoxContainer" unique_id=1480505952]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/SFX_Volume/HBoxContainer" unique_id=318355932]
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="Spacer" type="Control" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/SFX_Volume/HBoxContainer" unique_id=610872158]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Value" type="Label" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/SFX_Volume/HBoxContainer" unique_id=1216721504]
+layout_mode = 2
+text = "100%"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SFX_Slider" type="HSlider" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/SFX_Volume" unique_id=782323938]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_constants/center_grabber = 0
+theme_override_styles/slider = SubResource("StyleBoxFlat_xrivr")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_13qdw")
+max_value = 1.0
+step = 0.05
+value = 0.6
+
+[node name="Video_Header2" type="Label" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container" unique_id=281460177]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "
+VIDEO SETTINGS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Full_Screen_Toggle" type="CheckButton" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container" unique_id=1404480198]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Full Screen"
+
+[node name="VSync" type="CheckButton" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container" unique_id=1725730525]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "VSync"
+
+[node name="Frame_Rate" type="VBoxContainer" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container" unique_id=1291619850]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Frame_Rate" unique_id=1828540320]
+layout_mode = 2
+text = "Frames Per"
+
+[node name="VSync_Toggle" type="HSlider" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Frame_Rate" unique_id=1397976416]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_constants/center_grabber = 0
+theme_override_styles/slider = SubResource("StyleBoxFlat_xrivr")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_13qdw")
+max_value = 1.0
+step = 0.05
+value = 0.6
+
+[node name="Resolution_Row" type="HBoxContainer" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container" unique_id=1634596003]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Resolution_Row" unique_id=1822480336]
+layout_mode = 2
+text = "Resolution "
+
+[node name="Resolution_Dropdown" type="OptionButton" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Resolution_Row" unique_id=1111324117]
+layout_mode = 2
+size_flags_horizontal = 3

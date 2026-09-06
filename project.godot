@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="MAGEPROJECT"
-run/main_scene="uid://u2geravhkasq"
+run/main_scene="uid://br7ggx35m3smc"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://SRC/icon.svg"
 
@@ -24,8 +24,8 @@ window/stretch/aspect="expand"
 
 folder_colors={
 "res://SRC/Scripts/": "red",
-"res://SRC/Scripts/Menu/": "gray",
-"res://SRC/Scripts/VeryImportantButInBlue/": "blue"
+"res://SRC/Scripts/VeryImportantButInBlue/": "blue",
+"res://SRC/Sprites/Irrelevant/": "gray"
 }
 
 [input]
