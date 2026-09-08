@@ -96,8 +96,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 648.0
-offset_bottom = 648.0
+offset_left = 1152.0
+offset_right = 1152.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -165,7 +165,7 @@ anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -388.0
-offset_top = 101.0
+offset_top = 61.0
 offset_right = 425.0
 offset_bottom = -116.0
 grow_horizontal = 2
@@ -178,12 +178,23 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Audio_Header" type="Label" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container" unique_id=1425614979]
+[node name="Audio_Settings" type="HBoxContainer" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container" unique_id=1776004531]
+layout_mode = 2
+
+[node name="Audio_Header" type="Label" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Audio_Settings" unique_id=1425614979]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "AUDIO SETTINGS"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Audio_Settings" unique_id=1139762208]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Audio_Settings" unique_id=1285277196]
+layout_mode = 2
+text = "Mute"
 
 [node name="Master_Volume" type="VBoxContainer" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container" unique_id=528937815]
 layout_mode = 2
@@ -193,9 +204,6 @@ alignment = 1
 layout_mode = 2
 alignment = 1
 
-[node name="Mute" type="CheckBox" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Master_Volume/HBoxContainer" unique_id=317510863]
-layout_mode = 2
-
 [node name="Label" type="Label" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Master_Volume/HBoxContainer" unique_id=837068262]
 layout_mode = 2
 text = "Master Volume  "
@@ -204,11 +212,14 @@ text = "Master Volume  "
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Value" type="Label" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Master_Volume/HBoxContainer" unique_id=1999501189]
+[node name="Master_Value" type="Label" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Master_Volume/HBoxContainer" unique_id=1999501189]
 layout_mode = 2
-text = "100%"
+text = "60%"
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="Master_Mute" type="CheckBox" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Master_Volume/HBoxContainer" unique_id=317510863]
+layout_mode = 2
 
 [node name="Master_Slider" type="HSlider" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Master_Volume" unique_id=37774560]
 layout_mode = 2
@@ -229,9 +240,6 @@ alignment = 1
 layout_mode = 2
 alignment = 1
 
-[node name="Mute" type="CheckBox" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/SFX_Volume/HBoxContainer" unique_id=1480505952]
-layout_mode = 2
-
 [node name="Label" type="Label" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/SFX_Volume/HBoxContainer" unique_id=318355932]
 layout_mode = 2
 text = "SFX Volume"
@@ -240,11 +248,14 @@ text = "SFX Volume"
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Value" type="Label" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/SFX_Volume/HBoxContainer" unique_id=1216721504]
+[node name="SFX_Value" type="Label" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/SFX_Volume/HBoxContainer" unique_id=1216721504]
 layout_mode = 2
 text = "100%"
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="SFX_Mute" type="CheckBox" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/SFX_Volume/HBoxContainer" unique_id=1480505952]
+layout_mode = 2
 
 [node name="SFX_Slider" type="HSlider" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/SFX_Volume" unique_id=782323938]
 layout_mode = 2
@@ -255,15 +266,90 @@ theme_override_styles/slider = SubResource("StyleBoxFlat_xrivr")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_13qdw")
 max_value = 1.0
 step = 0.05
-value = 0.6
+value = 1.0
 
-[node name="Video_Header2" type="Label" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container" unique_id=281460177]
+[node name="Music_Volume" type="VBoxContainer" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container" unique_id=720603236]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Music_Volume" unique_id=1007319245]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Music_Volume/HBoxContainer" unique_id=560795264]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="Spacer" type="Control" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Music_Volume/HBoxContainer" unique_id=311530034]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Music_Value" type="Label" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Music_Volume/HBoxContainer" unique_id=869460557]
+layout_mode = 2
+text = "100%"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Music_Mute" type="CheckBox" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Music_Volume/HBoxContainer" unique_id=40669165]
+layout_mode = 2
+
+[node name="Music_Slider" type="HSlider" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Music_Volume" unique_id=1882913811]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_constants/center_grabber = 0
+theme_override_styles/slider = SubResource("StyleBoxFlat_xrivr")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_13qdw")
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="UI_Volume" type="VBoxContainer" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container" unique_id=224808727]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/UI_Volume" unique_id=1297736425]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/UI_Volume/HBoxContainer" unique_id=578612968]
+layout_mode = 2
+text = "UI Volume"
+
+[node name="Spacer" type="Control" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/UI_Volume/HBoxContainer" unique_id=1903989629]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UI_Value" type="Label" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/UI_Volume/HBoxContainer" unique_id=1408109605]
+layout_mode = 2
+text = "100%"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="UI_Mute" type="CheckBox" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/UI_Volume/HBoxContainer" unique_id=116797385]
+layout_mode = 2
+
+[node name="UI_Slider" type="HSlider" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/UI_Volume" unique_id=1182842438]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_constants/center_grabber = 0
+theme_override_styles/slider = SubResource("StyleBoxFlat_xrivr")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_13qdw")
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Video_Header" type="HBoxContainer" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container" unique_id=257076853]
+layout_mode = 2
+
+[node name="Video_Header" type="Label" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Video_Header" unique_id=281460177]
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "
-VIDEO SETTINGS"
+text = "VIDEO SETTINGS"
 horizontal_alignment = 1
-vertical_alignment = 1
+vertical_alignment = 2
 
 [node name="Full_Screen_Toggle" type="CheckButton" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container" unique_id=1404480198]
 layout_mode = 2
@@ -281,29 +367,50 @@ text = "VSync"
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Frame_Rate" unique_id=1828540320]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Frame_Rate" unique_id=303713043]
 layout_mode = 2
-text = "Frames Per"
+alignment = 1
 
-[node name="VSync_Toggle" type="HSlider" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Frame_Rate" unique_id=1397976416]
+[node name="Label" type="Label" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Frame_Rate/HBoxContainer" unique_id=1828540320]
+layout_mode = 2
+text = "Frame Rate"
+
+[node name="Spacer" type="Control" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Frame_Rate/HBoxContainer" unique_id=656013175]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Frame_Rate_Value" type="Label" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Frame_Rate/HBoxContainer" unique_id=1597537014]
+layout_mode = 2
+text = "30 FPS"
+
+[node name="Frame_Rate_Slider" type="HSlider" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Frame_Rate" unique_id=1397976416]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_constants/center_grabber = 0
 theme_override_styles/slider = SubResource("StyleBoxFlat_xrivr")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_13qdw")
-max_value = 1.0
-step = 0.05
-value = 0.6
+max_value = 240.0
+step = 30.0
+value = 30.0
+rounded = true
 
-[node name="Resolution_Row" type="HBoxContainer" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container" unique_id=1634596003]
+[node name="Resolution" type="HBoxContainer" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container" unique_id=1634596003]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Resolution_Row" unique_id=1822480336]
+[node name="Label" type="Label" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Resolution" unique_id=1822480336]
 layout_mode = 2
 text = "Resolution "
 
-[node name="Resolution_Dropdown" type="OptionButton" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Resolution_Row" unique_id=1111324117]
+[node name="Resolution_Dropdown" type="OptionButton" parent="CanvasLayer/Settings_Panel/ScrollContainer/Container/Resolution" unique_id=1111324117]
 layout_mode = 2
 size_flags_horizontal = 3
+selected = 0
+item_count = 3
+popup/item_0/text = "1280 x 720"
+popup/item_0/id = 0
+popup/item_1/text = "1920 x 1080"
+popup/item_1/id = 1
+popup/item_2/text = "2560 x 1440"
+popup/item_2/id = 2
