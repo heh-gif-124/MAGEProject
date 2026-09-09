@@ -181,6 +181,6 @@ next_level = ExtResource("5_fn2nb")
 metadata/_custom_type_script = "uid://kw1nigddulp1"
 
 [node name="Timer" type="Timer" parent="GameHandler" unique_id=887904763]
-wait_time = 50.0
+wait_time = 60.0
 one_shot = true
 autostart = true

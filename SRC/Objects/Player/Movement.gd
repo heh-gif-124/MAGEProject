@@ -1,7 +1,7 @@
 extends Node
 class_name MainMovement
 @export var player : CharacterBody3D
-var SPEED = 2.0
+var SPEED = 3.0
 const JUMP_VELOCITY = 4.5
 var sprint_mult : float = 2
 # Called when the node enters the scene tree for the first time.
@@ -10,7 +10,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var input_dir := Input.get_vector("walk_left", "walk_right", "walk_up", "walk_down")
 	var direction := (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:

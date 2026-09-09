@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://0vwmvhlf15bm"]
+
+[node name="Minigame3" type="Control" unique_id=1107472758]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1641884536]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.39607844)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=967339573]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 526.0
+offset_top = 81.0
+offset_right = -50.0
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.13725491)
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=553492875]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 81.0
+offset_top = 323.0
+offset_right = -783.0
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.13725491)
+
+[node name="MainArea" type="Node2D" parent="." unique_id=1334131316]

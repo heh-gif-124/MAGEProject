@@ -19,6 +19,8 @@ func _ready() -> void:
 			current_number += 1
 	)
 
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if not Global.minigame_initiated or not started or won:

@@ -7,7 +7,7 @@ class_name GameHandler
 @export var minigames_list : Array[Control]
 @export var next_level : PackedScene
 @export var waves : int = 3
-
+@export var respawn_floor : Area3D
 var in_minigame : bool = false
 var minigames_needed : int
 var won_already : bool = false
@@ -22,6 +22,11 @@ func _ready() -> void:
 			k._reset_stuff()
 		Global.minigame_initiated = true
 	)
+	if respawn_floor != null:
+		respawn_floor.body_entered.connect(func(body):
+			if body.is_in_group("Player"):
+				body.global_position = Vector3(0.233,1.251,-0.359)
+		)
 
 func _process(_delta: float) -> void:
 	print(Global.minigames_completed)

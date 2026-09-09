@@ -165,7 +165,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.22754645, 0)
 pixel_size = 0.001
 sprite_frames = SubResource("SpriteFrames_ch2j5")
 animation = &"Run"
-frame_progress = 0.88073456
+frame_progress = 0.8898703
 
 [node name="Animations" type="Node" parent="." unique_id=1877400015 node_paths=PackedStringArray("animationsprite")]
 script = ExtResource("5_nc1dg")
