@@ -15,6 +15,10 @@ run/main_scene="uid://br7ggx35m3smc"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://SRC/icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://SRC/default_bus_layout.tres"
+
 [display]
 
 window/stretch/mode="canvas_items"
@@ -23,10 +27,18 @@ window/stretch/aspect="expand"
 [file_customization]
 
 folder_colors={
+"res://SRC/Scenes/Anims/": "purple",
+"res://SRC/Scenes/Nodes/": "purple",
 "res://SRC/Scripts/": "red",
-"res://SRC/Scripts/VeryImportantButInBlue/": "blue",
-"res://SRC/Sprites/Irrelevant/": "gray"
+"res://SRC/Scripts/Very_Important_But_In_Purple/": "purple",
+"res://SRC/Sprites/Irrelevant/": "gray",
+"res://SRC/Themes/": "purple",
+"res://SaveFiles/": "purple"
 }
+
+[gui]
+
+theme/custom="uid://bnqmjprb05tg8"
 
 [input]
 

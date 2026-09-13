@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://1ye4n1o0hrwl"]
 
-[ext_resource type="Script" uid="uid://pkqjp2xo66s0" path="res://SRC/Scripts/VeryImportantButInBlue/map.gd" id="2_7yn8b"]
+[ext_resource type="Script" uid="uid://pkqjp2xo66s0" path="res://SRC/Scripts/Very_Important_But_In_Purple/map.gd" id="2_7yn8b"]
 [ext_resource type="Texture2D" uid="uid://dvu286wg4nar0" path="res://SRC/Sprites/Map/Paperfold_City.png" id="2_etk83"]
 [ext_resource type="Texture2D" uid="uid://dvlt3bgvn7h8f" path="res://SRC/icon.svg" id="3_etk83"]
+[ext_resource type="PackedScene" uid="uid://dscw4c7ot41ds" path="res://SRC/Scenes/Anims/Fades/Fade_Trans.tscn" id="4_qumfl"]
 
 [node name="Map" type="Node2D" unique_id=1470246169]
 script = ExtResource("2_7yn8b")
@@ -81,6 +82,10 @@ offset_bottom = 1157.0
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 32
 text = "Return"
+
+[node name="Fade_Trans" parent="CanvasLayer" unique_id=346146234 instance=ExtResource("4_qumfl")]
+unique_name_in_owner = true
+anchors_preset = 15
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1923777294]
 position = Vector2(0, -600)
