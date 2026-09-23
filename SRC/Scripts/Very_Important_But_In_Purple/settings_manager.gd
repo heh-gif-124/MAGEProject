@@ -1,11 +1,16 @@
-extends Node
+# This scrip was made By StarlightDev, credits are appreciated :3
 
-signal back_pressed
+extends Node
 
 const SAVE_PATH: String = "user://SaveFiles/config.cfg"
 
+@onready var warning_panel: Control = %Warning_Panel
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
+	warning_panel.back_pressed.connect(_on_warning_back_pressed)
+	warning_panel.confirm_pressed.connect(_on_warning_confirm_pressed)
 	
 	# Sets Default window size
 	DisplayServer.window_set_size(Vector2i(1280, 720))
@@ -30,11 +35,11 @@ func _on_settings_button(button_name: String) -> void:
 	var clean_name = button_name.to_lower().replace("_", "")
 	match (clean_name):
 		"back":
-			back_pressed.emit() # Uses an external script function
+			%Settings_Panel.hide()
 		"apply":
 			_save_settings()
 		"resettodefault":
-			_reset_settings_to_default()
+			warning_panel.show_warning("Reset Settings?")
 
 # 2. Sliders
 func _on_settings_slider(value: float, slider_name: String) -> void:
@@ -143,6 +148,10 @@ func _save_settings() -> void:
 	if has_node("%Frame_Rate_Slider"): config.set_value("video", "fps_limit", %Frame_Rate_Slider.value)
 	if has_node("%Resolution_Dropdown"): config.set_value("video", "resolution", %Resolution_Dropdown.selected)
 	
+	# Keybind Settings
+	if has_node("%KeybindManager"):
+		%Keybind_Manager.save_keybinds(config)
+	
 	config.save(SAVE_PATH)
 
 # Read file from disk and update UI controls (which triggers their signals to apply settings)
@@ -186,6 +195,9 @@ func _load_settings() -> void:
 		# Manually trigger option signal since setting 'selected' via script doesn't auto-emit item_selected
 		_on_settings_option(%Resolution_Dropdown.selected, "resolution")
 	
+	# Apply Keybind values to UI controls
+	if has_node("%KeybindManager"):
+		%Keybind_Manager.load_keybinds(config)
 
 func _reset_settings_to_default() -> void:
 	# Delete the save file if it exists
@@ -209,3 +221,14 @@ func _reset_settings_to_default() -> void:
 	if has_node("%Resolution_Dropdown"):
 		%Resolution_Dropdown.selected = 0
 		_on_settings_option(0, "displaymode")
+	
+	# Reset Keybinds back to InputMap defaults
+	if has_node("%KeybindManager"):
+		%Keybind_Manager.reset_keybinds_to_default()
+
+func _on_warning_confirm_pressed(variable: int) -> void:
+	print("Settings Reseted")
+	_reset_settings_to_default()
+
+func _on_warning_back_pressed() -> void:
+	print("The back button was pressed inside the warning popup!")

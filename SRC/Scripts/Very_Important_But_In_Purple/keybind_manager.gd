@@ -2,7 +2,7 @@ extends VBoxContainer
 
 @export var key_row_scene: PackedScene = preload("res://SRC/Scenes/Nodes/Keybind_Row/keybind_row.tscn")
 
-const CONFIGURABLE_ACTIONS: Array[StringName] = [
+const CONFIGURABLE_ACTIONS: Array[StringName] = [ # Particlis this is your J*b >:3
 	&"move_forward",
 	&"move_backward",
 	&"move_left",
@@ -58,3 +58,32 @@ func _finish_rebind() -> void:
 		remapping_row.update_key_display()
 	remapping_action = &""
 	remapping_row = null
+
+# Writes current InputMap bindings into the shared ConfigFile section
+func save_keybinds(config: ConfigFile) -> void:
+	for action in CONFIGURABLE_ACTIONS:
+		var events = InputMap.action_get_events(action)
+		if events.size() > 0:
+			config.set_value("keybinds", String(action), events[0])
+
+# Reads [keybinds] from the loaded ConfigFile and updates InputMap & UI
+func load_keybinds(config: ConfigFile) -> void:
+	for action in CONFIGURABLE_ACTIONS:
+		var action_str = String(action)
+		if config.has_section_key("keybinds", action_str):
+			var event = config.get_value("keybinds", action_str) as InputEvent
+			if event:
+				InputMap.action_erase_events(action)
+				InputMap.action_add_event(action, event)
+	
+	_update_all_row_displays()
+
+# Restores project settings default keybindings
+func reset_keybinds_to_default() -> void:
+	InputMap.load_from_project_settings()
+	_update_all_row_displays()
+
+func _update_all_row_displays() -> void:
+	for child in get_children():
+		if child.has_method("update_key_display"):
+			child.update_key_display()

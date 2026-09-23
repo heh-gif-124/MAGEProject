@@ -1,0 +1,452 @@
+[gd_scene format=3 uid="uid://dixlf6erkjcxa"]
+
+[ext_resource type="Script" uid="uid://bn1tywkhw63vq" path="res://SRC/Scripts/Very_Important_But_In_Purple/settings_manager.gd" id="1_dsk37"]
+[ext_resource type="Theme" uid="uid://bnqmjprb05tg8" path="res://SRC/Themes/Main_Theme.tres" id="2_wog8i"]
+[ext_resource type="Script" uid="uid://cxrr3py7k87jf" path="res://SRC/Scripts/Very_Important_But_In_Purple/keybind_manager.gd" id="3_cfq8d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrivr"]
+bg_color = Color(0.25882354, 0.25882354, 0.25882354, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ipgag"]
+bg_color = Color(0.39293468, 0.39293468, 0.39293468, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 4.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_646k0"]
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 4.0
+expand_margin_bottom = 6.0
+
+[node name="Settings_Panel" type="Control" unique_id=1823371058]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dsk37")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=730688081]
+layout_mode = 0
+offset_right = 1162.0
+offset_bottom = 679.0
+color = Color(0, 0, 0, 0.50980395)
+
+[node name="Frame" type="Panel" parent="." unique_id=1292992374]
+custom_minimum_size = Vector2(550, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -275.0
+offset_top = -300.0
+offset_right = 275.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xrivr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=26646067]
+custom_minimum_size = Vector2(0, 550)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.0
+offset_top = -275.0
+offset_right = 255.0
+offset_bottom = 275.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1022930053]
+layout_mode = 2
+theme = ExtResource("2_wog8i")
+theme_type_variation = &"TitleLabel"
+text = "SETTINGS"
+horizontal_alignment = 1
+
+[node name="Audio_Settings" type="ScrollContainer" parent="VBoxContainer" unique_id=974042934]
+custom_minimum_size = Vector2(500, 445)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+scroll_vertical = 100
+horizontal_scroll_mode = 0
+
+[node name="Config" type="VBoxContainer" parent="VBoxContainer/Audio_Settings" unique_id=1123193170]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+alignment = 1
+
+[node name="Volume" type="HBoxContainer" parent="VBoxContainer/Audio_Settings/Config" unique_id=1989185681]
+layout_mode = 2
+
+[node name="Volume_Header" type="Label" parent="VBoxContainer/Audio_Settings/Config/Volume" unique_id=453792055]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme = ExtResource("2_wog8i")
+theme_type_variation = &"TitleLabel"
+text = "VOLUME"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Spacer" type="Control" parent="VBoxContainer/Audio_Settings/Config/Volume" unique_id=405484992]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Mute" type="Label" parent="VBoxContainer/Audio_Settings/Config/Volume" unique_id=834633601]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Mute"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/Audio_Settings/Config" unique_id=1926278181]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+theme = ExtResource("2_wog8i")
+
+[node name="Master_Volume" type="VBoxContainer" parent="VBoxContainer/Audio_Settings/Config" unique_id=1181028836]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Audio_Settings/Config/Master_Volume" unique_id=1999604906]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Audio_Settings/Config/Master_Volume/HBoxContainer" unique_id=1509180547]
+layout_mode = 2
+text = "Master Volume  "
+
+[node name="Spacer" type="Control" parent="VBoxContainer/Audio_Settings/Config/Master_Volume/HBoxContainer" unique_id=52399451]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Master_Value" type="Label" parent="VBoxContainer/Audio_Settings/Config/Master_Volume/HBoxContainer" unique_id=421297426]
+unique_name_in_owner = true
+layout_mode = 2
+text = "60%"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Master_Mute" type="CheckBox" parent="VBoxContainer/Audio_Settings/Config/Master_Volume/HBoxContainer" unique_id=727683580]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Master_Slider" type="HSlider" parent="VBoxContainer/Audio_Settings/Config/Master_Volume" unique_id=1121971888]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_constants/center_grabber = 0
+theme_override_styles/slider = SubResource("StyleBoxFlat_ipgag")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_646k0")
+max_value = 1.0
+step = 0.05
+value = 0.6
+scrollable = false
+
+[node name="SFX_Volume" type="VBoxContainer" parent="VBoxContainer/Audio_Settings/Config" unique_id=1517299948]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Audio_Settings/Config/SFX_Volume" unique_id=1939985118]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Audio_Settings/Config/SFX_Volume/HBoxContainer" unique_id=80388302]
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="Spacer" type="Control" parent="VBoxContainer/Audio_Settings/Config/SFX_Volume/HBoxContainer" unique_id=471851188]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SFX_Value" type="Label" parent="VBoxContainer/Audio_Settings/Config/SFX_Volume/HBoxContainer" unique_id=751474765]
+unique_name_in_owner = true
+layout_mode = 2
+text = "100%"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SFX_Mute" type="CheckBox" parent="VBoxContainer/Audio_Settings/Config/SFX_Volume/HBoxContainer" unique_id=1887776680]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SFX_Slider" type="HSlider" parent="VBoxContainer/Audio_Settings/Config/SFX_Volume" unique_id=2136735216]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_constants/center_grabber = 0
+theme_override_styles/slider = SubResource("StyleBoxFlat_ipgag")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_646k0")
+max_value = 1.0
+step = 0.05
+value = 1.0
+scrollable = false
+
+[node name="Music_Volume" type="VBoxContainer" parent="VBoxContainer/Audio_Settings/Config" unique_id=210202071]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Audio_Settings/Config/Music_Volume" unique_id=34892105]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Audio_Settings/Config/Music_Volume/HBoxContainer" unique_id=210174890]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="Spacer" type="Control" parent="VBoxContainer/Audio_Settings/Config/Music_Volume/HBoxContainer" unique_id=716276709]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Music_Value" type="Label" parent="VBoxContainer/Audio_Settings/Config/Music_Volume/HBoxContainer" unique_id=1372267171]
+unique_name_in_owner = true
+layout_mode = 2
+text = "100%"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Music_Mute" type="CheckBox" parent="VBoxContainer/Audio_Settings/Config/Music_Volume/HBoxContainer" unique_id=733522677]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Music_Slider" type="HSlider" parent="VBoxContainer/Audio_Settings/Config/Music_Volume" unique_id=1556720212]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_constants/center_grabber = 0
+theme_override_styles/slider = SubResource("StyleBoxFlat_ipgag")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_646k0")
+max_value = 1.0
+step = 0.05
+value = 1.0
+scrollable = false
+
+[node name="UI_Volume" type="VBoxContainer" parent="VBoxContainer/Audio_Settings/Config" unique_id=1412694435]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Audio_Settings/Config/UI_Volume" unique_id=1545247190]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Audio_Settings/Config/UI_Volume/HBoxContainer" unique_id=1216553425]
+layout_mode = 2
+text = "UI Volume"
+
+[node name="Spacer" type="Control" parent="VBoxContainer/Audio_Settings/Config/UI_Volume/HBoxContainer" unique_id=1263210421]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UI_Value" type="Label" parent="VBoxContainer/Audio_Settings/Config/UI_Volume/HBoxContainer" unique_id=1632443263]
+unique_name_in_owner = true
+layout_mode = 2
+text = "100%"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="UI_Mute" type="CheckBox" parent="VBoxContainer/Audio_Settings/Config/UI_Volume/HBoxContainer" unique_id=1984751886]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="UI_Slider" type="HSlider" parent="VBoxContainer/Audio_Settings/Config/UI_Volume" unique_id=1631867382]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_constants/center_grabber = 0
+theme_override_styles/slider = SubResource("StyleBoxFlat_ipgag")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_646k0")
+max_value = 1.0
+step = 0.05
+value = 1.0
+scrollable = false
+
+[node name="Video_Header" type="HBoxContainer" parent="VBoxContainer/Audio_Settings/Config" unique_id=311962015]
+layout_mode = 2
+
+[node name="Video_Header" type="Label" parent="VBoxContainer/Audio_Settings/Config/Video_Header" unique_id=1915155978]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme = ExtResource("2_wog8i")
+theme_type_variation = &"TitleLabel"
+text = "VIDEO"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/Audio_Settings/Config" unique_id=1993813974]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+theme = ExtResource("2_wog8i")
+
+[node name="Display_Mode" type="HBoxContainer" parent="VBoxContainer/Audio_Settings/Config" unique_id=1588017117]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Audio_Settings/Config/Display_Mode" unique_id=2104050760]
+layout_mode = 2
+text = "Display Mode"
+
+[node name="Spacer" type="Control" parent="VBoxContainer/Audio_Settings/Config/Display_Mode" unique_id=1669006225]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Display_Mode_Dropdown" type="OptionButton" parent="VBoxContainer/Audio_Settings/Config/Display_Mode" unique_id=1862024102]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+alignment = 1
+selected = 0
+item_count = 4
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/text = "Borderless Window"
+popup/item_1/id = 1
+popup/item_2/text = "Fullscreen"
+popup/item_2/id = 2
+popup/item_3/text = "Exclusive Fullscreen"
+popup/item_3/id = 3
+
+[node name="VSync" type="HBoxContainer" parent="VBoxContainer/Audio_Settings/Config" unique_id=476402717]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Audio_Settings/Config/VSync" unique_id=700789996]
+layout_mode = 2
+text = "VSync"
+
+[node name="Spacer" type="Control" parent="VBoxContainer/Audio_Settings/Config/VSync" unique_id=1116687102]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VSync_Toggle" type="CheckBox" parent="VBoxContainer/Audio_Settings/Config/VSync" unique_id=1003990654]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+
+[node name="Frame_Rate" type="VBoxContainer" parent="VBoxContainer/Audio_Settings/Config" unique_id=700702673]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Audio_Settings/Config/Frame_Rate" unique_id=1827912819]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Audio_Settings/Config/Frame_Rate/HBoxContainer" unique_id=118922356]
+layout_mode = 2
+text = "Frame Rate"
+
+[node name="Spacer" type="Control" parent="VBoxContainer/Audio_Settings/Config/Frame_Rate/HBoxContainer" unique_id=1479295598]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Frame_Rate_Value" type="Label" parent="VBoxContainer/Audio_Settings/Config/Frame_Rate/HBoxContainer" unique_id=1582520490]
+unique_name_in_owner = true
+layout_mode = 2
+text = "30 FPS"
+
+[node name="Frame_Rate_Slider" type="HSlider" parent="VBoxContainer/Audio_Settings/Config/Frame_Rate" unique_id=508354601]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_constants/center_grabber = 0
+theme_override_styles/slider = SubResource("StyleBoxFlat_ipgag")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_646k0")
+max_value = 240.0
+step = 30.0
+value = 30.0
+rounded = true
+scrollable = false
+
+[node name="Resolution" type="HBoxContainer" parent="VBoxContainer/Audio_Settings/Config" unique_id=1196914179]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Audio_Settings/Config/Resolution" unique_id=1330852140]
+layout_mode = 2
+text = "Resolution "
+
+[node name="Spacer" type="Control" parent="VBoxContainer/Audio_Settings/Config/Resolution" unique_id=940072288]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Resolution_Dropdown" type="OptionButton" parent="VBoxContainer/Audio_Settings/Config/Resolution" unique_id=1092787641]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+alignment = 1
+selected = 0
+item_count = 3
+popup/item_0/text = "1280 x 720"
+popup/item_0/id = 0
+popup/item_1/text = "1920 x 1080"
+popup/item_1/id = 1
+popup/item_2/text = "2560 x 1440"
+popup/item_2/id = 2
+
+[node name="Bind_Header" type="Label" parent="VBoxContainer/Audio_Settings/Config" unique_id=2070108484]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme = ExtResource("2_wog8i")
+theme_type_variation = &"TitleLabel"
+text = "KEYBINDS"
+vertical_alignment = 2
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer/Audio_Settings/Config" unique_id=1657421692]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+theme = ExtResource("2_wog8i")
+
+[node name="Keybind_manager" type="VBoxContainer" parent="VBoxContainer/Audio_Settings/Config" unique_id=369853324]
+layout_mode = 2
+script = ExtResource("3_cfq8d")
+
+[node name="Action_Buttons" type="HBoxContainer" parent="VBoxContainer" unique_id=1033065594]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+alignment = 1
+
+[node name="Back" type="Button" parent="VBoxContainer/Action_Buttons" unique_id=425195833]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "< Back"
+
+[node name="Spacer" type="Control" parent="VBoxContainer/Action_Buttons" unique_id=2033367220]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Apply" type="Button" parent="VBoxContainer/Action_Buttons" unique_id=1981709532]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Save & Apply"
+
+[node name="Reset_To_Default" type="Button" parent="VBoxContainer/Action_Buttons" unique_id=1857933516]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Reset To Default
+"

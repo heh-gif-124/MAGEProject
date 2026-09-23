@@ -8,15 +8,20 @@ func _on_start_pressed() -> void:
 	%Fade_Trans.fade_in()
 
 func _on_settings_pressed() -> void:
-	pending_action = &"Settings"
-	%Fade_Trans.fade_in()
+	%Settings_Panel.visible = true
 
 func _on_exit_pressed() -> void:
+	%Fade_Trans.fade_in()
+	await %Fade_Trans.fade_completed
 	get_tree().quit()
+
+func _on_credit_pressed() -> void:
+	pending_action = &"Credits"
+	%Fade_Trans.fade_in()
 
 func _on_fade_trans_fade_completed() -> void:
 	match pending_action:
 		&"Start":
-			get_tree().change_scene_to_file("res://Scenes/Map.tscn")
-		&"Settings":
-			get_tree().change_scene_to_file("res://Scenes/Settings.tscn")
+			get_tree().change_scene_to_file("res://Scenes/SaveFiles.tscn")
+		&"Credits":
+			get_tree().change_scene_to_file("res://Scenes/Credits.tscn")

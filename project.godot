@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="MAGEPROJECT"
-run/main_scene="uid://br7ggx35m3smc"
+run/main_scene="uid://7vgraeni1whu"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://SRC/icon.svg"
 
 [audio]
 
 buses/default_bus_layout="res://SRC/default_bus_layout.tres"
+
+[autoload]
+
+SaveManager="*uid://fg2qg6pl0jcg"
 
 [display]
 

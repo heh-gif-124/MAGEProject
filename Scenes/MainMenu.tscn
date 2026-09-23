@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b62vynrn0dtxt" path="res://SRC/Scripts/Very_Important_But_In_Purple/main_menu.gd" id="1_853f1"]
 [ext_resource type="Texture2D" uid="uid://db63djg7dh4r6" path="res://SRC/Sprites/Irrelevant/ja_rage.jpg" id="2_8saeu"]
-[ext_resource type="PackedScene" uid="uid://dscw4c7ot41ds" path="res://SRC/Scenes/Anims/Fades/Fade_Trans.tscn" id="3_8saeu"]
+[ext_resource type="PackedScene" uid="uid://dscw4c7ot41ds" path="res://SRC/Scenes/Anims/Fades/fade_trans.tscn" id="3_8saeu"]
+[ext_resource type="PackedScene" uid="uid://dixlf6erkjcxa" path="res://SRC/Scenes/Nodes/Settings_Panel/settings_panel.tscn" id="4_ghw46"]
+[ext_resource type="PackedScene" uid="uid://cd5xiu2vch26o" path="res://SRC/Scenes/Nodes/Warning_Panel/warning_panel.tscn" id="5_df05h"]
 
 [node name="Main_Menu" type="Control" unique_id=414027072]
 layout_mode = 3
@@ -25,6 +27,15 @@ texture = ExtResource("2_8saeu")
 expand_mode = 1
 metadata/_edit_lock_ = true
 
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Background" unique_id=315698418]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.27450982)
+
 [node name="Menu" type="VBoxContainer" parent="CanvasLayer" unique_id=511293942]
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,16 +52,25 @@ text = "Paper Flow"
 horizontal_alignment = 1
 
 [node name="Start" type="Button" parent="CanvasLayer/Menu" unique_id=1116488562]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 64
-text = "   Start   "
+text = "Start"
+
+[node name="Credit" type="Button" parent="CanvasLayer/Menu" unique_id=1595224414]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 64
+text = "Credits"
 
 [node name="Exit" type="Button" parent="CanvasLayer/Menu" unique_id=341862502]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 64
-text = "    Exit    "
+text = "Exit"
 
 [node name="Settings" type="Button" parent="CanvasLayer" unique_id=1982254447]
 custom_minimum_size = Vector2(80, 80)
@@ -70,9 +90,26 @@ text = "O"
 [node name="Fade_Trans" parent="CanvasLayer" unique_id=346146234 instance=ExtResource("3_8saeu")]
 unique_name_in_owner = true
 visible = false
-anchors_preset = 15
+
+[node name="Settings_Panel" parent="CanvasLayer" unique_id=1823371058 instance=ExtResource("4_ghw46")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Warning_Panel" parent="CanvasLayer" unique_id=491861862 instance=ExtResource("5_df05h")]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
 
 [connection signal="pressed" from="CanvasLayer/Menu/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu/Credit" to="." method="_on_credit_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menu/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="CanvasLayer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="fade_completed" from="CanvasLayer/Fade_Trans" to="." method="_on_fade_trans_fade_completed"]

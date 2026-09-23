@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://7vgraeni1whu"]
+
+[ext_resource type="Script" uid="uid://bn4fxsmpf2kbi" path="res://SRC/Scripts/splash_screen.gd" id="1_acvwv"]
+
+[node name="Splash_Screen" type="Control" unique_id=1424662124]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_acvwv")
+
+[node name="Background" type="ColorRect" parent="." unique_id=2085700112]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Logo_Container" type="Control" parent="." unique_id=811718294]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Team_Logo" type="TextureRect" parent="Logo_Container" unique_id=1041957132]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="Engine_Logo" type="TextureRect" parent="Logo_Container" unique_id=1270030833]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="Game_Title" type="TextureRect" parent="Logo_Container" unique_id=331042792]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1564356326]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_pressed"]

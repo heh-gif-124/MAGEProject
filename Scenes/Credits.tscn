@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://bme264xs2spxv"]
+
+[ext_resource type="Script" uid="uid://edc7ynsyw3m1" path="res://SRC/Scripts/Very_Important_But_In_Purple/credits.gd" id="1_uy3b0"]
+[ext_resource type="Texture2D" uid="uid://cpvgmxuelyk40" path="res://SRC/Sprites/Irrelevant/ja_disgust.jpg" id="2_iynit"]
+[ext_resource type="Theme" uid="uid://bnqmjprb05tg8" path="res://SRC/Themes/Main_Theme.tres" id="3_f64u0"]
+[ext_resource type="PackedScene" uid="uid://dscw4c7ot41ds" path="res://SRC/Scenes/Anims/Fades/fade_trans.tscn" id="4_lpub1"]
+
+[node name="Credits" type="Control" unique_id=1650722650]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uy3b0")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1394162997]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_iynit")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="TextureRect" unique_id=1160850955]
+custom_minimum_size = Vector2(550, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.50980395)
+
+[node name="Credits_Contents" type="RichTextLabel" parent="." unique_id=587247042]
+custom_minimum_size = Vector2(550, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -109.5
+offset_top = 25.0
+offset_right = 109.5
+offset_bottom = 113.0
+grow_horizontal = 2
+theme = ExtResource("3_f64u0")
+theme_type_variation = &"SceneTitleLabel"
+bbcode_enabled = true
+text = "[center]
+
+[font_size=42][b]PAPER FLOW[/b][/font_size]
+[font_size=18][color=#888888]A Game by Team PaperKraft[/color][/font_size]
+[font_size=24]
+________________________________________[/font_size]
+
+[font_size=22][b]DESIGN & DIRECTION[/b][/font_size]
+
+[font_size=18]Lead Game Designer[/font_size]
+[font_size=16][color=#cccccc]Name Here[/color][/font_size]
+
+[font_size=18]Creative Director[/font_size]
+[font_size=16][color=#cccccc]Name Here[/color][/font_size]
+
+
+[font_size=22][b]PROGRAMMING[/b][/font_size]
+
+[font_size=18]Lead Programmer[/font_size]
+[font_size=16][color=#cccccc]Name Here[/color][/font_size]
+
+[font_size=18]Gameplay Systems & UI[/font_size]
+[font_size=16][color=#cccccc]Name Here[/color][/font_size]
+
+
+[font_size=22][b]ART & VISUALS[/b][/font_size]
+
+[font_size=18]2D Art & Character Design[/font_size]
+[font_size=16][color=#cccccc]Name Here[/color][/font_size]
+
+[font_size=18]UI / UX Design[/font_size]
+[font_size=16][color=#cccccc]Name Here[/color][/font_size]
+
+
+[font_size=22][b]AUDIO & MUSIC[/b][/font_size]
+
+[font_size=18]Original Soundtrack[/font_size]
+[font_size=16][color=#cccccc]Name Here[/color][/font_size]
+
+[font_size=18]Sound Design & SFX[/font_size]
+[font_size=16][color=#cccccc]Name Here[/color][/font_size]
+
+
+[font_size=22][b]QUALITY ASSURANCE[/b][/font_size]
+
+[font_size=18]Lead Tester[/font_size]
+[font_size=16][color=#cccccc]Name Here[/color][/font_size]
+
+[font_size=18]Playtesters[/font_size]
+[font_size=16][color=#cccccc]Name 1  •  Name 2  •  Name 3[/color][/font_size]
+
+
+[font_size=22][b]SPECIAL THANKS[/b][/font_size]
+
+[font_size=16][color=#cccccc]
+Person or Community 1
+Person or Community 2
+Our Supportive Families & Friends
+[/color][/font_size]
+
+
+[font_size=22][b]MADE WITH GODOT ENGINE[/b][/font_size]
+
+[font_size=14][color=#888888]
+Powered by Godot Engine
+www.godotengine.org
+[/color][/font_size]
+
+
+[font_size=18][b]Thank you for playing![/b][/font_size]
+
+[/center]"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Fade_Trans" parent="." unique_id=346146234 instance=ExtResource("4_lpub1")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[connection signal="fade_completed" from="Fade_Trans" to="." method="_on_fade_trans_fade_completed"]
