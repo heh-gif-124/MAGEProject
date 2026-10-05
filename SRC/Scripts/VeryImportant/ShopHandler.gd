@@ -8,16 +8,10 @@ func _ready() -> void:
 	for i in 2:
 		var y = shop_thing.duplicate()
 		y.visible = true
-		y.label_name.text = "goober"
-		y.label_desc.text = "allows you to dash"
-		y.cost_label.text = "🪙 100"
 		to_a.add_child.call_deferred(y)
 	for i in 2:
 		var y = shop_thing.duplicate()
 		y.visible = true
-		y.label_name.text = "goober"
-		y.label_desc.text = "allows you to dash"
-		y.cost_label.text = "🪙 100"
 		to_b.add_child.call_deferred(y)
 
 

@@ -83,8 +83,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 22
-text = "Finish the course before the timer runs out.
-Dont let the indicator led astray"
+text = "Get to the finish line before the timer runs out"
 vertical_alignment = 1
 
 [node name="TimerLabel" type="Label" parent="." unique_id=977162477]

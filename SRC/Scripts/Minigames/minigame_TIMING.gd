@@ -55,7 +55,10 @@ func _process(_delta: float) -> void:
 		hydrant.queue_free()
 		queue_free()
 		return
-
+	if threshold < 0.0 and started:
+		Global.minigame_initiated = false
+		queue_free()
+		visible = false
 
 func _reset_stuff():
 		#use at the start of every minigame

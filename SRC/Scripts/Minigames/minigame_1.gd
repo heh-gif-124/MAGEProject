@@ -46,6 +46,7 @@ func _physics_process(delta: float) -> void:
 	# Check Loss Condition
 	if threshold <= 0.0:
 		Global.minigame_initiated = false
+		queue_free()
 		visible = false
 
 func _process(_delta: float) -> void:

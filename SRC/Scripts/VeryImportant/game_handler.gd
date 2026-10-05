@@ -22,10 +22,12 @@ var in_minigame : bool = false
 var minigames_needed : int
 var won_already : bool = false
 var current_wave : int = 1
+var shop_phase : bool = false
 
 func _ready() -> void:
+
 	Global.minigame_finished.connect(func():
-		if hole_container.get_child_count() <= 0:
+		if hole_container.get_child_count() <= 0 and current_wave <= waves:
 			hole_placer._place_holes()
 			current_wave += 1
 			print("YOU WIN!!")
@@ -41,9 +43,11 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	moneylabel.text = "$"+str(Global.currency)
 	countdown_label.text = "⏱: " + str(int(ceil(countdown.time_left)))
+	if current_wave > waves and shop_phase == false:
+		shop_phase = true
+		var yt = shop_ui.instantiate()
+		UI_layer.add_child.call_deferred(yt)
 
-	if current_wave >=waves:
-		var b = shop_ui.instantiate()
 
 
 func _start_new_wave():

@@ -1,12 +1,12 @@
 extends Node
 class_name slow_down
-var upd = upgrade.new("Slow Down","SLD",200)
+var upd : UpgradeRes = UpgradeRes.new("Slow Down", "SSL","Slows down time when in a Minigame", 200)
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if Global.minigame_initiated == true:
+		Engine.time_scale = 0.2
+	elif Global.minigame_initiated == false:
+		Engine.time_scale = 1

@@ -1,10 +1,11 @@
 extends Resource
-class_name upgrade
-var name
-var cost
-var id
-
-func _init(pname:String,pid:String,pcost:float=100.0) -> void:
-	name = pname
-	cost = pcost
-	id = pid
+class_name UpgradeRes
+var upname
+var upcost
+var upid
+var updesc
+func _init(pname:String,pid:String,pdesc,pcost:float=100.0) -> void:
+	upname = pname
+	upcost = pcost
+	updesc = pdesc
+	upid = pid

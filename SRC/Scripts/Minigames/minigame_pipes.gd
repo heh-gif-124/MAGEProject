@@ -23,8 +23,22 @@ func _physics_process(delta: float) -> void:
 			mini_player.velocity.x += 10
 	if win_area.has_overlapping_bodies():
 		if tape_stopped == true:
-			print("YOU WIN")
+			won = true
+			Global.minigames_completed += 1
+			winlabel.visible = true
+			await get_tree().create_timer(1.5, true, false, true).timeout
+			Global.minigame_initiated = false
+			Global.minigame_finished.emit.call_deferred()
+			Global.currency += 100
+			print("Money: " + str(Global.currency))
+			visible = false
+			hydrant.queue_free()
+			queue_free()
+			return
 	mini_player.move_and_slide()
+	if Input.is_action_just_pressed("interact"):
+		mini_player.velocity.x = 0
+		tape_stopped = true
 
 func _reset_stuff():
 	#use at the start of every minigame
