@@ -7,9 +7,14 @@ var won : bool = false
 @export var bar : ProgressBar
 @export var winlabel : Label
 @export var decay_rate : float = 20.0 # Points lost per second
+var hydrant : Area3D
 var stylebox : StyleBoxFlat
 func _ready() -> void:
 	stylebox = bar.get_theme_stylebox("fill") as StyleBoxFlat
+	Global.minigame.connect(func(hole):
+		_reset_stuff()
+		hydrant = hole
+	)
 
 func _physics_process(delta: float) -> void:
 	if not Global.minigame_initiated or not started or won:
@@ -27,8 +32,12 @@ func _physics_process(delta: float) -> void:
 		stylebox.bg_color = Color.GREEN
 		await get_tree().create_timer(1.5, true, false, true).timeout
 		Global.minigame_initiated = false
-
+		Global.minigame_finished.emit.call_deferred()
+		Global.currency += 100
+		print("Money: " + str(Global.currency))
 		visible = false
+		hydrant.queue_free()
+		queue_free()
 		return
 
 	# Apply Frame-Independent Decay (Only runs while still active and not won)

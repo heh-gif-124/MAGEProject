@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://6k6nu4wdcjgt"]
+
+[ext_resource type="Script" uid="uid://d32nun3hjgbd4" path="res://SRC/Objects/Building/BuildingRandomizer.gd" id="1_qvcy8"]
+[ext_resource type="Texture2D" uid="uid://b7hmd5j8ru17j" path="res://SRC/Sprites/Building/1. Building/3 (2).png" id="1_wpocg"]
+[ext_resource type="Texture2D" uid="uid://cmoe3dwxbsx46" path="res://SRC/Sprites/Building/1. Building/3.png" id="2_lwgvc"]
+[ext_resource type="Texture2D" uid="uid://d1tfq0ffgctdw" path="res://SRC/Sprites/Building/1. Building/2 (3).png" id="3_gy0qj"]
+[ext_resource type="Texture2D" uid="uid://byxodvx5k06kq" path="res://SRC/Sprites/Building/2. Door/4_.png" id="3_qvcy8"]
+[ext_resource type="Texture2D" uid="uid://bmjgqgqldfix2" path="res://SRC/Sprites/Building/1. Building/2.png" id="4_40242"]
+[ext_resource type="Texture2D" uid="uid://b88dfk6vv5ajo" path="res://SRC/Sprites/Building/1. Building/1.png" id="5_6epal"]
+[ext_resource type="Texture2D" uid="uid://bk2761bpcgkxq" path="res://SRC/Sprites/Building/1. Building/2 (2).png" id="7_akyoj"]
+[ext_resource type="Texture2D" uid="uid://dabpvlsy7cix8" path="res://SRC/Sprites/Building/3. Window/1_.png" id="8_6epal"]
+[ext_resource type="Texture2D" uid="uid://cawr4who5rvhs" path="res://SRC/Sprites/Building/3. Window/2_.png" id="9_akyoj"]
+[ext_resource type="Texture2D" uid="uid://kfgo2rrpqssk" path="res://SRC/Sprites/Building/2. Door/1_.png" id="10_pgw28"]
+[ext_resource type="Texture2D" uid="uid://iamdlek43yx" path="res://SRC/Sprites/Building/2. Door/2_.png" id="11_7xp5u"]
+[ext_resource type="Texture2D" uid="uid://wavwrjxd7mso" path="res://SRC/Sprites/Building/2. Door/3_.png" id="12_3tral"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gy0qj"]
+size = Vector3(1.3704834, 2.0565186, 0.047851563)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5bdln"]
+size = Vector3(1.2600098, 1.8485718, 2.4609985)
+
+[node name="Building" type="Node3D" unique_id=629387501 node_paths=PackedStringArray("top", "bottom", "window", "door", "detection_area")]
+script = ExtResource("1_qvcy8")
+bottom_building = Array[Texture2D]([ExtResource("1_wpocg"), ExtResource("3_gy0qj"), ExtResource("4_40242")])
+top_building = Array[Texture2D]([ExtResource("5_6epal"), ExtResource("2_lwgvc"), ExtResource("7_akyoj")])
+windows = Array[Texture2D]([ExtResource("8_6epal"), ExtResource("9_akyoj")])
+doors = Array[Texture2D]([ExtResource("10_pgw28"), ExtResource("11_7xp5u"), ExtResource("12_3tral"), ExtResource("3_qvcy8")])
+top = NodePath("Top")
+bottom = NodePath("Bottom")
+window = NodePath("Window")
+door = NodePath("Door")
+detection_area = NodePath("Area3D")
+
+[node name="Bottom" type="Sprite3D" parent="." unique_id=1696789247]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2699404, 0)
+sorting_offset = -13.0
+pixel_size = 0.001
+texture = ExtResource("1_wpocg")
+
+[node name="Window" type="Sprite3D" parent="." unique_id=801499474]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2430395, 0)
+sorting_offset = -10.0
+pixel_size = 0.001
+texture = ExtResource("9_akyoj")
+
+[node name="Door" type="Sprite3D" parent="." unique_id=798352874]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2510022, 0)
+sorting_offset = -11.0
+pixel_size = 0.001
+texture = ExtResource("3_qvcy8")
+
+[node name="Top" type="Sprite3D" parent="." unique_id=408182134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2652192, 0)
+sorting_offset = -12.0
+pixel_size = 0.001
+texture = ExtResource("2_lwgvc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1252626564]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1325574683]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0006713867, 1.027771, 0.0014648438)
+shape = SubResource("BoxShape3D_gy0qj")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1315341191]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.54105175)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1655596756]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93807983, -0.70595336)
+shape = SubResource("BoxShape3D_5bdln")

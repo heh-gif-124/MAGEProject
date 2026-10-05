@@ -25,7 +25,7 @@ func _ready() -> void:
 	noise.noise_type = FastNoiseLite.TYPE_SIMPLEX
 	noise.frequency = 0.2
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if not is_instance_valid(target):
 		return
 

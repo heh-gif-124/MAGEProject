@@ -1,26 +1,34 @@
 extends Node
 class_name GameHandler
-
+@export_group("Holes")
 @export var hole_placer : HolePlacer
+@export var hole_container : Node3D
+@export_group("UI")
+@export var UI_layer : CanvasLayer
+@export_subgroup("Countdown")
 @export var countdown : Timer
 @export var countdown_label : Label
-@export var minigames_list : Array[Control]
+@export_subgroup("next Level")
 @export var next_level : PackedScene
+@export_subgroup("waves")
 @export var waves : int = 3
+@export var waveui : Control
+@export var animation_player : AnimationPlayer
 @export var respawn_floor : Area3D
+@export var moneylabel : Label
+@export_group("Shop")
+@export var shop_ui : PackedScene
 var in_minigame : bool = false
 var minigames_needed : int
 var won_already : bool = false
 var current_wave : int = 1
 
 func _ready() -> void:
-	minigames_needed = hole_placer.minigame_children.size()
-
-	Global.minigame.connect(func():
-		var k : Control = minigames_list.pick_random()
-		if k.has_method("_reset_stuff"):
-			k._reset_stuff()
-		Global.minigame_initiated = true
+	Global.minigame_finished.connect(func():
+		if hole_container.get_child_count() <= 0:
+			hole_placer._place_holes()
+			current_wave += 1
+			print("YOU WIN!!")
 	)
 	if respawn_floor != null:
 		respawn_floor.body_entered.connect(func(body):
@@ -28,46 +36,15 @@ func _ready() -> void:
 				body.global_position = Vector3(0.233,1.251,-0.359)
 		)
 
-func _process(_delta: float) -> void:
-	print(Global.minigames_completed)
-	if is_instance_valid(countdown) and countdown.time_left > 0:
-		countdown_label.text = str(int(ceil(countdown.time_left)))
 
-	if not won_already and Global.minigames_completed >= minigames_needed:
-		won_already = true
-		_handle_wave_completion()
 
-func _handle_wave_completion() -> void:
-	Global.minigames_completed = 0
-	print("Wave ", current_wave, " cleared!")
+func _physics_process(delta: float) -> void:
+	moneylabel.text = "$"+str(Global.currency)
+	countdown_label.text = "⏱: " + str(int(ceil(countdown.time_left)))
 
-	await get_tree().create_timer(2.0, true, true, true).timeout
+	if current_wave >=waves:
+		var b = shop_ui.instantiate()
 
-	if current_wave < waves:
-		_start_next_wave()
-	else:
-		_handle_game_win()
 
-func _start_next_wave() -> void:
-	current_wave += 1
-	Global.minigames_completed = 0
-	won_already = false
-
-	# Reset hole locations if HolePlacer has a reset method
-	if hole_placer and hole_placer.has_method("_place_holes"):
-		hole_placer.reset_holes()
-	# Restart wave countdown
-	if countdown:
-		countdown.start()
-	print("Starting Wave ", current_wave)
-
-func _handle_game_win() -> void:
-	set_process(false)
-	print("ALL WAVES CLEARED - YOU WIN!")
-	if next_level:
-		get_tree().change_scene_to_packed(next_level)
-
-func _countdown():
-	if not won_already:
-		await countdown.timeout
-		print("YOU LOSE")
+func _start_new_wave():
+	hole_placer._place_holes()

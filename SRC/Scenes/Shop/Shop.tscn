@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://dks63g6cp2j6n"]
+
+[ext_resource type="Texture2D" uid="uid://xqq4dta6lfu7" path="res://SRC/Sprites/UI/Shop/Tak berjudul345_20260910183010.png" id="1_63jdc"]
+[ext_resource type="Texture2D" uid="uid://corqr062lm3im" path="res://SRC/Sprites/UI/Shop/output-onlinepngtools (1).png" id="2_oit8m"]
+[ext_resource type="Script" uid="uid://q63rhun4760n" path="res://SRC/Scripts/VeryImportant/ShopHandler.gd" id="3_27etp"]
+[ext_resource type="Script" uid="uid://bvu0nyg8fwheo" path="res://SRC/Scripts/VeryImportant/ShopIm.gd" id="4_gysxc"]
+
+[node name="Shop" type="Control" unique_id=1734967919]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=211694465]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -322.8869
+offset_top = -285.5
+offset_right = 322.8869
+offset_bottom = 285.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_63jdc")
+region_rect = Rect2(46, 68.45447, 1956, 1808.5455)
+patch_margin_left = 5
+patch_margin_right = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect" unique_id=1356193627]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -258.78183
+offset_top = -59.0
+offset_right = 258.7818
+offset_bottom = 272.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/HBoxContainer" unique_id=1872507814]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="NinePatchRect/HBoxContainer" unique_id=1255270103]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ShopHandler" type="Node" parent="." unique_id=1891187512 node_paths=PackedStringArray("shop_thing", "to_a", "to_b")]
+script = ExtResource("3_27etp")
+shop_thing = NodePath("TextureRect2")
+to_a = NodePath("../NinePatchRect/HBoxContainer/VBoxContainer")
+to_b = NodePath("../NinePatchRect/HBoxContainer/VBoxContainer2")
+
+[node name="TextureRect2" type="TextureRect" parent="ShopHandler" unique_id=933663817 node_paths=PackedStringArray("label_name", "label_desc", "cost_label", "button")]
+visible = false
+texture = ExtResource("2_oit8m")
+stretch_mode = 2
+script = ExtResource("4_gysxc")
+label_name = NodePath("Label")
+label_desc = NodePath("Label2")
+cost_label = NodePath("Label3")
+button = NodePath("Button")
+
+[node name="Label" type="Label" parent="ShopHandler/TextureRect2" unique_id=1425348440]
+layout_mode = 0
+offset_left = 5.78183
+offset_top = 6.0
+offset_right = 45.78183
+offset_bottom = 29.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "test"
+
+[node name="Label2" type="Label" parent="ShopHandler/TextureRect2" unique_id=1341958066]
+layout_mode = 0
+offset_left = 5.78183
+offset_top = 30.0
+offset_right = 45.78183
+offset_bottom = 53.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "lorem impsum dolor
+sit amet"
+
+[node name="Label3" type="Label" parent="ShopHandler/TextureRect2" unique_id=563536065]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 2.0
+offset_right = 160.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "🪙Cost"
+
+[node name="Button" type="Button" parent="ShopHandler/TextureRect2" unique_id=52148347]
+layout_mode = 0
+offset_left = 119.78183
+offset_top = 76.0
+offset_right = 159.78183
+offset_bottom = 107.0
+text = "BUY"

@@ -2,26 +2,32 @@ extends Node
 class_name Animations
 
 @export var animationsprite : AnimatedSprite3D
-var parent : CharacterBody3D
+@export var parent : CharacterBody3D
 
 # Bobbing Parameters
 @export var bob_speed : float = 12.0
 @export var bob_amount : float = 0.08
 
+# Turn / Flip Smoothness
+@export var turn_speed : float = 15.0
+var target_scale_x : float = 1.0
+
 var default_y_pos : float = 0.0
 var bob_time : float = 0.0
 
 func _ready() -> void:
-	parent = get_parent()
 	if animationsprite:
 		default_y_pos = animationsprite.position.y
+		target_scale_x = animationsprite.scale.x
 
 func _process(delta: float) -> void:
-	# 1. Flip Sprite
+	# 1. Flip Sprite (Smooth Interpolation)
 	if Input.is_action_pressed("walk_left"):
-		animationsprite.scale.x = -1
+		target_scale_x = -1.0
 	elif Input.is_action_pressed("walk_right"):
-		animationsprite.scale.x = 1
+		target_scale_x = 1.0
+
+	animationsprite.scale.x = lerp(animationsprite.scale.x, target_scale_x, delta * turn_speed)
 
 	# 2. State & Animation Setup
 	var is_moving : bool = parent.velocity.x != 0 or parent.velocity.z != 0

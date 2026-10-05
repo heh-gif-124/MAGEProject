@@ -37,6 +37,7 @@ folder_colors={
 [global_group]
 
 Hole=""
+UILayer=""
 
 [input]
 

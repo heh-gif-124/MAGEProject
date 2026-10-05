@@ -10,6 +10,7 @@ var current_number = 0
 @export var numtimer : Timer
 @export var time : float
 var stylebox : StyleBoxFlat
+var hydrant : Area3D
 func _ready() -> void:
 	stylebox = bar.get_theme_stylebox("fill") as StyleBoxFlat
 	numtimer.timeout.connect(func():
@@ -17,6 +18,10 @@ func _ready() -> void:
 			current_number = 0
 		else:
 			current_number += 1
+	)
+	Global.minigame.connect(func(hole):
+		_reset_stuff()
+		hydrant = hole
 	)
 
 
@@ -31,7 +36,10 @@ func _process(_delta: float) -> void:
 		threshold += ceil(33.3)
 		current_number = 0
 		numtimer.wait_time -= 0.3
-
+	elif Input.is_action_just_pressed("interact") and current_number != 5 and threshold > 0:
+		threshold -= ceil(33.3)
+		current_number = 0
+		numtimer.wait_time += 0.3
 	if threshold >= 100.0:
 		won = true
 		Global.minigames_completed += 1
@@ -40,8 +48,12 @@ func _process(_delta: float) -> void:
 		stylebox.bg_color = Color.GREEN
 		await get_tree().create_timer(1.5, true, false, true).timeout
 		Global.minigame_initiated = false
-
+		Global.minigame_finished.emit.call_deferred()
+		Global.currency += 100
+		print("Money: " + str(Global.currency))
 		visible = false
+		hydrant.queue_free()
+		queue_free()
 		return
 
 
@@ -55,5 +67,6 @@ func _reset_stuff():
 	started = false
 	won = false
 	visible = true
+	stylebox.bg_color = Color.RED
 	await get_tree().create_timer(0.5, true, false, true).timeout
 	started = true
