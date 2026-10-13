@@ -1,11 +1,15 @@
 [gd_resource type="Theme" format=3 uid="uid://bnqmjprb05tg8"]
 
+[ext_resource type="FontFile" uid="uid://cldauhjnitufc" path="res://SRC/Sprites/PaperFont/paper_font.fnt" id="1_jv06h"]
+
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_i21st"]
 color = Color(0.6, 0.6, 0.6, 1)
 thickness = 5
 
 [resource]
 default_font_size = 24
+Button/font_sizes/font_size = 48
+Button/fonts/font = ExtResource("1_jv06h")
 HSeparator/constants/separation = 8
 HSeparator/styles/separator = SubResource("StyleBoxLine_i21st")
 Label/font_sizes/font_size = 24

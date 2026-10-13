@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://mf6xaxjt1f4l"]
 
 [ext_resource type="PackedScene" uid="uid://djpy6nmg128bb" path="res://SRC/Scenes/Nodes/Save_Slot/saveslot.tscn" id="1_0at0k"]
-[ext_resource type="Script" uid="uid://cp74cct0in1if" path="res://SRC/Scripts/save_menu.gd" id="1_ew1ob"]
 [ext_resource type="PackedScene" uid="uid://cd5xiu2vch26o" path="res://SRC/Scenes/Nodes/Warning_Panel/warning_panel.tscn" id="2_d7d33"]
 [ext_resource type="PackedScene" uid="uid://dscw4c7ot41ds" path="res://SRC/Scenes/Anims/Fades/fade_trans.tscn" id="4_ggyyj"]
 
@@ -12,7 +11,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ew1ob")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=751964958]
 custom_minimum_size = Vector2(765, 0)

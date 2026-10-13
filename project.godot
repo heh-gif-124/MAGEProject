@@ -22,6 +22,7 @@ buses/default_bus_layout="res://SRC/default_bus_layout.tres"
 [autoload]
 
 SaveManager="*uid://fg2qg6pl0jcg"
+PaperFont="*uid://c0c0fhjfwdiu2"
 
 [display]
 

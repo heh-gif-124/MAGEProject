@@ -1,0 +1,17 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://cldauhjnitufc"
+path="res://.godot/imported/paper_font.fnt-a3681e7486a8ef76fa88639baffcd3a9.fontdata"
+
+[deps]
+
+source_file="res://SRC/Sprites/PaperFont/paper_font.fnt"
+dest_files=["res://.godot/imported/paper_font.fnt-a3681e7486a8ef76fa88639baffcd3a9.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true
+scaling_mode=2
