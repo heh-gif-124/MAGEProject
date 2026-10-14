@@ -69,7 +69,7 @@ func _process(_delta: float) -> void:
 			_shake_and_flash_label()
 
 	# Win Condition
-	if threshold >= 100.0:
+	if threshold >= 99.0:
 		won = true
 		Global.minigames_completed += 1
 		winlabel.visible = true

@@ -74,5 +74,6 @@ func _physics_process(delta: float) -> void:
 func _start_new_wave():
 	if hole_container.get_child_count() <= 0 and current_wave <= waves:
 		hole_placer._place_holes()
+		countdown.start()
 		current_wave += 1
 		print("YOU WIN!!")
