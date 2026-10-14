@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cc4psqlrys8l4"]
+
+[ext_resource type="Shader" uid="uid://c31tc5d24ahem" path="res://SRC/Shader/Player.gdshader" id="1_q3tl3"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nmlge"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jla0j"]
+noise = SubResource("FastNoiseLite_nmlge")
+seamless = true
+
+[resource]
+shader = ExtResource("1_q3tl3")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.1
+shader_parameter/fps = 6.0
+shader_parameter/noise = SubResource("NoiseTexture2D_jla0j")

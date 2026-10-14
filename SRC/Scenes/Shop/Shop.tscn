@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dks63g6cp2j6n"]
 
 [ext_resource type="Texture2D" uid="uid://xqq4dta6lfu7" path="res://SRC/Sprites/UI/Shop/Tak berjudul345_20260910183010.png" id="1_63jdc"]
+[ext_resource type="Material" uid="uid://cc4psqlrys8l4" path="res://SRC/Shader/SQUGGLE.tres" id="1_i5uy1"]
+[ext_resource type="Texture2D" uid="uid://cwwd28etmqimw" path="res://SRC/Sprites/UI/Shop/Tak berjudul345_20260910183033.png" id="2_kawog"]
 [ext_resource type="Texture2D" uid="uid://corqr062lm3im" path="res://SRC/Sprites/UI/Shop/output-onlinepngtools (1).png" id="2_oit8m"]
 [ext_resource type="Script" uid="uid://q63rhun4760n" path="res://SRC/Scripts/VeryImportant/ShopHandler.gd" id="3_27etp"]
 [ext_resource type="Script" uid="uid://bvu0nyg8fwheo" path="res://SRC/Scripts/VeryImportant/ShopIm.gd" id="4_gysxc"]
@@ -35,13 +37,30 @@ tracks/0/keys = {
 "values": [Vector2(253.1131, -607)]
 }
 
+[sub_resource type="Animation" id="Animation_i5uy1"]
+resource_name = "exit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NinePatchRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1.189208, 1),
+"update": 0,
+"values": [Vector2(253.1131, 38.5), Vector2(253.1131, -683)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kawog"]
 _data = {
 &"Appear": SubResource("Animation_gysxc"),
-&"RESET": SubResource("Animation_kawog")
+&"RESET": SubResource("Animation_kawog"),
+&"exit": SubResource("Animation_i5uy1")
 }
 
 [node name="Shop" type="Control" unique_id=1734967919]
+z_index = 20
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,6 +69,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=211694465]
+material = ExtResource("1_i5uy1")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -62,6 +82,7 @@ offset_right = 322.8869
 offset_bottom = -360.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 texture = ExtResource("1_63jdc")
 region_rect = Rect2(46, 68.45447, 1956, 1808.5455)
 patch_margin_left = 5
@@ -80,25 +101,42 @@ offset_right = 258.7818
 offset_bottom = 272.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 12
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/HBoxContainer" unique_id=1872507814]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 12
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="NinePatchRect/HBoxContainer" unique_id=1255270103]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 12
 
-[node name="ShopHandler" type="Node" parent="." unique_id=1891187512 node_paths=PackedStringArray("shop_thing", "to_a", "to_b")]
+[node name="TextureButton" type="TextureButton" parent="NinePatchRect" unique_id=262749466]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -110.8869
+offset_top = -106.0
+offset_right = 42.1131
+offset_bottom = 36.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("2_kawog")
+
+[node name="ShopHandler" type="Node" parent="." unique_id=1891187512 node_paths=PackedStringArray("shop_thing", "to_a", "to_b", "exit_buton", "anim_player")]
 script = ExtResource("3_27etp")
 shop_thing = NodePath("TextureRect2")
 to_a = NodePath("../NinePatchRect/HBoxContainer/VBoxContainer")
 to_b = NodePath("../NinePatchRect/HBoxContainer/VBoxContainer2")
+exit_buton = NodePath("../NinePatchRect/TextureButton")
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="TextureRect2" type="TextureRect" parent="ShopHandler" unique_id=933663817 node_paths=PackedStringArray("label_name", "label_desc", "cost_label", "button")]
-visible = false
+material = ExtResource("1_i5uy1")
 texture = ExtResource("2_oit8m")
 stretch_mode = 2
 script = ExtResource("4_gysxc")

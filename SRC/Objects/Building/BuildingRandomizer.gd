@@ -4,12 +4,12 @@ extends Node3D
 @export var top_building : Array[Texture2D]
 @export var windows : Array[Texture2D]
 @export var doors : Array[Texture2D]
-
+@export var sidewalks : Array[Texture2D]
 @export var top : Sprite3D
 @export var bottom : Sprite3D
 @export var window : Sprite3D
 @export var door : Sprite3D
-
+@export var troatoar : Sprite3D
 @export_group("Occlusion Settings")
 @export var detection_area : Area3D
 @export var hidden_alpha : float = 0.3  # Opacity when behind (30%)
@@ -30,6 +30,7 @@ func _randomize() -> void:
 	bottom.texture = bottom_building.pick_random()
 	window.texture = windows.pick_random()
 	door.texture = doors.pick_random()
+	troatoar.texture = sidewalks.pick_random()
 
 func _on_detection_area_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):

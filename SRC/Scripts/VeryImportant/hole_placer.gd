@@ -25,8 +25,6 @@ func _place_holes():
 					g.global_position = i.global_position
 					minigame_children.append(g)
 					hole_container.add_child.call_deferred(g)
-					print(g.id)
-					print(minigame_children.size())
 
 func _remove_holes():
 	for i in get_parent().get_children():

@@ -23,6 +23,7 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact") and player_inside == true and Global.minigame_initiated == false:
 		var t = minigames.pick_random()
 		var minigame_chosen = t.instantiate()
+		minigame_chosen.z_index = 20
 		ui_area.add_child.call_deferred(minigame_chosen)
 		Global.minigame.emit.call_deferred(self)
 		Global.minigame_initiated = true

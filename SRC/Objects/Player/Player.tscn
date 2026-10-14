@@ -23,6 +23,10 @@
 radius = 0.3232422
 height = 1.6254883
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jug35"]
+atlas = ExtResource("11_2jsmj")
+region = Rect2(0, 0, 2048, 2048)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_phjnt"]
 atlas = ExtResource("3_wi1x5")
 region = Rect2(0, 0, 2048, 2048)
@@ -81,6 +85,14 @@ region = Rect2(0, 0, 2048, 2048)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ch2j5"]
 animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_jug35")
+}],
+"loop": 1,
+"name": &"Dashing",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_phjnt")
@@ -163,11 +175,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.08897269, 0)
 sorting_offset = 99.0
 pixel_size = 0.001
 sprite_frames = SubResource("SpriteFrames_ch2j5")
-animation = &"Run"
-frame_progress = 0.8898703
+animation = &"Dashing"
+frame_progress = 0.7756015
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=475604937]
 transform = Transform3D(0.3, 0, 0, 0, -1.3113417e-08, -0.3, 0, 0.3, -1.3113417e-08, 0, -0.36352253, 0)
+sorting_use_aabb_center = false
 modulate = Color(1, 1, 1, 0.5137255)
 texture = ExtResource("6_5gom3")
 

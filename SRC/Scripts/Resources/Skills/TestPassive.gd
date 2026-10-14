@@ -1,6 +1,6 @@
 extends Node
 class_name slow_down
-var upd : UpgradeRes = UpgradeRes.new("Slow Down", "SSL","Slows down time when in a Minigame", 200)
+var upd : UpgradeRes = UpgradeRes.new("Slow Down", "SSL","Slows down time when in a Minigame","Slows down the timer when your in a minigame,\n giving you more time to spare.", 200)
 
 
 

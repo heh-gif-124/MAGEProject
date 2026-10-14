@@ -1,22 +1,26 @@
 extends TextureRect
 class_name Upgrade_shop
+
 @export var label_name : Label
 @export var label_desc : Label
 @export var cost_label : Label
 @export var button : Button
-var cost : float
-var upgrade : Array = [slow_down.new(),Minimap.new(),Dash.new()]
-var chosen_upgrade : Node
-# Called when the node enters the scene tree for the first time.
+
+# This will be injected by the main script before the node enters the tree
+var upgrade_data = null
+
 func _ready() -> void:
-	var g = upgrade.pick_random()
-	label_name.text = g.upd.upname
-	label_desc.text = g.upd.updesc
+	if upgrade_data == null:
+		return # Safety check if template node is visible by mistake
+
+	label_name.text = upgrade_data.upd.upname
+	label_desc.text = upgrade_data.upd.updesc
+	tooltip_text = upgrade_data.upd.uplodesc
+	cost_label.text = str(upgrade_data.upd.upcost)
+
 	button.pressed.connect(func():
-		Global.currency -= cost
+		if Global.currency >= upgrade_data.upd.upcost:
+			Global.currency -= upgrade_data.upd.upcost
+			Global.buy.emit(upgrade_data.upd.upid)
+			queue_free()
 	)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
