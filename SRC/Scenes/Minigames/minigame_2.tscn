@@ -25,7 +25,7 @@ corner_radius_top_right = 7
 corner_radius_bottom_right = 7
 corner_radius_bottom_left = 7
 
-[node name="Minigame" type="Control" unique_id=1370748970 node_paths=PackedStringArray("bar", "winlabel", "numlabel", "numtimer")]
+[node name="Minigame" type="Control" unique_id=1370748970 node_paths=PackedStringArray("bar", "winlabel", "numlabel", "numtimer", "fail_label")]
 material = ExtResource("1_37eoj")
 layout_mode = 3
 anchors_preset = 15
@@ -38,6 +38,7 @@ bar = NodePath("ColorRect2/ProgressBar")
 winlabel = NodePath("ColorRect2/WinLabel2")
 numlabel = NodePath("ColorRect2/NumbLabel")
 numtimer = NodePath("NumberTimer")
+fail_label = NodePath("ColorRect2/FailLabel")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=655217094]
 z_index = -3
@@ -101,15 +102,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 464.0
+offset_left = 456.0
 offset_top = -38.0
-offset_right = 631.0
+offset_right = 623.0
 offset_bottom = 38.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("3_sel0y")
 theme_override_font_sizes/font_size = 55
 text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="ProgressBar" type="ProgressBar" parent="ColorRect2" unique_id=562844240]
 z_index = 2
@@ -149,6 +153,27 @@ theme_override_colors/font_color = Color(0.22352941, 0.1882353, 0.25490198, 1)
 theme_override_fonts/font = ExtResource("3_sel0y")
 theme_override_font_sizes/font_size = 120
 text = "CLEAR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FailLabel" type="Label" parent="ColorRect2" unique_id=530576652]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.25659
+offset_top = -204.0
+offset_right = 203.25659
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.22352941, 0.1882353, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("3_sel0y")
+theme_override_font_sizes/font_size = 120
+text = "FAILED"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -27,7 +27,7 @@ corner_radius_top_right = 7
 corner_radius_bottom_right = 7
 corner_radius_bottom_left = 7
 
-[node name="Minigame" type="Control" unique_id=1370748970 node_paths=PackedStringArray("bar", "winlabel")]
+[node name="Minigame" type="Control" unique_id=1370748970 node_paths=PackedStringArray("bar", "winlabel", "fail_label")]
 material = ExtResource("1_8x4jg")
 layout_mode = 3
 anchors_preset = 15
@@ -38,6 +38,7 @@ grow_vertical = 2
 script = ExtResource("1_jfadb")
 bar = NodePath("ProgressBar")
 winlabel = NodePath("WinLabel")
+fail_label = NodePath("FailLabel")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1563708077]
 z_index = 2
@@ -89,6 +90,27 @@ theme_override_colors/font_color = Color(0.22352941, 0.1882353, 0.25490198, 1)
 theme_override_fonts/font = ExtResource("3_omhgr")
 theme_override_font_sizes/font_size = 120
 text = "CLEAR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FailLabel" type="Label" parent="." unique_id=410322504]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.25659
+offset_top = -204.0
+offset_right = 203.25659
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.22352941, 0.1882353, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("3_omhgr")
+theme_override_font_sizes/font_size = 120
+text = "FAILED"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -7,7 +7,7 @@ extends Node
 @export var anim_player : AnimationPlayer
 
 # Master pool of all possible upgrades
-var upgrade_pool : Array = [slow_down.new(), Minimap.new(), Dash.new(), DoubleJump.new]
+var upgrade_pool : Array = [slow_down.new(), Minimap.new(), Dash.new(), DoubleJump.new()]
 
 func _ready() -> void:
 	exit_buton.pressed.connect(func():

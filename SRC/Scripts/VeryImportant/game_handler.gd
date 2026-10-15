@@ -67,7 +67,8 @@ func _ready() -> void:
 	)
 
 	Global.shop_exited.connect(func():
-		pass
+		await get_tree().create_timer(1.5, true, false, true).timeout
+		get_tree().change_scene_to_packed(next_level)
 	)
 
 func _physics_process(delta: float) -> void:

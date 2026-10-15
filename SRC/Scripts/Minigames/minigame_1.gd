@@ -3,11 +3,13 @@ extends Control
 var threshold : float = 0.0
 var started : bool = false
 var won : bool = false
+var lost : bool = false
 var calibrating : bool = false
 
 @export var bar : ProgressBar
 @export var winlabel : Label
-@export var decay_rate : float = 20.0 # Points lost per second
+@export var fail_label : Label              # Drag your "FAILED!" label here in the Inspector
+@export var decay_rate : float = 20.0       # Points lost per second
 var hydrant : Area3D
 var stylebox : StyleBoxFlat
 
@@ -21,6 +23,9 @@ func _ready() -> void:
 
 	if winlabel:
 		winlabel.pivot_offset = winlabel.size / 2.0
+	if fail_label:
+		fail_label.pivot_offset = fail_label.size / 2.0
+		fail_label.visible = false
 
 	Global.minigame.connect(func(hole):
 		_reset_stuff()
@@ -34,7 +39,7 @@ func _physics_process(delta: float) -> void:
 		stylebox.bg_color = Color.YELLOW.lerp(Color.ORANGE, abs(sin(Time.get_ticks_msec() * 0.02)))
 		return
 
-	if not Global.minigame_initiated or not started or won:
+	if not Global.minigame_initiated or not started or won or lost:
 		return
 
 	# Handle Player Input with Juice Punch
@@ -76,7 +81,22 @@ func _physics_process(delta: float) -> void:
 		stylebox.bg_color = Color.RED
 
 	# Check Loss Condition
-	if threshold <= 0.0:
+	if threshold <= 0.0 and not lost:
+		lost = true
+		stylebox.bg_color = Color.DARK_RED
+
+		# Play Fail Juice FX
+		_play_fail_juice()
+
+		# Aggressive failure shake
+		var shake_tw = create_tween()
+		shake_tw.tween_property(self, "position", base_position + Vector2(12, 0), 0.05)
+		shake_tw.tween_property(self, "position", base_position + Vector2(-12, 0), 0.05)
+		shake_tw.tween_property(self, "position", base_position + Vector2(8, 0), 0.05)
+		shake_tw.tween_property(self, "position", base_position, 0.05)
+
+		await get_tree().create_timer(1.2, true, false, true).timeout
+
 		Global.minigame_initiated = false
 		await _play_outro()
 		queue_free()
@@ -93,9 +113,16 @@ func _reset_stuff():
 	if winlabel:
 		winlabel.visible = false
 		winlabel.scale = Vector2.ZERO
+		winlabel.modulate.a = 0.0
+
+	if fail_label:
+		fail_label.visible = false
+		fail_label.scale = Vector2.ZERO
+		fail_label.modulate.a = 0.0
 
 	started = false
 	won = false
+	lost = false
 	visible = true
 	position = base_position
 
@@ -124,10 +151,20 @@ func _apply_danger_shake() -> void:
 func _play_win_juice() -> void:
 	if not winlabel: return
 	winlabel.visible = true
+	winlabel.modulate.a = 1.0
 
 	var tw = create_tween().set_parallel(true).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 	tw.tween_property(winlabel, "scale", Vector2(1.3, 1.3), 0.3)
 	tw.tween_property(winlabel, "rotation_degrees", randf_range(-5, 5), 0.3)
+
+func _play_fail_juice() -> void:
+	if not fail_label: return
+	fail_label.visible = true
+	fail_label.modulate.a = 1.0
+
+	var tw = create_tween().set_parallel(true).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	tw.tween_property(fail_label, "scale", Vector2(1.3, 1.3), 0.3)
+	tw.tween_property(fail_label, "modulate", Color.RED, 0.3)
 
 func _play_outro() -> void:
 	position = base_position # Reset shake offset before scaling down

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://d3jgcgjc00ks7"]
 
+[ext_resource type="Script" uid="uid://dowkfm2uide6u" path="res://SRC/Scripts/VeryImportant/game_over_screen.gd" id="1_6l0jx"]
 [ext_resource type="Texture2D" uid="uid://bahbg6gpex85u" path="res://SRC/Sprites/UI/Game Over/Tak berjudul351_20260910102241.png" id="1_f8sq0"]
 [ext_resource type="FontFile" uid="uid://d1u7d68x5aaso" path="res://SRC/Fonts/juno-filament-regular.ttf" id="2_6gudl"]
 
@@ -9,7 +10,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmd57"]
 bg_color = Color(0.52156866, 0.52156866, 0.52156866, 0)
 
-[node name="GameOverScreen" type="Control" unique_id=976827129]
+[node name="GameOverScreen" type="Control" unique_id=976827129 node_paths=PackedStringArray("yes_button")]
 z_index = 20
 layout_mode = 3
 anchors_preset = 15
@@ -17,6 +18,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_6l0jx")
+yes_button = NodePath("VBoxContainer/Button")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=734620320]
 layout_mode = 1

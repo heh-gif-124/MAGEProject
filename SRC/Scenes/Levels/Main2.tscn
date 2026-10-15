@@ -109,8 +109,9 @@ expand_margin_bottom = 2.0
 
 [node name="HolePlacer" type="Node" parent="LevelContents" unique_id=1004306106 node_paths=PackedStringArray("hole_container")]
 script = ExtResource("1_vev2r")
-hole = ExtResource("2_f3r3c")
+hole_scene = ExtResource("2_f3r3c")
 hole_container = NodePath("../HoleContainer")
+randomize_rotation_y = false
 
 [node name="Marker3D7" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=1113178836]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2380486, 1.3829628, -6.350326)
