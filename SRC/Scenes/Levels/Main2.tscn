@@ -16,44 +16,44 @@
 [ext_resource type="PackedScene" uid="uid://d3jgcgjc00ks7" path="res://SRC/Scenes/GameOver/GameOverScreen.tscn" id="14_3lmkw"]
 [ext_resource type="Script" uid="uid://drtk42vjyvg4o" path="res://SRC/Scripts/VeryImportant/upgrade_handler.gd" id="15_jgft0"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_erja3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qtryu"]
 albedo_texture = ExtResource("4_syxpt")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4tg0v"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jla0j"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_r150o"]
+[sub_resource type="BoxMesh" id="BoxMesh_nmlge"]
 resource_local_to_scene = true
-material = SubResource("ShaderMaterial_4tg0v")
+material = SubResource("ShaderMaterial_jla0j")
 size = Vector3(2.0230331, 1, 14.224731)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_t5s3b"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_yskii"]
 size = Vector3(2.020752, 1, 15.327759)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_erja3"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_i56o4"]
 frequency = 0.0127
 offset = Vector3(0, -280, 0)
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_y20q0"]
-noise = SubResource("FastNoiseLite_erja3")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_oa45f"]
+noise = SubResource("FastNoiseLite_i56o4")
 seamless = true
 as_normal_map = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_y20q0"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qms22"]
 render_priority = -1
 shader = ExtResource("5_0ifsc")
-shader_parameter/normal_map = SubResource("NoiseTexture2D_y20q0")
+shader_parameter/normal_map = SubResource("NoiseTexture2D_oa45f")
 shader_parameter/color = Color(0.6277665, 0.93998814, 0.9689689, 1)
 shader_parameter/rapid = 0.001
 shader_parameter/transparency = 0.57999998703584
 
-[sub_resource type="BoxMesh" id="BoxMesh_v3oac"]
-material = SubResource("ShaderMaterial_y20q0")
+[sub_resource type="BoxMesh" id="BoxMesh_snixr"]
+material = SubResource("ShaderMaterial_qms22")
 size = Vector3(17.851563, 0.5477295, 96.94116)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_nmd57"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_v3ytu"]
 size = Vector3(89.227264, 1, 57.680603)
 
-[sub_resource type="Environment" id="Environment_r150o"]
+[sub_resource type="Environment" id="Environment_baiy7"]
 background_mode = 1
 background_color = Color(0.7666196, 0.76661956, 0.76661956, 1)
 reflected_light_source = 2
@@ -61,13 +61,13 @@ ssr_fade_in = 0.52233
 fog_light_energy = 2.27
 adjustment_enabled = true
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eh125"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dbk2s"]
 
-[sub_resource type="Sky" id="Sky_5bdln"]
-sky_material = SubResource("ProceduralSkyMaterial_eh125")
+[sub_resource type="Sky" id="Sky_dgxog"]
+sky_material = SubResource("ProceduralSkyMaterial_dbk2s")
 
-[sub_resource type="Environment" id="Environment_8s7kp"]
-sky = SubResource("Sky_5bdln")
+[sub_resource type="Environment" id="Environment_ixev1"]
+sky = SubResource("Sky_dgxog")
 reflected_light_source = 2
 glow_normalized = true
 glow_intensity = 2.21
@@ -75,7 +75,7 @@ volumetric_fog_enabled = true
 volumetric_fog_albedo = Color(0.4299947, 0.9077094, 0.9349203, 1)
 volumetric_fog_emission = Color(0.43134022, 0.43134025, 0.43134025, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5bdln"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nwpu1"]
 shader = ExtResource("6_3yiol")
 shader_parameter/count = 150
 shader_parameter/slant = 3.259879990946679e-09
@@ -84,7 +84,7 @@ shader_parameter/blur = 0.002
 shader_parameter/colour = Color(1, 1, 1, 1)
 shader_parameter/size = Vector2(0.01, 0.2)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erja3"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p54b0"]
 bg_color = Color(1, 1, 1, 0.85882354)
 border_width_left = 2
 border_width_top = 2
@@ -96,7 +96,7 @@ expand_margin_top = 8.0
 expand_margin_right = 8.0
 expand_margin_bottom = 8.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtryu"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogu3p"]
 bg_color = Color(0.32792002, 0.21066695, 0.43379888, 0.6)
 expand_margin_left = 2.0
 expand_margin_top = 2.0
@@ -154,12 +154,12 @@ metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="LevelContents/Map/StaticBody3D2" unique_id=56880617]
 transform = Transform3D(0.99998146, 0, 0, 0, 1, 0, 0, 0, 1, -0.15685618, 0, 4.2489624)
-material_override = SubResource("StandardMaterial3D_erja3")
-mesh = SubResource("BoxMesh_r150o")
+material_override = SubResource("StandardMaterial3D_qtryu")
+mesh = SubResource("BoxMesh_nmlge")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LevelContents/Map/StaticBody3D2" unique_id=1853568331]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15930179, 0, 3.736142)
-shape = SubResource("BoxShape3D_t5s3b")
+shape = SubResource("BoxShape3D_yskii")
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="LevelContents/Map" unique_id=1477390153]
 transform = Transform3D(3.3927653, 0, 0, 0, 5.0446715, 0, 0, 0, 0.98035586, 13.683296, -1.5334654, -5.1568747)
@@ -167,26 +167,26 @@ metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="LevelContents/Map/StaticBody3D3" unique_id=1171458051]
 transform = Transform3D(0.99998146, 0, 0, 0, 1, 0, 0, 0, 1, -0.15685618, 0, 4.2489624)
-material_override = SubResource("StandardMaterial3D_erja3")
-mesh = SubResource("BoxMesh_r150o")
+material_override = SubResource("StandardMaterial3D_qtryu")
+mesh = SubResource("BoxMesh_nmlge")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LevelContents/Map/StaticBody3D3" unique_id=1272774660]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15930179, 0, 3.736142)
-shape = SubResource("BoxShape3D_t5s3b")
+shape = SubResource("BoxShape3D_yskii")
 
 [node name="Water" type="StaticBody3D" parent="LevelContents/Map" unique_id=223756649]
 transform = Transform3D(8.005055, 0, 0, 0, 5.0446715, 0, 0, 0, 0.98035586, 0, -0.77876997, -5.1568747)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="LevelContents/Map/Water" unique_id=1264628358]
 transform = Transform3D(0.99998146, 0, 0, 0, 1, 0, 0, 0, 1, 0.31695223, -0.16754954, -0.7211919)
-mesh = SubResource("BoxMesh_v3oac")
+mesh = SubResource("BoxMesh_snixr")
 
 [node name="Area3D" type="Area3D" parent="LevelContents/Map" unique_id=671932887]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.19483, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LevelContents/Map/Area3D" unique_id=1276747307]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5707855, 0, -4.6679993)
-shape = SubResource("BoxShape3D_nmd57")
+shape = SubResource("BoxShape3D_v3ytu")
 
 [node name="Building11" parent="LevelContents/Map" unique_id=1423734849 instance=ExtResource("4_fn2nb")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -7.292406, 1.0055475, -7.911534)
@@ -218,14 +218,14 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.7604561, 1.0055475, -7.9115
 [node name="HoleContainer" type="Node3D" parent="LevelContents" unique_id=355860309]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=947205289]
-environment = SubResource("Environment_r150o")
+environment = SubResource("Environment_baiy7")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=229835751]
 transform = Transform3D(1, 0, 0, 0, 0.30961666, 0.95086145, 0, -0.95086145, 0.30961666, 0, 11.195955, 2.8206744)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2001668656 node_paths=PackedStringArray("target")]
 transform = Transform3D(-1.3550135e-06, -0.16173328, 0.9868345, 0, 0.9868345, 0.16173328, -1, 2.1915079e-07, -1.3371741e-06, 19.434174, 1.8096497, -2.0658896)
-environment = SubResource("Environment_8s7kp")
+environment = SubResource("Environment_ixev1")
 script = ExtResource("4_q3m47")
 target = NodePath("../LevelContents/CharacterBody3D")
 offset = Vector3(0, 3, 5)
@@ -243,7 +243,7 @@ mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="UI/Rain" unique_id=1211700301]
-material = SubResource("ShaderMaterial_5bdln")
+material = SubResource("ShaderMaterial_nwpu1")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -295,8 +295,8 @@ offset_right = 138.5
 offset_bottom = 21.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_erja3")
-theme_override_styles/fill = SubResource("StyleBoxFlat_qtryu")
+theme_override_styles/background = SubResource("StyleBoxFlat_p54b0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ogu3p")
 value = 33.0
 fill_mode = 3
 show_percentage = false

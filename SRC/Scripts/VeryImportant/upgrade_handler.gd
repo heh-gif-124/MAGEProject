@@ -4,7 +4,11 @@ extends Node
 func _ready() -> void:
 	for i in Global.upgrade_list:
 		if i == "DDH":
-			print("added dash")
+			var t = Dash.new()
+			add_child.call_deferred(t)
+		elif i == "SSL":
+			var t = slow_down.new()
+			add_child.call_deferred(t)
 	Global.buy.connect(func(upgrade_id):
 
 		if upgrade_id == "DDH":

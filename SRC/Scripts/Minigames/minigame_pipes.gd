@@ -20,7 +20,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if started == true:
 		if Input.is_action_just_pressed("ui_right"):
-			mini_player.velocity.x += 10
+			mini_player.velocity.x += 30
 	if win_area.has_overlapping_bodies():
 		if tape_stopped == true:
 			won = true

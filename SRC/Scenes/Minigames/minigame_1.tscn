@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://bm8d86rl4d1cd" path="res://SRC/Scripts/Minigames/minigame_1.gd" id="1_jfadb"]
 [ext_resource type="Texture2D" uid="uid://cpkvnlfxanlok" path="res://SRC/Sprites/UI/Tak berjudul351_20260926185830.png" id="3_ld0gp"]
 [ext_resource type="FontFile" uid="uid://d1u7d68x5aaso" path="res://SRC/Fonts/juno-filament-regular.ttf" id="3_omhgr"]
+[ext_resource type="Texture2D" uid="uid://df0co7e2k04qc" path="res://SRC/Sprites/Sampah/Tak berjudul350_20260910183942.png" id="5_vpouk"]
+[ext_resource type="Texture2D" uid="uid://dirsdpntw5bwq" path="res://SRC/Sprites/Sampah/Tak berjudul350_20260910184231.png" id="6_p8umd"]
+[ext_resource type="Texture2D" uid="uid://ddehkbw4km1c3" path="res://SRC/Sprites/Sampah/Tak berjudul350_20260910184216.png" id="7_p8umd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_odiry"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -105,7 +108,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.22352941, 0.1882353, 0.25490198, 1)
 theme_override_colors/font_outline_color = Color(0.22352941, 0.1882353, 0.25490198, 1)
-theme_override_constants/outline_size = 5
+theme_override_constants/line_spacing = 3
 theme_override_fonts/font = ExtResource("3_omhgr")
 theme_override_font_sizes/font_size = 33
 text = "Spam the [E] Button before it becomes
@@ -126,4 +129,59 @@ offset_bottom = 1020.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_ld0gp")
+expand_mode = 1
+
+[node name="Control" type="Control" parent="." unique_id=473119101]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Control" unique_id=470476549]
+layout_mode = 0
+offset_left = -124.0
+offset_top = 371.0
+offset_right = 276.0
+offset_bottom = 771.0
+texture = ExtResource("5_vpouk")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Control" unique_id=467865633]
+layout_mode = 0
+offset_left = 338.0
+offset_top = 388.0
+offset_right = 738.0
+offset_bottom = 788.0
+rotation = 1.5707964
+texture = ExtResource("6_p8umd")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="Control" unique_id=614496043]
+layout_mode = 0
+offset_left = -124.0
+offset_top = 371.0
+offset_right = 276.0
+offset_bottom = 771.0
+texture = ExtResource("5_vpouk")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="Control" unique_id=1594205042]
+layout_mode = 0
+offset_left = 677.0
+offset_top = 186.0
+offset_right = 1369.0
+offset_bottom = 878.0
+texture = ExtResource("5_vpouk")
+expand_mode = 1
+
+[node name="TextureRect6" type="TextureRect" parent="Control" unique_id=928732518]
+layout_mode = 0
+offset_left = 558.0
+offset_top = 313.0
+offset_right = 1250.0
+offset_bottom = 1005.0
+rotation = -0.2617994
+texture = ExtResource("7_p8umd")
 expand_mode = 1
