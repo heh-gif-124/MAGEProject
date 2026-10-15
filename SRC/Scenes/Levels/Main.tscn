@@ -16,7 +16,6 @@
 [ext_resource type="FontFile" uid="uid://d1u7d68x5aaso" path="res://SRC/Fonts/juno-filament-regular.ttf" id="11_qtryu"]
 [ext_resource type="PackedScene" uid="uid://d3jgcgjc00ks7" path="res://SRC/Scenes/GameOver/GameOverScreen.tscn" id="12_y20q0"]
 [ext_resource type="PackedScene" uid="uid://b02rhyugjqstm" path="res://SRC/Scenes/Levels/Main2.tscn" id="13_jla0j"]
-[ext_resource type="Script" uid="uid://d4eokwvj3yn8r" path="res://SRC/Scripts/Resources/Skills/Doublejump.gd" id="17_nmlge"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_erja3"]
 albedo_texture = ExtResource("4_y20q0")
@@ -305,6 +304,8 @@ theme_override_fonts/font = ExtResource("11_qtryu")
 theme_override_font_sizes/font_size = 22
 text = "TESTALALALA "
 
+[node name="MinigameHolder" type="Node" parent="UI" unique_id=955748555 groups=["MinigameHolder"]]
+
 [node name="Handlers" type="Node" parent="." unique_id=784727724]
 
 [node name="GameHandler" type="Node" parent="Handlers" unique_id=1759678066 node_paths=PackedStringArray("hole_placer", "hole_container", "UI_layer", "countdown", "countdown_bar", "water_node", "respawn_floor", "moneylabel")]
@@ -322,15 +323,11 @@ shop_ui = ExtResource("10_bcwvo")
 gos = ExtResource("12_y20q0")
 metadata/_custom_type_script = "uid://kw1nigddulp1"
 
-[node name="Timer" type="Timer" parent="Handlers/GameHandler" unique_id=887904763]
+[node name="Timer" type="Timer" parent="Handlers/GameHandler" unique_id=887904763 groups=["Countdown"]]
 process_callback = 0
-wait_time = 50.0
+wait_time = 55.0
 one_shot = true
 autostart = true
 
 [node name="UpgradeHandler" type="Node" parent="Handlers" unique_id=1277491581]
 script = ExtResource("11_4tg0v")
-
-[node name="DoubleJump" type="Node" parent="Handlers/UpgradeHandler" unique_id=300496189]
-script = ExtResource("17_nmlge")
-metadata/_custom_type_script = "uid://d4eokwvj3yn8r"

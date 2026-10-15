@@ -2,11 +2,11 @@ extends Area3D
 var player_inside : bool = false
 @export var label : Label3D
 @export var minigames : Array[PackedScene]
-var ui_area : CanvasLayer
+var ui_area : Node
 var id : int
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	ui_area = get_tree().get_first_node_in_group("UILayer")
+	ui_area = get_tree().get_first_node_in_group("MinigameHolder")
 	body_entered.connect(func(body):
 		if body.is_in_group("Player"):
 			player_inside = true
