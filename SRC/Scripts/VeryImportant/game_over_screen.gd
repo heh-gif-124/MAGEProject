@@ -11,6 +11,6 @@ func _ready() -> void:
 func total_soft_reset():
 	# 1. Reset your Autoload data (e.g., ScoreManager, GameManager)
 	Global.currency = 0
-
+	Global.minigame_initiated = false
 	# 2. Reload the root or main menu scene
 	get_tree().reload_current_scene()

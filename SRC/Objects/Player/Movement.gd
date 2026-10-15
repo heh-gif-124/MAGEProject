@@ -4,9 +4,11 @@ class_name MainMovement
 @export var player : CharacterBody3D
 var SPEED = 3.0
 var sprint_mult : float = 2
+var can_double : bool = true
 
 @export_group("Jump Feel")
 @export var JUMP_VELOCITY: float = 7.0
+@export var double_jump_velocity: float = 6.0 # Height of the air jump
 @export var jump_cut_multiplier: float = 0.5
 @export var coyote_time: float = 0.15
 @export var jump_buffer_time: float = 0.15
@@ -105,23 +107,29 @@ func _process(delta: float) -> void:
 				player.velocity.x = move_toward(player.velocity.x, 0, SPEED)
 				player.velocity.z = move_toward(player.velocity.z, 0, SPEED)
 
-			# Coyote Time tracking
+			# Coyote Time tracking & Floor Reset
 			if player.is_on_floor():
 				coyote_timer = coyote_time
+				can_double = true # Reset double jump when landing
 			else:
 				coyote_timer -= delta
 
 			# Jump Buffer tracking
-			if Input.is_action_just_pressed("ui_accept"):
+			if Input.is_action_just_pressed("jump"):
 				jump_buffer_timer = jump_buffer_time
 			else:
 				jump_buffer_timer -= delta
 
-			# Execute Jump
+			# Execute Ground Jump
 			if jump_buffer_timer > 0.0 and coyote_timer > 0.0:
 				player.velocity.y = JUMP_VELOCITY
 				jump_buffer_timer = 0.0
 				coyote_timer = 0.0
+			# Execute Double Jump (Air Jump)
+			elif jump_buffer_timer > 0.0 and Global.unlocked_double_jump and can_double and not player.is_on_floor():
+				player.velocity.y = double_jump_velocity
+				can_double = false
+				jump_buffer_timer = 0.0
 
 			# Variable Jump Height
 			if Input.is_action_just_released("ui_accept") and player.velocity.y < 0:

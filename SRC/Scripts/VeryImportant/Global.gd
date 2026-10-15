@@ -7,5 +7,6 @@ signal buy(upgrade_id)
 signal shop_exited()
 var minigame_initiated : bool = false
 var minigames_completed : int = 0
-var currency : int = 0
-var dashing_unlocked = false
+var currency : int = 99999
+var dashing_unlocked : bool = false
+var unlocked_double_jump : bool = false
