@@ -12,6 +12,12 @@ class_name GameHandler
 @export var countdown : Timer
 @export var countdown_bar : ProgressBar # Replaced Label with ProgressBar
 
+@export_subgroup("Water Hazard")
+@export var water_node : Node3D         # Drag your water mesh/node here
+@export var water_min_y : float = -2.0  # Height when countdown starts
+@export var water_max_y : float = 3.0  # Height when countdown hits 0
+@export var move_respawn_floor_with_water : bool = true
+
 @export_subgroup("next Level")
 @export var next_level : PackedScene
 
@@ -21,7 +27,6 @@ class_name GameHandler
 @export var animation_player : AnimationPlayer
 @export var respawn_floor : Area3D
 @export var moneylabel : Label
-
 
 @export_group("Shop")
 @export var shop_ui : PackedScene
@@ -39,6 +44,12 @@ func _ready() -> void:
 	# Initialize the progress bar max value to match the timer's total duration
 	if countdown != null and countdown_bar != null:
 		countdown_bar.max_value = countdown.wait_time
+
+	# Initialize water position at the start
+	if water_node != null:
+		var pos = water_node.global_position
+		pos.y = water_min_y
+		water_node.global_position = pos
 
 	Global.minigame_finished.connect(func():
 		_start_new_wave()
@@ -60,11 +71,25 @@ func _ready() -> void:
 	)
 
 func _physics_process(delta: float) -> void:
-	moneylabel.text = "$" + str(Global.currency)
+	if moneylabel != null:
+		moneylabel.text = "$" + str(Global.currency)
 
 	# Update the progress bar value with the timer's remaining time
 	if countdown_bar != null and countdown != null:
 		countdown_bar.value = countdown.time_left
+
+	# --- RISING WATER LOGIC ---
+	if countdown != null and not countdown.is_stopped() and countdown.wait_time > 0:
+		# Calculates progress from 0.0 (start) to 1.0 (when timer reaches 0)
+		var time_ratio = 1.0 - (countdown.time_left / countdown.wait_time)
+
+		if water_node != null:
+			var target_y = lerp(water_min_y, water_max_y, time_ratio)
+			var water_pos = water_node.global_position
+			water_pos.y = target_y
+			water_node.global_position = water_pos
+
+			# Optionally move the respawn floor up with the water so the kill plane stays aligned
 
 	if current_wave > waves and shop_phase == false:
 		shop_phase = true

@@ -271,7 +271,7 @@ transform = Transform3D(0.99998146, 0, 0, 0, 1, 0, 0, 0, 1, 0.31695223, -0.16754
 mesh = SubResource("BoxMesh_v3oac")
 
 [node name="Area3D" type="Area3D" parent="LevelContents/Map" unique_id=671932887]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.19483, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.4865494, 0, -6.19483, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LevelContents/Map/Area3D" unique_id=1276747307]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5707855, 0, -4.6679993)
@@ -407,13 +407,14 @@ text = "TESTALALALA "
 
 [node name="Handlers" type="Node" parent="." unique_id=784727724]
 
-[node name="GameHandler" type="Node" parent="Handlers" unique_id=1759678066 node_paths=PackedStringArray("hole_placer", "hole_container", "UI_layer", "countdown", "countdown_bar", "respawn_floor", "moneylabel")]
+[node name="GameHandler" type="Node" parent="Handlers" unique_id=1759678066 node_paths=PackedStringArray("hole_placer", "hole_container", "UI_layer", "countdown", "countdown_bar", "water_node", "respawn_floor", "moneylabel")]
 script = ExtResource("1_dv6wd")
 hole_placer = NodePath("../../LevelContents/HolePlacer")
 hole_container = NodePath("../../LevelContents/HoleContainer")
 UI_layer = NodePath("../../UI")
 countdown = NodePath("Timer")
 countdown_bar = NodePath("../../UI/TextureRect2/ProgressBar")
+water_node = NodePath("../../LevelContents/Map/Water")
 next_level = SubResource("PackedScene_ue84k")
 respawn_floor = NodePath("../../LevelContents/Map/Area3D")
 moneylabel = NodePath("../../UI/TextureRect2/MoneyLabel")

@@ -1,4 +1,5 @@
 extends Node
+class_name DoubleJump
 var upd : UpgradeRes = UpgradeRes.new("Airjump",
 	"DDH",
 	"Gives you an extra air jump",
