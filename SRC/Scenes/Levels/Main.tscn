@@ -471,7 +471,6 @@ countdown = NodePath("Timer")
 countdown_bar = NodePath("../../UI/TextureRect2/ProgressBar")
 water_node = NodePath("../../LevelContents/Map/Water")
 next_level = ExtResource("13_jla0j")
-waves = 0
 respawn_floor = NodePath("../../LevelContents/Map/Area3D")
 moneylabel = NodePath("../../UI/TextureRect2/MoneyLabel")
 shop_ui = ExtResource("10_bcwvo")
