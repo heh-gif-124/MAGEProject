@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bgltmq6qxes5c" path="res://SRC/Scripts/Minigames/minigame_pipes.gd" id="1_u3ras"]
 [ext_resource type="Texture2D" uid="uid://dvlt3bgvn7h8f" path="res://icon.svg" id="2_c4q5d"]
+[ext_resource type="FontFile" uid="uid://d1u7d68x5aaso" path="res://SRC/Fonts/juno-filament-regular.ttf" id="3_x4mlb"]
+[ext_resource type="Texture2D" uid="uid://cpkvnlfxanlok" path="res://SRC/Sprites/UI/Tak berjudul351_20260926185830.png" id="4_1iiuw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u3ras"]
 size = Vector2(126, 128)
@@ -22,6 +24,7 @@ mini_player = NodePath("MainArea/Player")
 winlabel = NodePath("Instruction")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1641884536]
+z_index = -2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,25 +36,26 @@ color = Color(0, 0, 0, 0.39607844)
 metadata/_edit_lock_ = true
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=360675996]
+z_index = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 902.0
-offset_top = 108.0
-offset_right = -23.0
-offset_bottom = -142.0
+offset_left = 855.0
+offset_top = 176.0
+offset_right = -97.0
+offset_bottom = -210.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0.8980392, 0, 0.39607844)
+color = Color(0, 0.8980392, 0, 0.70980394)
 
 [node name="MainArea" type="Node2D" parent="." unique_id=1334131316]
 physics_interpolation_mode = 1
 position = Vector2(682, 307)
 
 [node name="Player" type="CharacterBody2D" parent="MainArea" unique_id=1214942214]
-position = Vector2(-151, 0)
+position = Vector2(-218, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainArea/Player" unique_id=5167625]
 z_index = 1
@@ -62,7 +66,8 @@ shape = SubResource("RectangleShape2D_u3ras")
 texture = ExtResource("2_c4q5d")
 
 [node name="Area2D" type="Area2D" parent="MainArea" unique_id=2025024133]
-position = Vector2(333, 0)
+visible = false
+position = Vector2(277, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainArea/Area2D" unique_id=1706292201]
 shape = SubResource("RectangleShape2D_pyuf7")
@@ -75,13 +80,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -559.0
-offset_top = -314.0
-offset_right = -95.0
-offset_bottom = -215.0
+offset_left = -467.0
+offset_top = -251.0
+offset_right = 26.0
+offset_bottom = -152.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/outline_size = 20
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("3_x4mlb")
 theme_override_font_sizes/font_size = 22
 text = "Get to the finish line before the timer runs out"
 vertical_alignment = 1
@@ -93,13 +99,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -734.0
-offset_top = -262.0
-offset_right = -313.0
-offset_bottom = -163.0
+offset_left = -652.0
+offset_top = -226.0
+offset_right = -231.0
+offset_bottom = -127.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/outline_size = 20
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("3_x4mlb")
 theme_override_font_sizes/font_size = 22
 text = "Timer"
 horizontal_alignment = 1
@@ -108,3 +115,62 @@ vertical_alignment = 1
 [node name="Timer" type="Timer" parent="." unique_id=1940188809]
 wait_time = 7.0
 one_shot = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1890915674]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1260.498
+offset_top = -701.0
+offset_right = 1260.498
+offset_bottom = 1020.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_1iiuw")
+expand_mode = 1
+
+[node name="WinLabel" type="Label" parent="." unique_id=558397751]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.25659
+offset_top = -104.0
+offset_right = 203.25659
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.22352941, 0.1882353, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("3_x4mlb")
+theme_override_font_sizes/font_size = 120
+text = "CLEAR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FailLabel" type="Label" parent="." unique_id=1728289857]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.25659
+offset_top = -104.0
+offset_right = 203.25659
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.22352941, 0.1882353, 0.25490198, 1)
+theme_override_fonts/font = ExtResource("3_x4mlb")
+theme_override_font_sizes/font_size = 120
+text = "FAILED"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -20,6 +20,7 @@ Global="*uid://cfwdvib35ca8"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

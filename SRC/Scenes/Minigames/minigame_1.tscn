@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bm8d86rl4d1cd" path="res://SRC/Scripts/Minigames/minigame_1.gd" id="1_jfadb"]
 [ext_resource type="Texture2D" uid="uid://cpkvnlfxanlok" path="res://SRC/Sprites/UI/Tak berjudul351_20260926185830.png" id="3_ld0gp"]
 [ext_resource type="FontFile" uid="uid://d1u7d68x5aaso" path="res://SRC/Fonts/juno-filament-regular.ttf" id="3_omhgr"]
+[ext_resource type="Texture2D" uid="uid://beb8r351rwrla" path="res://SRC/Sprites/Sampah/Tak berjudul350_20260910184032.png" id="5_vktta"]
 [ext_resource type="Texture2D" uid="uid://df0co7e2k04qc" path="res://SRC/Sprites/Sampah/Tak berjudul350_20260910183942.png" id="5_vpouk"]
 [ext_resource type="Texture2D" uid="uid://dirsdpntw5bwq" path="res://SRC/Sprites/Sampah/Tak berjudul350_20260910184231.png" id="6_p8umd"]
 [ext_resource type="Texture2D" uid="uid://ddehkbw4km1c3" path="res://SRC/Sprites/Sampah/Tak berjudul350_20260910184216.png" id="7_p8umd"]
@@ -161,6 +162,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TextureRect8" type="TextureRect" parent="Control" unique_id=1027559746]
+layout_mode = 0
+offset_left = -104.999985
+offset_top = 107.999985
+offset_right = 587.0
+offset_bottom = 800.0
+rotation = 0.2617994
+texture = ExtResource("5_vktta")
+expand_mode = 1
+
 [node name="TextureRect2" type="TextureRect" parent="Control" unique_id=470476549]
 layout_mode = 0
 offset_left = -124.0
@@ -198,12 +209,21 @@ offset_bottom = 878.0
 texture = ExtResource("5_vpouk")
 expand_mode = 1
 
+[node name="TextureRect7" type="TextureRect" parent="Control" unique_id=587631807]
+layout_mode = 0
+offset_left = 677.0
+offset_top = 186.0
+offset_right = 1369.0
+offset_bottom = 878.0
+texture = ExtResource("5_vpouk")
+expand_mode = 1
+
 [node name="TextureRect6" type="TextureRect" parent="Control" unique_id=928732518]
 layout_mode = 0
-offset_left = 558.0
-offset_top = 313.0
-offset_right = 1250.0
-offset_bottom = 1005.0
+offset_left = 525.0
+offset_top = 320.0
+offset_right = 1217.0
+offset_bottom = 1012.0
 rotation = -0.2617994
 texture = ExtResource("7_p8umd")
 expand_mode = 1

@@ -22,5 +22,6 @@ func _ready() -> void:
 		if Global.currency >= upgrade_data.upd.upcost:
 			Global.currency -= upgrade_data.upd.upcost
 			Global.buy.emit(upgrade_data.upd.upid)
+			Global.upgrade_list.append(upgrade_data.upd.upid)
 			queue_free()
 	)

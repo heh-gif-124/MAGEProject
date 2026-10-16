@@ -218,5 +218,5 @@ texture = ExtResource("5_qlbr6")
 expand_mode = 1
 
 [node name="NumberTimer" type="Timer" parent="." unique_id=1399426182]
-wait_time = 0.78
+wait_time = 0.64
 ignore_time_scale = true

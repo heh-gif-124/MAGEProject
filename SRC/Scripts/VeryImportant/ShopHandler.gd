@@ -12,6 +12,7 @@ var upgrade_pool : Array = [slow_down.new(), Minimap.new(), Dash.new(), DoubleJu
 func _ready() -> void:
 	exit_buton.pressed.connect(func():
 		anim_player.play("exit")
+		Global.shop_exited.emit()
 	)
 
 	exit_buton.pivot_offset = exit_buton.size / 2

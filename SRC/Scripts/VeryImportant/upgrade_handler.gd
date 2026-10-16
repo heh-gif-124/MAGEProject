@@ -9,16 +9,9 @@ func _ready() -> void:
 		elif i == "SSL":
 			var t = slow_down.new()
 			add_child.call_deferred(t)
+		elif i == "DDJ":
+			var t = DoubleJump.new()
+			add_child.call_deferred(t)
 	Global.buy.connect(func(upgrade_id):
-
-		if upgrade_id == "DDH":
-			print("Bought Dashing")
-			Global.upgrade_list.append(upgrade_id)
-		elif upgrade_id == "MMI":
-			print("bought Minimap")
-			Global.upgrade_list.append(upgrade_id)
-		elif upgrade_id == "SSL":
-			print("bought Slow down")
-			Global.upgrade_list.append(upgrade_id)
 		print(Global.upgrade_list)
 	)

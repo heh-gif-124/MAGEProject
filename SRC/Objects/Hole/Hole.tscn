@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bpv5o3j4hywdx" path="res://SRC/Scenes/Minigames/minigame_1.tscn" id="2_o728k"]
 [ext_resource type="FontFile" uid="uid://d1u7d68x5aaso" path="res://SRC/Fonts/juno-filament-regular.ttf" id="3_oea4k"]
 [ext_resource type="PackedScene" uid="uid://dpaaffnhwmk12" path="res://SRC/Scenes/Minigames/minigame_2.tscn" id="3_ulwtk"]
+[ext_resource type="PackedScene" uid="uid://0vwmvhlf15bm" path="res://SRC/Scenes/Minigames/Minigame_3.tscn" id="4_wei7b"]
 [ext_resource type="Texture2D" uid="uid://bnt0pmyrliuxe" path="res://SRC/Sprites/Property city/Tak berjudul348_Dipulihkan3_20261001124259.png" id="5_ulwtk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5bdln"]
@@ -14,7 +15,7 @@ size = Vector3(0.9375, 1.329956, 0.6923828)
 [node name="Hole" type="Area3D" unique_id=516441182 node_paths=PackedStringArray("label") groups=["Hole"]]
 script = ExtResource("1_h5cb3")
 label = NodePath("Label3D")
-minigames = Array[PackedScene]([ExtResource("2_o728k"), ExtResource("3_ulwtk")])
+minigames = Array[PackedScene]([ExtResource("2_o728k"), ExtResource("3_ulwtk"), ExtResource("4_wei7b")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=811199882]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25802305, 0)

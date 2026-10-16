@@ -104,6 +104,105 @@ expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
+[sub_resource type="Animation" id="Animation_jla0j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/Level:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/Wave:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_nmlge"]
+resource_name = "Start"
+length = 3.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/Level:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.76666665, 1.7666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/Wave:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.76666665, 2.3333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.76666665, 3.1666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../Handlers/GameHandler")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3.1666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_start_countdown"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yskii"]
+_data = {
+&"RESET": SubResource("Animation_jla0j"),
+&"Start": SubResource("Animation_nmlge")
+}
+
 [node name="Node3D" type="Node3D" unique_id=1885697256]
 
 [node name="LevelContents" type="Node3D" parent="." unique_id=1414247877]
@@ -279,7 +378,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_erja3")
 theme_override_styles/fill = SubResource("StyleBoxFlat_qtryu")
-value = 33.0
+value = 100.0
 fill_mode = 3
 show_percentage = false
 
@@ -306,6 +405,61 @@ text = "TESTALALALA "
 
 [node name="MinigameHolder" type="Node" parent="UI" unique_id=955748555 groups=["MinigameHolder"]]
 
+[node name="Intro" type="Control" parent="UI" unique_id=506741193]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Intro" unique_id=36445447]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.0
+offset_top = -107.0
+offset_right = 145.0
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Level" type="Label" parent="UI/Intro/VBoxContainer" unique_id=1856741608]
+z_index = 4
+material = ExtResource("10_erja3")
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.22352941, 0.1882353, 0.25490198, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("11_qtryu")
+theme_override_font_sizes/font_size = 99
+text = "LEVEL 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wave" type="Label" parent="UI/Intro/VBoxContainer" unique_id=1736715711]
+visible = false
+z_index = 4
+material = ExtResource("10_erja3")
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.22352941, 0.1882353, 0.25490198, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("11_qtryu")
+theme_override_font_sizes/font_size = 99
+text = "WAVE 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Intro" unique_id=759923380]
+libraries/ = SubResource("AnimationLibrary_yskii")
+autoplay = &"Start"
+
 [node name="Handlers" type="Node" parent="." unique_id=784727724]
 
 [node name="GameHandler" type="Node" parent="Handlers" unique_id=1759678066 node_paths=PackedStringArray("hole_placer", "hole_container", "UI_layer", "countdown", "countdown_bar", "water_node", "respawn_floor", "moneylabel")]
@@ -317,6 +471,7 @@ countdown = NodePath("Timer")
 countdown_bar = NodePath("../../UI/TextureRect2/ProgressBar")
 water_node = NodePath("../../LevelContents/Map/Water")
 next_level = ExtResource("13_jla0j")
+waves = 0
 respawn_floor = NodePath("../../LevelContents/Map/Area3D")
 moneylabel = NodePath("../../UI/TextureRect2/MoneyLabel")
 shop_ui = ExtResource("10_bcwvo")
@@ -327,7 +482,6 @@ metadata/_custom_type_script = "uid://kw1nigddulp1"
 process_callback = 0
 wait_time = 55.0
 one_shot = true
-autostart = true
 
 [node name="UpgradeHandler" type="Node" parent="Handlers" unique_id=1277491581]
 script = ExtResource("11_4tg0v")

@@ -103,3 +103,6 @@ func _start_new_wave():
 		countdown.start()
 		current_wave += 1
 		print("YOU WIN!!")
+
+func _start_countdown():
+	countdown.start()

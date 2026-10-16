@@ -2,20 +2,20 @@ extends Node
 class_name MainMovement
 
 @export var player : CharacterBody3D
-var SPEED = 3.0
-var sprint_mult : float = 2
-var can_double : bool = true
+
+@export_group("Movement Settings")
+@export var base_speed : float = 3.0
+@export var sprint_multiplier : float = 2.0
 
 @export_group("Jump Feel")
-@export var JUMP_VELOCITY: float = 7.0
-@export var double_jump_velocity: float = 6.0 # Height of the air jump
+@export var jump_velocity: float = 7.0
+@export var double_jump_velocity: float = 6.0
 @export var jump_cut_multiplier: float = 0.5
 @export var coyote_time: float = 0.15
 @export var jump_buffer_time: float = 0.15
-@export var gravity : float = 5.0
 
 @export_group("Abilities")
-@export var dashing_unlocked: bool = false # When true, sprint is locked and dash is enabled
+@export var dashing_unlocked: bool = false
 @export var dash_speed: float = 12.0
 @export var dash_duration: float = 0.2
 @export var dash_cooldown: float = 1.0
@@ -26,10 +26,12 @@ var can_double : bool = true
 @export var sprint_fov : float = 82.0
 @export var dash_fov : float = 95.0
 @export var fov_lerp_speed : float = 12.0
-@export var dash_particles : GPUParticles3D # Optional: Attach a particle node here for a dash burst
+@export var dash_particles : GPUParticles3D
 
+# Internal State Tracking
 var coyote_timer: float = 0.0
 var jump_buffer_timer: float = 0.0
+var can_double_jump: bool = false
 
 # Dash runtime variables
 var is_dashing: bool = false
@@ -42,97 +44,97 @@ func _ready() -> void:
 		normal_fov = camera.fov
 
 func _process(delta: float) -> void:
-	# 1. Handle Cooldowns & Timers
+	# Freeze movement during minigames
+	if Global.minigame_initiated:
+		player.velocity = Vector3.ZERO
+		return
+
+	# --- 1. TIMERS & INPUT COLLECTION ---
 	if dash_cooldown_timer > 0.0:
 		dash_cooldown_timer -= delta
+
+	if jump_buffer_timer > 0.0:
+		jump_buffer_timer -= delta
+
+	if Input.is_action_just_pressed("jump"):
+		jump_buffer_timer = jump_buffer_time
 
 	var input_dir := Input.get_vector("walk_left", "walk_right", "walk_up", "walk_down")
 	var direction := (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
-	# Track whether player is actively sprinting for effects
-	var is_sprinting : bool = false
-	if Global.minigame_initiated == false:
-		# 2. Handle Dash vs Sprint Mutually Exclusive Inputs
-		if Global.dashing_unlocked:
-			# Sprint is locked out; check for Dash input instead
-			if Input.is_action_just_pressed("Sprint") and not is_dashing and dash_cooldown_timer <= 0.0:
-				if direction != Vector3.ZERO:
-					dash_direction = direction
-				else:
-					dash_direction = -player.transform.basis.z
+	# --- 2. ABILITY: DASH VS SPRINT ---
+	var current_speed = base_speed
+	var is_sprinting = false
 
-				is_dashing = true
-				dash_timer = dash_duration
-				dash_cooldown_timer = dash_cooldown
+	if Global.dashing_unlocked:
+		if Input.is_action_just_pressed("Sprint") and not is_dashing and dash_cooldown_timer <= 0.0:
+			dash_direction = direction if direction != Vector3.ZERO else -player.transform.basis.z
+			is_dashing = true
+			dash_timer = dash_duration
+			dash_cooldown_timer = dash_cooldown
 
-				# Trigger particle effect if assigned
-				if dash_particles:
-					dash_particles.restart()
-					dash_particles.emitting = true
-		else:
-			# Dash is locked; normal Sprint behavior applies
-			if Input.is_action_pressed("Sprint"):
-				SPEED = 3.0 * sprint_mult
-				is_sprinting = true
-			elif Input.is_action_just_released("Sprint"):
-				SPEED = 3.0
+			if dash_particles:
+				dash_particles.restart()
+				dash_particles.emitting = true
+	else:
+		if Input.is_action_pressed("Sprint"):
+			current_speed = base_speed * sprint_multiplier
+			is_sprinting = true
 
-		# 3. Handle Dynamic Camera FOV Effects
-		if camera:
-			var target_fov = normal_fov
-			if is_dashing:
-				target_fov = dash_fov
-			elif is_sprinting:
-				target_fov = sprint_fov
-
-			camera.fov = lerp(camera.fov, target_fov, fov_lerp_speed * delta)
-
-		# 4. Movement Logic (Dash overrides normal movement)
+	# --- 3. CAMERA FOV EFFECTS ---
+	if camera:
+		var target_fov = normal_fov
 		if is_dashing:
-			dash_timer -= delta
-			player.velocity.x = dash_direction.x * dash_speed
-			player.velocity.z = dash_direction.z * dash_speed
+			target_fov = dash_fov
+		elif is_sprinting:
+			target_fov = sprint_fov
+		camera.fov = lerp(camera.fov, target_fov, fov_lerp_speed * delta)
 
-			if dash_timer <= 0.0:
-				is_dashing = false
+	# --- 4. MOVEMENT & GRAVITY EXECUTION ---
+	if is_dashing:
+		dash_timer -= delta
+		player.velocity.x = dash_direction.x * dash_speed
+		player.velocity.z = dash_direction.z * dash_speed
+		if dash_timer <= 0.0:
+			is_dashing = false
+	else:
+		# Gravity
+		if not player.is_on_floor():
+			player.velocity += player.get_gravity() * delta
+
+		# Horizontal Motion
+		if direction:
+			player.velocity.x = direction.x * current_speed
+			player.velocity.z = direction.z * current_speed
 		else:
-			# Standard movement & gravity
-			if not player.is_on_floor():
-				player.velocity += player.get_gravity() * delta
+			player.velocity.x = move_toward(player.velocity.x, 0, current_speed)
+			player.velocity.z = move_toward(player.velocity.z, 0, current_speed)
 
-			if direction:
-				player.velocity.x = direction.x * SPEED
-				player.velocity.z = direction.z * SPEED
-			else:
-				player.velocity.x = move_toward(player.velocity.x, 0, SPEED)
-				player.velocity.z = move_toward(player.velocity.z, 0, SPEED)
+		# --- 5. REVISED JUMP SYSTEM ---
+		# Floor and Coyote state tracking
+		if player.is_on_floor():
+			coyote_timer = coyote_time
+			can_double_jump = true # Reset double jump rights on ground contact
+		else:
+			coyote_timer -= delta
 
-			# Coyote Time tracking & Floor Reset
-			if player.is_on_floor():
-				coyote_timer = coyote_time
-				can_double = true # Reset double jump when landing
-			else:
-				coyote_timer -= delta
+		# Check for Ground Jump (using buffer + coyote window)
+		var can_ground_jump = coyote_timer > 0.0
+		var can_air_jump = not player.is_on_floor() and coyote_timer <= 0.0 and Global.unlocked_double_jump and can_double_jump
 
-			# Jump Buffer tracking
-			if Input.is_action_just_pressed("jump"):
-				jump_buffer_timer = jump_buffer_time
-			else:
-				jump_buffer_timer -= delta
-
-			# Execute Ground Jump
-			if jump_buffer_timer > 0.0 and coyote_timer > 0.0:
-				player.velocity.y = JUMP_VELOCITY
+		if jump_buffer_timer > 0.0:
+			if can_ground_jump:
+				# Execute Ground Jump
+				player.velocity.y = jump_velocity
 				jump_buffer_timer = 0.0
-				coyote_timer = 0.0
-			# Execute Double Jump (Air Jump)
-			elif jump_buffer_timer > 0.0 and Global.unlocked_double_jump and can_double and not player.is_on_floor():
+				coyote_timer = 0.0 # Consume coyote time
+				can_double_jump = true
+			elif can_air_jump:
+				# Execute Double Jump
 				player.velocity.y = double_jump_velocity
-				can_double = false
 				jump_buffer_timer = 0.0
+				can_double_jump = false # Consume double jump capability
 
-			# Variable Jump Height
-			if Input.is_action_just_released("ui_accept") and player.velocity.y < 0:
-				player.velocity.y *= jump_cut_multiplier
-	elif Global.minigame_initiated == true:
-		player.velocity = Vector3(0,0,0)
+		# Variable Jump Height (Short Hop cut)
+		if Input.is_action_just_released("jump") and player.velocity.y > 0.0:
+			player.velocity.y *= jump_cut_multiplier
