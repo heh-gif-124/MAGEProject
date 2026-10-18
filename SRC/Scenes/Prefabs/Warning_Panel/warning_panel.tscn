@@ -10,6 +10,14 @@ bg_color = Color(0.2123048, 0.21230489, 0.21230471, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2n5ou"]
 texture = ExtResource("3_jgdtq")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_26ycv"]
+texture = ExtResource("3_jgdtq")
+modulate_color = Color(0.5370987, 0.5370987, 0.5370987, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q8lhl"]
+texture = ExtResource("3_jgdtq")
+modulate_color = Color(1.353256, 1.353256, 1.353256, 1)
+
 [node name="Warning_Panel" type="Panel" unique_id=491861862]
 custom_minimum_size = Vector2(600, 400)
 anchors_preset = 15
@@ -66,6 +74,9 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_2n5ou")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_26ycv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_q8lhl")
 text = "No"
 
 [node name="Spacer" type="Control" parent="Action_Buttons" unique_id=1675165837]
@@ -78,6 +89,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxTexture_2n5ou")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_26ycv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_q8lhl")
 text = "Yes"
 
 [connection signal="pressed" from="Action_Buttons/Back" to="." method="_on_back_pressed"]

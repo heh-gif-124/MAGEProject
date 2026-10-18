@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://djpy6nmg128bb"]
 
-[ext_resource type="Texture2D" uid="uid://cpvgmxuelyk40" path="res://SRC/Sprites/Irrelevant/ja_disgust.jpg" id="1_g2njl"]
+[ext_resource type="Texture2D" uid="uid://54w77ub4jpne" path="res://SRC/Sprites/Menu/paper_flow_main_BG.png" id="2_hlow5"]
 [ext_resource type="Script" uid="uid://c574dlnxuovyu" path="res://SRC/Scenes/Prefabs/Save_Slot/saveslot.gd" id="2_yptj7"]
 
 [node name="Save_Slot" type="HBoxContainer" unique_id=1919492931]
@@ -23,7 +23,7 @@ script = ExtResource("2_yptj7")
 unique_name_in_owner = true
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
-texture_normal = ExtResource("1_g2njl")
+texture_normal = ExtResource("2_hlow5")
 ignore_texture_size = true
 stretch_mode = 0
 

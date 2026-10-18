@@ -16,7 +16,7 @@ func setup(label: StringName, action: StringName) -> void:
 func update_key_display() -> void:
 	var events = InputMap.action_get_events(action_name)
 	if events.size() > 0:
-		key_button.text = events[0].as_text().replace(" (Physical)", "")
+		key_button.text = events[0].as_text().replace(" - Physical", "")
 	else:
 		key_button.text = "Unbound"
 

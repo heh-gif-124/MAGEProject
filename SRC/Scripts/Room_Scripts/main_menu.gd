@@ -2,7 +2,7 @@ extends Control
 
 @onready var warning_panel: Control = %Warning_Panel
 
-@export var save_file_scene: String
+@export var game_start_scene: String
 @export var credits_scene: String
 
 # Track pending action using StringName or Enum for efficiency
@@ -16,7 +16,7 @@ func _ready() -> void:
 	SceneManager.load_scene_silently(credits_scene)
 
 func _on_start_pressed() -> void:
-	SceneManager.load_scene_silently(save_file_scene)
+	SceneManager.load_scene_silently(game_start_scene)
 	pending_action = &"Start"
 	%Intro_Player.play("intro_start_0")
 
@@ -33,8 +33,8 @@ func _on_credit_pressed() -> void:
 func _on_fade_trans_fade_completed(_anim: StringName) -> void:
 	match pending_action:
 		&"Start":
-			if save_file_scene:
-				SceneManager.load_scene(save_file_scene)
+			if game_start_scene:
+				SceneManager.load_scene(game_start_scene)
 			else:
 				push_error("Save file scene is missing in main_menu.gd!")
 		&"Credits":
