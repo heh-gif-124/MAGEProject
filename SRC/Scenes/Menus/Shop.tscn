@@ -1,0 +1,187 @@
+[gd_scene format=3 uid="uid://dks63g6cp2j6n"]
+
+[ext_resource type="Texture2D" uid="uid://xqq4dta6lfu7" path="res://SRC/Sprites/UI/Shop/panel_shop.png" id="1_63jdc"]
+[ext_resource type="Material" uid="uid://cc4psqlrys8l4" path="res://SRC/Shader/SQUGGLE.tres" id="1_i5uy1"]
+[ext_resource type="Texture2D" uid="uid://cwwd28etmqimw" path="res://SRC/Sprites/UI/Shop/button_close.png" id="2_kawog"]
+[ext_resource type="Texture2D" uid="uid://corqr062lm3im" path="res://SRC/Sprites/UI/Shop/rect_03.png" id="2_oit8m"]
+[ext_resource type="Script" uid="uid://q63rhun4760n" path="res://SRC/Scripts/Tools/ShopHandler.gd" id="3_27etp"]
+[ext_resource type="Script" uid="uid://bvu0nyg8fwheo" path="res://SRC/Scripts/Tools/ShopIm.gd" id="4_gysxc"]
+
+[sub_resource type="Animation" id="Animation_gysxc"]
+resource_name = "Appear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NinePatchRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.3186402, 1),
+"update": 0,
+"values": [Vector2(253.1131, -607), Vector2(253.1131, 38.5)]
+}
+
+[sub_resource type="Animation" id="Animation_kawog"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NinePatchRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(253.1131, -607)]
+}
+
+[sub_resource type="Animation" id="Animation_i5uy1"]
+resource_name = "exit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NinePatchRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1.189208, 1),
+"update": 0,
+"values": [Vector2(253.1131, 38.5), Vector2(253.1131, -683)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kawog"]
+_data = {
+&"Appear": SubResource("Animation_gysxc"),
+&"RESET": SubResource("Animation_kawog"),
+&"exit": SubResource("Animation_i5uy1")
+}
+
+[node name="Shop" type="Control" unique_id=1734967919]
+z_index = 20
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=211694465]
+material = ExtResource("1_i5uy1")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -322.8869
+offset_top = -931.0
+offset_right = 322.8869
+offset_bottom = -360.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+texture = ExtResource("1_63jdc")
+region_rect = Rect2(46, 68.45447, 1956, 1808.5455)
+patch_margin_left = 5
+patch_margin_right = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect" unique_id=1356193627]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -258.78183
+offset_top = -59.0
+offset_right = 258.7818
+offset_bottom = 272.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/HBoxContainer" unique_id=1872507814]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="NinePatchRect/HBoxContainer" unique_id=1255270103]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TextureButton" type="TextureButton" parent="NinePatchRect" unique_id=262749466]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -110.8869
+offset_top = -106.0
+offset_right = 42.1131
+offset_bottom = 36.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("2_kawog")
+
+[node name="ShopHandler" type="Node" parent="." unique_id=1891187512 node_paths=PackedStringArray("shop_thing", "to_a", "to_b", "exit_buton", "anim_player")]
+script = ExtResource("3_27etp")
+shop_thing = NodePath("TextureRect2")
+to_a = NodePath("../NinePatchRect/HBoxContainer/VBoxContainer")
+to_b = NodePath("../NinePatchRect/HBoxContainer/VBoxContainer2")
+exit_buton = NodePath("../NinePatchRect/TextureButton")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="TextureRect2" type="TextureRect" parent="ShopHandler" unique_id=933663817 node_paths=PackedStringArray("label_name", "label_desc", "cost_label", "button")]
+material = ExtResource("1_i5uy1")
+texture = ExtResource("2_oit8m")
+stretch_mode = 2
+script = ExtResource("4_gysxc")
+label_name = NodePath("Label")
+label_desc = NodePath("Label2")
+cost_label = NodePath("Label3")
+button = NodePath("Button")
+
+[node name="Label" type="Label" parent="ShopHandler/TextureRect2" unique_id=1425348440]
+layout_mode = 0
+offset_left = 5.78183
+offset_top = 6.0
+offset_right = 45.78183
+offset_bottom = 29.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "test"
+
+[node name="Label2" type="Label" parent="ShopHandler/TextureRect2" unique_id=1341958066]
+layout_mode = 0
+offset_left = 5.78183
+offset_top = 30.0
+offset_right = 167.0
+offset_bottom = 79.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "lorem impsum dolor
+sit amet"
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="ShopHandler/TextureRect2" unique_id=563536065]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 2.0
+offset_right = 160.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "🪙Cost"
+
+[node name="Button" type="Button" parent="ShopHandler/TextureRect2" unique_id=52148347]
+layout_mode = 0
+offset_left = 119.78183
+offset_top = 76.0
+offset_right = 159.78183
+offset_bottom = 107.0
+text = "BUY"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=726527158]
+libraries/ = SubResource("AnimationLibrary_kawog")
+autoplay = &"Appear"

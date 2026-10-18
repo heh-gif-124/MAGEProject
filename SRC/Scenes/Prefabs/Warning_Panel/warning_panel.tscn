@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://cd5xiu2vch26o"]
+
+[ext_resource type="Script" uid="uid://bvtf33hurpoyu" path="res://SRC/Scenes/Prefabs/Warning_Panel/warning_panel.gd" id="1_nqmfa"]
+[ext_resource type="Theme" uid="uid://bnqmjprb05tg8" path="res://SRC/Themes/Main_Theme.tres" id="2_wjf3g"]
+[ext_resource type="Texture2D" uid="uid://b38kvcb2e8fnb" path="res://SRC/Sprites/UI/dark_button.png" id="3_jgdtq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2njl"]
+bg_color = Color(0.2123048, 0.21230489, 0.21230471, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2n5ou"]
+texture = ExtResource("3_jgdtq")
+
+[node name="Warning_Panel" type="Panel" unique_id=491861862]
+custom_minimum_size = Vector2(600, 400)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 273.0
+offset_top = 59.0
+offset_right = -279.0
+offset_bottom = -189.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g2njl")
+script = ExtResource("1_nqmfa")
+
+[node name="Label" type="Label" parent="." unique_id=1298751472]
+custom_minimum_size = Vector2(400, 48)
+propagate_maximum_size = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -204.0
+offset_top = -37.0
+offset_right = 204.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_wjf3g")
+theme_type_variation = &"TitleLabel"
+text = "String_Default
+
+"
+horizontal_alignment = 1
+
+[node name="Action_Buttons" type="HBoxContainer" parent="." unique_id=406167252]
+custom_minimum_size = Vector2(400, 48)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -204.0
+offset_top = -74.0
+offset_right = 204.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Back" type="Button" parent="Action_Buttons" unique_id=1807256261]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "No"
+
+[node name="Spacer" type="Control" parent="Action_Buttons" unique_id=1675165837]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Confirm" type="Button" parent="Action_Buttons" unique_id=1895640579]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_2n5ou")
+text = "Yes"
+
+[connection signal="pressed" from="Action_Buttons/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Action_Buttons/Confirm" to="." method="_on_confirm_pressed"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://cc4psqlrys8l4" path="res://SRC/Shader/SQUGGLE.tres" id="1_37eoj"]
 [ext_resource type="Script" uid="uid://bph47a2xohha0" path="res://SRC/Scripts/Minigames/minigame_TIMING.gd" id="1_ltejs"]
-[ext_resource type="Texture2D" uid="uid://cpkvnlfxanlok" path="res://SRC/Sprites/UI/Tak berjudul351_20260926185830.png" id="2_1tryl"]
+[ext_resource type="Texture2D" uid="uid://cpkvnlfxanlok" path="res://SRC/Sprites/UI/rect_01.png" id="2_1tryl"]
 [ext_resource type="FontFile" uid="uid://d1u7d68x5aaso" path="res://SRC/Fonts/juno-filament-regular.ttf" id="3_sel0y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37eoj"]

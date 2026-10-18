@@ -11,12 +11,19 @@ config_version=5
 [application]
 
 config/name="MAGEPROJECT"
+run/main_scene="uid://cpwlg0sh8ghji"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://SRC/icon.svg"
+
+[audio]
+
+buses/default_bus_layout="res://SRC/default_bus_layout.tres"
 
 [autoload]
 
+SaveManager="*uid://fg2qg6pl0jcg"
 Global="*uid://cfwdvib35ca8"
+SceneManager="*uid://roh4jmsv4pxy"
 
 [display]
 
@@ -38,6 +45,10 @@ folder_colors={
 
 Hole=""
 UILayer=""
+
+[gui]
+
+theme/custom="uid://bnqmjprb05tg8"
 
 [input]
 

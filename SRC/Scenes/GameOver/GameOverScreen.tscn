@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d3jgcgjc00ks7"]
 
-[ext_resource type="Texture2D" uid="uid://bahbg6gpex85u" path="res://SRC/Sprites/UI/Game Over/Tak berjudul351_20260910102241.png" id="1_f8sq0"]
+[ext_resource type="Texture2D" uid="uid://bahbg6gpex85u" path="res://SRC/Sprites/UI/Game Over/panel_game_over.png" id="1_f8sq0"]
 
 [node name="GameOverScreen" type="Control" unique_id=976827129]
 z_index = 20
