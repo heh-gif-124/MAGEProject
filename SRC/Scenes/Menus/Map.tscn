@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://1ye4n1o0hrwl"]
+
+[ext_resource type="Script" uid="uid://pkqjp2xo66s0" path="res://SRC/Scripts/Room_Scripts/map.gd" id="1_x8el6"]
+[ext_resource type="Texture2D" uid="uid://dvu286wg4nar0" path="res://SRC/Sprites/Map/Paperfold_City.png" id="2_v5e8b"]
+[ext_resource type="Texture2D" uid="uid://dvlt3bgvn7h8f" path="res://SRC/icon.svg" id="3_nvvf1"]
+[ext_resource type="Texture2D" uid="uid://gbls4uwuxuu4" path="res://SRC/Sprites/Map/paper_texture.jpg" id="3_v5e8b"]
+[ext_resource type="PackedScene" uid="uid://dscw4c7ot41ds" path="res://SRC/Scenes/Anims/Fades/Fade_Trans.tscn" id="4_b3jt5"]
+
+[node name="Map" type="Node2D" unique_id=1470246169]
+script = ExtResource("1_x8el6")
+camera_pos = Vector2(0, -600)
+def_zoom = Vector2(0.5, 0.5)
+
+[node name="City_Map" type="Sprite2D" parent="." unique_id=1079928017]
+scale = Vector2(1, 1.014)
+texture = ExtResource("2_v5e8b")
+metadata/_edit_lock_ = true
+
+[node name="Paper_Overlay" type="TextureRect" parent="City_Map" unique_id=366346603]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1440.0
+offset_top = -1440.0
+offset_right = -3636.9778
+offset_bottom = -3111.0825
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.272189, 2.4506903)
+texture = ExtResource("3_v5e8b")
+expand_mode = 1
+
+[node name="Regions" type="Node2D" parent="." unique_id=899306752]
+
+[node name="Region_1" type="Area2D" parent="Regions" unique_id=1259794869]
+position = Vector2(70, -999)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/Region_1" unique_id=2130617977]
+scale = Vector2(0.530503, 0.5027546)
+polygon = PackedVector2Array(-475.02045, -433.61108, 52.780106, -175.03564, 71.63013, -208.84937, 269.55554, -107.4082, 258.2455, -79.56177, 731.3814, 99.45203, 446.74548, 747.87976, -727.6113, 155.14526)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2093791235]
+
+[node name="Level_Overview" type="TextureRect" parent="CanvasLayer" unique_id=2013438560]
+offset_left = 850.0
+offset_right = 1153.0
+offset_bottom = 647.0
+texture = ExtResource("3_nvvf1")
+
+[node name="Region_Title" type="RichTextLabel" parent="CanvasLayer/Level_Overview" unique_id=1077156633]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 40.0
+offset_right = 282.0
+offset_bottom = 101.0
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+text = "[b] Region_Name [/b]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Button" parent="CanvasLayer/Level_Overview" unique_id=2039077644]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 484.0
+offset_right = 280.0
+offset_bottom = 537.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "   Start   "
+
+[node name="City" type="Button" parent="CanvasLayer/Level_Overview" unique_id=2015889487]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 552.0
+offset_right = 274.0
+offset_bottom = 605.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "City Map"
+
+[node name="Clopen" type="Button" parent="CanvasLayer/Level_Overview" unique_id=27774699]
+layout_mode = 0
+offset_left = -29.0
+offset_top = 286.0
+offset_right = -3.0
+offset_bottom = 339.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "<"
+
+[node name="Menu" type="Button" parent="CanvasLayer" unique_id=657302375]
+offset_left = 890.0
+offset_top = 1104.0
+offset_right = 1144.0
+offset_bottom = 1157.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "Return"
+
+[node name="Fade_Trans" parent="CanvasLayer" unique_id=346146234 instance=ExtResource("4_b3jt5")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1923777294]
+position = Vector2(0, -600)
+zoom = Vector2(0.5, 0.5)

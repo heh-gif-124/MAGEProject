@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://djpy6nmg128bb"]
+
+[ext_resource type="Texture2D" uid="uid://54w77ub4jpne" path="res://SRC/Sprites/Menu/paper_flow_main_BG.png" id="2_hlow5"]
+[ext_resource type="Script" uid="uid://c574dlnxuovyu" path="res://SRC/Scenes/Prefabs/Save_Slot/saveslot.gd" id="2_yptj7"]
+
+[node name="Save_Slot" type="HBoxContainer" unique_id=1919492931]
+custom_minimum_size = Vector2(850, 200)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -100.0
+offset_right = 375.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("2_yptj7")
+
+[node name="Save_Button" type="TextureButton" parent="." unique_id=1881534967]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+texture_normal = ExtResource("2_hlow5")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Title_N_Info" type="HBoxContainer" parent="Save_Button" unique_id=486625622]
+custom_minimum_size = Vector2(675, 200)
+propagate_maximum_size = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -337.5
+offset_top = -100.0
+offset_right = 337.5
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="File_Name" type="Label" parent="Save_Button/Title_N_Info" unique_id=1922871001]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Create New File"
+
+[node name="Spacer" type="Control" parent="Save_Button/Title_N_Info" unique_id=1162019687]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Safe_Info" type="VBoxContainer" parent="Save_Button/Title_N_Info" unique_id=185750335]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="Play_Time" type="HBoxContainer" parent="Save_Button/Title_N_Info/Safe_Info" unique_id=1800065899]
+layout_mode = 2
+
+[node name="Playtime_Label" type="Label" parent="Save_Button/Title_N_Info/Safe_Info/Play_Time" unique_id=1080103271]
+layout_mode = 2
+text = "Total Playtime:"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Playtime_Value" type="Label" parent="Save_Button/Title_N_Info/Safe_Info/Play_Time" unique_id=804530930]
+layout_mode = 2
+text = "XX:XX"
+vertical_alignment = 2
+
+[node name="Saved_last" type="HBoxContainer" parent="Save_Button/Title_N_Info/Safe_Info" unique_id=1860274574]
+layout_mode = 2
+
+[node name="Last_Saved_Label" type="Label" parent="Save_Button/Title_N_Info/Safe_Info/Saved_last" unique_id=1981627899]
+layout_mode = 2
+text = "Last Saved:"
+horizontal_alignment = 2
+
+[node name="Last_Saved_Date" type="Label" parent="Save_Button/Title_N_Info/Safe_Info/Saved_last" unique_id=601964285]
+layout_mode = 2
+text = "DD/MM/20YY"
+horizontal_alignment = 2
+
+[node name="Delete" type="Button" parent="." unique_id=1459047428]
+custom_minimum_size = Vector2(50, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Delete"
+
+[connection signal="pressed" from="Save_Button" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="Delete" to="." method="_on_delete_pressed"]

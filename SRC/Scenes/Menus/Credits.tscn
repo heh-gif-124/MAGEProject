@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://bme264xs2spxv"]
+
+[ext_resource type="Script" uid="uid://edc7ynsyw3m1" path="res://SRC/Scripts/Room_Scripts/credits.gd" id="1_oqpa2"]
+[ext_resource type="Theme" uid="uid://bnqmjprb05tg8" path="res://SRC/Themes/Main_Theme.tres" id="3_kv684"]
+[ext_resource type="FontFile" uid="uid://ssk57p42865y" path="res://SRC/Fonts/paper_font.fnt" id="3_oqpa2"]
+[ext_resource type="PackedScene" uid="uid://dscw4c7ot41ds" path="res://SRC/Scenes/Anims/Fades/fade_trans.tscn" id="4_jbyo3"]
+[ext_resource type="Material" uid="uid://cc4psqlrys8l4" path="res://SRC/Shader/SQUGGLE.tres" id="5_kv684"]
+[ext_resource type="Texture2D" uid="uid://chmf7vx75fq8e" path="res://SRC/Sprites/Menu/close.png" id="6_jbyo3"]
+
+[node name="Credits" type="Control" unique_id=1650722650]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oqpa2")
+main_menu = "res://SRC/Scenes/Menus/Main_Menu.tscn"
+
+[node name="TextureRect" type="ColorRect" parent="." unique_id=2062047415]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="TextureRect" unique_id=1160850955]
+custom_minimum_size = Vector2(550, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -275.0
+offset_right = 275.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101240985, 0.101240985, 0.101240985, 0.50980395)
+
+[node name="Credits_Contents" type="RichTextLabel" parent="." unique_id=587247042]
+custom_minimum_size = Vector2(550, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -355.0
+offset_right = 355.0
+offset_bottom = 1715.0
+grow_horizontal = 2
+theme = ExtResource("3_kv684")
+theme_override_fonts/normal_font = ExtResource("3_oqpa2")
+theme_override_fonts/bold_font = ExtResource("3_oqpa2")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 48
+bbcode_enabled = true
+text = "[center]
+[font_size=72][b]CREDITS[/b][/font_size]
+
+[color=#aaaaaa]--------------------------------------------------[/color]
+
+[font_size=64][b]Team PaperCraft[/b][/font_size]
+
+[b]M. Affan Daib[/b]
+Lead Developer & Gameplay Programmer
+
+[b]Leonard Owen[/b]
+System Developer
+
+[b]Gisella Anindya Aisha[/b]
+Lead Artist
+
+[color=#aaaaaa]--------------------------------------------------[/color]
+
+[font_size=48][b]EXTERNAL ASSETS & AUDIO[/b][/font_size]
+
+Map Art
+Generated from Fantasy Town Generator
+
+
+[color=#aaaaaa]--------------------------------------------------[/color]
+
+[font_size=48][b]TOOLS & ENGINES[/b][/font_size]
+
+Built with Godot Engine
+Art created in Ibis Paint
+
+[color=#aaaaaa]--------------------------------------------------[/color]
+
+[font_size=48]SPECIAL THANKS[/font_size]
+
+To our family & friends
+for your endless support.
+
+[color=#aaaaaa]--------------------------------------------------[/color]
+
+[color=#888888]Thank you for playing![/color]
+[/center]"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Fade_Trans" parent="." unique_id=346146234 instance=ExtResource("4_jbyo3")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Exit" type="TextureButton" parent="." unique_id=1319195496]
+material = ExtResource("5_kv684")
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 87.0
+offset_bottom = 79.0
+size_flags_horizontal = 4
+theme = ExtResource("3_kv684")
+texture_normal = ExtResource("6_jbyo3")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="." unique_id=1158909629]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 37.0
+
+[connection signal="fade_completed" from="Fade_Trans" to="." method="_on_fade_trans_fade_completed"]
+[connection signal="pressed" from="Exit" to="." method="_end_credits"]
