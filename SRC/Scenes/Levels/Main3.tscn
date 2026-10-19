@@ -1,0 +1,622 @@
+[gd_scene format=3 uid="uid://caor5ip8w5p3f"]
+
+[ext_resource type="Script" uid="uid://cw8hqlyhr0uqy" path="res://SRC/Scripts/Tools/hole_placer.gd" id="1_s2k8s"]
+[ext_resource type="PackedScene" uid="uid://npyn3ymv3tww" path="res://SRC/Objects/Hole/Hole.tscn" id="2_v4tc8"]
+[ext_resource type="PackedScene" uid="uid://bh5xt157myi1h" path="res://SRC/Objects/Player/Player.tscn" id="3_vnerd"]
+[ext_resource type="Texture2D" uid="uid://c3rdmwvjtoslm" path="res://SRC/Sprites/UI/rect_02.jpg" id="4_e7x7g"]
+[ext_resource type="Shader" uid="uid://cpdg636rd2ix6" path="res://SRC/Shader/Main.gdshader" id="5_0jcqq"]
+[ext_resource type="PackedScene" uid="uid://6k6nu4wdcjgt" path="res://SRC/Objects/Building/Building.tscn" id="6_v4tc8"]
+[ext_resource type="Texture2D" uid="uid://v1d4kuoi07b5" path="res://SRC/Sprites/Property city/img_.png" id="7_e7x7g"]
+[ext_resource type="Script" uid="uid://56bcgdysi632" path="res://SRC/Scripts/Tools/camera_3d.gd" id="7_vnerd"]
+[ext_resource type="Texture2D" uid="uid://d2pcqmcyoyisd" path="res://SRC/Sprites/Property city/img_tree.png" id="8_0jcqq"]
+[ext_resource type="Shader" uid="uid://d0o44osmwb82j" path="res://SRC/Shader/Rain.gdshader" id="8_kyfmh"]
+[ext_resource type="FontFile" uid="uid://d1u7d68x5aaso" path="res://SRC/Fonts/juno-filament-regular.ttf" id="11_1uipq"]
+[ext_resource type="Texture2D" uid="uid://uosug0sehxq0" path="res://SRC/Sprites/UI/Countdown/Countdown.png" id="11_dlsjx"]
+[ext_resource type="Script" uid="uid://kw1nigddulp1" path="res://SRC/Scripts/Tools/game_handler.gd" id="12_55ox1"]
+[ext_resource type="Material" uid="uid://cc4psqlrys8l4" path="res://SRC/Shader/SQUGGLE.tres" id="12_ufond"]
+[ext_resource type="PackedScene" uid="uid://dks63g6cp2j6n" path="res://SRC/Scenes/Menus/Shop.tscn" id="13_a0uvd"]
+[ext_resource type="Script" uid="uid://drtk42vjyvg4o" path="res://SRC/Scripts/Tools/upgrade_handler.gd" id="15_td548"]
+[ext_resource type="PackedScene" uid="uid://d3jgcgjc00ks7" path="res://SRC/Scenes/GameOver/GameOverScreen.tscn" id="16_f2cns"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_erja3"]
+albedo_texture = ExtResource("4_e7x7g")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4tg0v"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_r150o"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_4tg0v")
+size = Vector3(2.0230331, 1, 14.224731)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t5s3b"]
+size = Vector3(2.020752, 1, 15.327759)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_erja3"]
+frequency = 0.0127
+offset = Vector3(0, -280, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_y20q0"]
+noise = SubResource("FastNoiseLite_erja3")
+seamless = true
+as_normal_map = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y20q0"]
+render_priority = -1
+shader = ExtResource("5_0jcqq")
+shader_parameter/normal_map = SubResource("NoiseTexture2D_y20q0")
+shader_parameter/color = Color(0.6277665, 0.93998814, 0.9689689, 1)
+shader_parameter/rapid = 0.001
+shader_parameter/transparency = 0.57999998703584
+
+[sub_resource type="BoxMesh" id="BoxMesh_v3oac"]
+material = SubResource("ShaderMaterial_y20q0")
+size = Vector3(17.851563, 0.5477295, 96.94116)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nmd57"]
+size = Vector3(89.227264, 1, 57.680603)
+
+[sub_resource type="Environment" id="Environment_r150o"]
+background_mode = 1
+background_color = Color(0.7666196, 0.76661956, 0.76661956, 1)
+reflected_light_source = 2
+ssr_fade_in = 0.52233
+fog_light_energy = 2.27
+adjustment_enabled = true
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eh125"]
+
+[sub_resource type="Sky" id="Sky_5bdln"]
+sky_material = SubResource("ProceduralSkyMaterial_eh125")
+
+[sub_resource type="Environment" id="Environment_8s7kp"]
+sky = SubResource("Sky_5bdln")
+reflected_light_source = 2
+glow_normalized = true
+glow_intensity = 2.21
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.4299947, 0.9077094, 0.9349203, 1)
+volumetric_fog_emission = Color(0.43134022, 0.43134025, 0.43134025, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5bdln"]
+shader = ExtResource("8_kyfmh")
+shader_parameter/count = 150
+shader_parameter/slant = 3.259879990946679e-09
+shader_parameter/speed = 50.0
+shader_parameter/blur = 0.002
+shader_parameter/colour = Color(1, 1, 1, 1)
+shader_parameter/size = Vector2(0.01, 0.2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erja3"]
+bg_color = Color(1, 1, 1, 0.85882354)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22352941, 0.1882353, 0.25490198, 1)
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtryu"]
+bg_color = Color(0.32792002, 0.21066695, 0.43379888, 0.6)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="Animation" id="Animation_jla0j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/Level:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/Wave:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_nmlge"]
+resource_name = "Start"
+length = 3.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/Level:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.76666665, 1.7666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/Wave:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.76666665, 2.3333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.76666665, 3.1666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../Handlers/GameHandler")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3.1666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_start_countdown"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yskii"]
+_data = {
+&"RESET": SubResource("Animation_jla0j"),
+&"Start": SubResource("Animation_nmlge")
+}
+
+[sub_resource type="Resource" id="Resource_4ofmb"]
+metadata/__load_path__ = "res://SRC/Scenes/Levels/Main2.tscn"
+
+[node name="Node3D" type="Node3D" unique_id=1885697256]
+
+[node name="LevelContents" type="Node3D" parent="." unique_id=1414247877]
+
+[node name="HolePlacer" type="Node" parent="LevelContents" unique_id=1004306106 node_paths=PackedStringArray("hole_container")]
+script = ExtResource("1_s2k8s")
+hole_scene = ExtResource("2_v4tc8")
+hole_container = NodePath("../HoleContainer")
+randomize_rotation_y = false
+
+[node name="Marker3D8" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=2085697858]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2678514, 1.3829628, -6.350326)
+
+[node name="Marker3D11" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=629146849]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2678514, 1.3829628, -4.5966015)
+
+[node name="Marker3D13" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=1005833482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5215912, 1.3829628, 3.576642)
+
+[node name="Marker3D16" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=200416118]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.495646, 1.3829628, 1.9949918)
+
+[node name="Marker3D17" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=843644430]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.495646, 1.3829628, -1.5083117)
+
+[node name="Marker3D18" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=122701759]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.660337, 1.3829628, -1.5083117)
+
+[node name="Marker3D21" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=780343797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.660337, 1.3829628, 2.0163531)
+
+[node name="Marker3D22" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=971240255]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.495646, 1.3829628, 21.335373)
+
+[node name="Marker3D24" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=41442638]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.660337, 1.3829628, 21.356735)
+
+[node name="Marker3D25" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=272101716]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.228561, 1.3829628, 21.356735)
+
+[node name="Marker3D19" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=1438195185]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.110971, 1.3829628, -1.5083117)
+
+[node name="Marker3D20" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=798818632]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.293362, 1.3829628, -1.5083117)
+
+[node name="Marker3D14" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=1560123710]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2678514, 1.3829628, 1.9949918)
+
+[node name="Marker3D15" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=1996449869]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9800935, 1.3829628, 1.9949918)
+
+[node name="CharacterBody3D" parent="LevelContents" unique_id=1875201734 instance=ExtResource("3_vnerd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23323941, 1.7618587, -0.35880136)
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+slide_on_ceiling = false
+
+[node name="Map" type="Node3D" parent="LevelContents" unique_id=1758475655]
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="LevelContents/Map" unique_id=302129770]
+transform = Transform3D(8.005055, 0, 0, 0, 5.0446715, 0, 0, 0, 0.98035586, 0, -1.5334654, -5.1568747)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelContents/Map/StaticBody3D2" unique_id=56880617]
+transform = Transform3D(0.99998146, 0, 0, 0, 1, 0, 0, 0, 1, -0.15685618, 0, 4.2489624)
+material_override = SubResource("StandardMaterial3D_erja3")
+mesh = SubResource("BoxMesh_r150o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelContents/Map/StaticBody3D2" unique_id=1853568331]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15930179, 0, 3.736142)
+shape = SubResource("BoxShape3D_t5s3b")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="LevelContents/Map" unique_id=4150857]
+transform = Transform3D(8.005055, 0, 0, 0, 5.0446715, 0, 0, 0, 0.98035586, 21.658844, -1.5334654, -5.1260967)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelContents/Map/StaticBody3D3" unique_id=2120433403]
+transform = Transform3D(0.99998146, 0, 0, 0, 1, 0, 0, 0, 1, -0.15685618, 0, 4.2489624)
+material_override = SubResource("StandardMaterial3D_erja3")
+mesh = SubResource("BoxMesh_r150o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelContents/Map/StaticBody3D3" unique_id=975758045]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15930179, 0, 3.736142)
+shape = SubResource("BoxShape3D_t5s3b")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="LevelContents/Map" unique_id=1901560720]
+transform = Transform3D(8.005055, 0, 0, 0, 5.0446715, 0, 0, 0, 0.98035586, 21.658844, -1.5334654, 13.436317)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelContents/Map/StaticBody3D4" unique_id=1455682640]
+transform = Transform3D(0.99998146, 0, 0, 0, 1, 0, 0, 0, 1, -0.15685618, 0, 4.2489624)
+material_override = SubResource("StandardMaterial3D_erja3")
+mesh = SubResource("BoxMesh_r150o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelContents/Map/StaticBody3D4" unique_id=1240685324]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15930179, 0, 3.736142)
+shape = SubResource("BoxShape3D_t5s3b")
+
+[node name="Water" type="StaticBody3D" parent="LevelContents/Map" unique_id=223756649]
+transform = Transform3D(8.005055, 0, 0, 0, 5.0446715, 0, 0, 0, 0.98035586, 0, -0.77876997, -5.1568747)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelContents/Map/Water" unique_id=1264628358]
+transform = Transform3D(0.99998146, 0, 0, 0, 1, 0, 0, 0, 1, 0.31695223, -0.16754954, -0.7211919)
+mesh = SubResource("BoxMesh_v3oac")
+
+[node name="Area3D" type="Area3D" parent="LevelContents/Map" unique_id=671932887]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.4865494, 0, -6.19483, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelContents/Map/Area3D" unique_id=1276747307]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5707855, 0, -4.6679993)
+shape = SubResource("BoxShape3D_nmd57")
+
+[node name="Building" type="Node" parent="LevelContents/Map" unique_id=254365646]
+
+[node name="Building11" parent="LevelContents/Map/Building" unique_id=1423734849 instance=ExtResource("6_v4tc8")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -7.292406, 1.0055475, -7.911534)
+
+[node name="Building15" parent="LevelContents/Map/Building" unique_id=629387501 instance=ExtResource("6_v4tc8")]
+transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -9.216365, 1.0055475, -5.7565217)
+
+[node name="Building17" parent="LevelContents/Map/Building" unique_id=1753016186 instance=ExtResource("6_v4tc8")]
+transform = Transform3D(-1.3113416e-07, 0, -3, 0, 3, 0, 3, 0, -1.3113416e-07, 28.4636, 1.0055475, -5.8583765)
+
+[node name="Building18" parent="LevelContents/Map/Building" unique_id=2125345556 instance=ExtResource("6_v4tc8")]
+transform = Transform3D(-1.3113416e-07, 0, -3, 0, 3, 0, 3, 0, -1.3113416e-07, 28.4636, 1.0055475, -1.8631339)
+
+[node name="Building19" parent="LevelContents/Map/Building" unique_id=1250216953 instance=ExtResource("6_v4tc8")]
+transform = Transform3D(-1.3113416e-07, 0, -3, 0, 3, 0, 3, 0, -1.3113416e-07, 28.4636, 1.0055475, 2.140082)
+
+[node name="Building12" parent="LevelContents/Map/Building" unique_id=1593064874 instance=ExtResource("6_v4tc8")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -3.2604542, 1.0055475, -7.911534)
+
+[node name="Building14" parent="LevelContents/Map/Building" unique_id=81595211 instance=ExtResource("6_v4tc8")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 4.749256, 1.0055475, -7.911534)
+
+[node name="Building16" parent="LevelContents/Map/Building" unique_id=1581095265 instance=ExtResource("6_v4tc8")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 14.318375, 1.0055475, -7.911534)
+
+[node name="Building20" parent="LevelContents/Map/Building" unique_id=1714764571 instance=ExtResource("6_v4tc8")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 18.341316, 1.0055475, -7.911534)
+
+[node name="Building21" parent="LevelContents/Map/Building" unique_id=1869166433 instance=ExtResource("6_v4tc8")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 22.293777, 1.0055475, -7.911534)
+
+[node name="Building22" parent="LevelContents/Map/Building" unique_id=1029198017 instance=ExtResource("6_v4tc8")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 16.46821, 1.0055475, 15.585985)
+
+[node name="Building23" parent="LevelContents/Map/Building" unique_id=1919719460 instance=ExtResource("6_v4tc8")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 20.491152, 1.0055475, 15.585985)
+
+[node name="Building24" parent="LevelContents/Map/Building" unique_id=1413657473 instance=ExtResource("6_v4tc8")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 24.443613, 1.0055475, 15.585985)
+
+[node name="Building13" parent="LevelContents/Map/Building" unique_id=1994144463 instance=ExtResource("6_v4tc8")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.7604561, 1.0055475, -7.911534)
+
+[node name="Properties" type="Node" parent="LevelContents/Map" unique_id=673537901]
+
+[node name="Sprite3D" type="Sprite3D" parent="LevelContents/Map/Properties" unique_id=55320291]
+transform = Transform3D(0.13152091, 0, 0, 0, 0.13864818, 0, 0, 0, 1, -4.8506975, 2.821268, -3.3823118)
+render_priority = 1
+texture = ExtResource("7_e7x7g")
+
+[node name="Sprite3D2" type="Sprite3D" parent="LevelContents/Map/Properties" unique_id=216266873]
+transform = Transform3D(0.13152091, 0, 0, 0, 0.13864818, 0, 0, 0, 1, -4.8506975, 2.821268, 1.5459511)
+render_priority = 1
+texture = ExtResource("7_e7x7g")
+
+[node name="Sprite3D3" type="Sprite3D" parent="LevelContents/Map/Properties" unique_id=721896137]
+transform = Transform3D(0.13152091, 0, 0, 0, 0.13864818, 0, 0, 0, 1, 2.6191864, 2.821268, -3.3823118)
+render_priority = 1
+texture = ExtResource("7_e7x7g")
+
+[node name="Sprite3D4" type="Sprite3D" parent="LevelContents/Map/Properties" unique_id=1196785423]
+transform = Transform3D(0.13152091, 0, 0, 0, 0.13864818, 0, 0, 0, 1, 2.6191864, 2.821268, 1.5459511)
+render_priority = 1
+texture = ExtResource("7_e7x7g")
+
+[node name="Sprite3D5" type="Sprite3D" parent="LevelContents/Map/Properties" unique_id=844321075]
+transform = Transform3D(0.13152091, 0, 0, 0, 0.13864818, 0, 0, 0, 1, -4.8506975, 2.821268, -0.8030374)
+render_priority = 1
+texture = ExtResource("7_e7x7g")
+
+[node name="Sprite3D6" type="Sprite3D" parent="LevelContents/Map/Properties" unique_id=1090836826]
+transform = Transform3D(0.13152091, 0, 0, 0, 0.13864818, 0, 0, 0, 1, 2.6191864, 2.821268, -0.8030374)
+render_priority = 1
+texture = ExtResource("7_e7x7g")
+
+[node name="Sprite3D7" type="Sprite3D" parent="LevelContents/Map/Properties" unique_id=1286560544]
+transform = Transform3D(0.13152091, 0, 0, 0, 0.13864818, 0, 0, 0, 1, 24.650852, 2.821268, -3.3823118)
+render_priority = 1
+texture = ExtResource("7_e7x7g")
+
+[node name="Sprite3D8" type="Sprite3D" parent="LevelContents/Map/Properties" unique_id=186051377]
+transform = Transform3D(0.13152091, 0, 0, 0, 0.13864818, 0, 0, 0, 1, 24.650852, 2.821268, 1.5459511)
+render_priority = 1
+texture = ExtResource("7_e7x7g")
+
+[node name="Sprite3D9" type="Sprite3D" parent="LevelContents/Map/Properties" unique_id=47419955]
+transform = Transform3D(0.13152091, 0, 0, 0, 0.13864818, 0, 0, 0, 1, 24.650852, 2.821268, -0.8030374)
+render_priority = 1
+texture = ExtResource("7_e7x7g")
+
+[node name="Sprite3D10" type="Sprite3D" parent="LevelContents/Map/Properties" unique_id=1403937856]
+transform = Transform3D(0.13152091, 0, 0, 0, 0.13864818, 0, 0, 0, 1, 21.285511, 2.821268, -3.3823118)
+render_priority = 1
+texture = ExtResource("7_e7x7g")
+
+[node name="Sprite3D11" type="Sprite3D" parent="LevelContents/Map/Properties" unique_id=828363212]
+transform = Transform3D(0.13152091, 0, 0, 0, 0.13864818, 0, 0, 0, 1, 21.285511, 2.821268, 1.5459511)
+render_priority = 1
+texture = ExtResource("7_e7x7g")
+
+[node name="Sprite3D12" type="Sprite3D" parent="LevelContents/Map/Properties" unique_id=1412282819]
+transform = Transform3D(0.13152091, 0, 0, 0, 0.13864818, 0, 0, 0, 1, 21.285511, 2.821268, -0.8030374)
+render_priority = 1
+texture = ExtResource("7_e7x7g")
+
+[node name="Sprite3D13" type="Sprite3D" parent="LevelContents/Map/Properties" unique_id=1158568009]
+transform = Transform3D(0.13152091, 0, 0, 0, 0.13864818, 0, 0, 0, 1, 14.702143, 2.7667851, -6.3535185)
+render_priority = 1
+texture = ExtResource("8_0jcqq")
+
+[node name="HoleContainer" type="Node3D" parent="LevelContents" unique_id=355860309]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=947205289]
+environment = SubResource("Environment_r150o")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=229835751]
+transform = Transform3D(1, 0, 0, 0, 0.30961666, 0.95086145, 0, -0.95086145, 0.30961666, 0, 11.195955, 2.8206744)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2001668656 node_paths=PackedStringArray("target")]
+transform = Transform3D(-1.3550135e-06, -0.16173328, 0.9868345, 0, 0.9868345, 0.16173328, -1, 2.1915079e-07, -1.3371741e-06, 19.434174, 1.8096497, -2.0658896)
+environment = SubResource("Environment_8s7kp")
+script = ExtResource("7_vnerd")
+target = NodePath("../LevelContents/CharacterBody3D")
+offset = Vector3(0, 3, 5)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=2142865420 groups=["UILayer"]]
+
+[node name="Rain" type="Control" parent="UI" unique_id=1859083274]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="UI/Rain" unique_id=1211700301]
+material = SubResource("ShaderMaterial_5bdln")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="UI" unique_id=406181172]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -285.25
+offset_top = -4.0
+offset_right = 285.25
+offset_bottom = 566.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_dlsjx")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="UI" unique_id=197726187]
+material = ExtResource("12_ufond")
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = -248.0
+offset_right = 315.0
+offset_bottom = 127.0
+grow_vertical = 0
+texture = ExtResource("11_dlsjx")
+expand_mode = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="UI/TextureRect2" unique_id=552741018]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 117.5
+offset_top = -95.5
+offset_right = 138.5
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_erja3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qtryu")
+value = 100.0
+fill_mode = 3
+show_percentage = false
+
+[node name="MoneyLabel" type="Label" parent="UI/TextureRect2" unique_id=1498604901]
+z_index = 4
+material = ExtResource("12_ufond")
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 81.0
+offset_top = -157.0
+offset_right = -145.0
+offset_bottom = -126.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.22352941, 0.1882353, 0.25490198, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("11_1uipq")
+theme_override_font_sizes/font_size = 22
+text = "TESTALALALA "
+
+[node name="MinigameHolder" type="Node" parent="UI" unique_id=955748555 groups=["MinigameHolder"]]
+
+[node name="Intro" type="Control" parent="UI" unique_id=506741193]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Intro" unique_id=36445447]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.0
+offset_top = -107.0
+offset_right = 145.0
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Level" type="Label" parent="UI/Intro/VBoxContainer" unique_id=1856741608]
+z_index = 4
+material = ExtResource("12_ufond")
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.22352941, 0.1882353, 0.25490198, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("11_1uipq")
+theme_override_font_sizes/font_size = 99
+text = "LEVEL 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wave" type="Label" parent="UI/Intro/VBoxContainer" unique_id=1736715711]
+visible = false
+z_index = 4
+material = ExtResource("12_ufond")
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.22352941, 0.1882353, 0.25490198, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("11_1uipq")
+theme_override_font_sizes/font_size = 99
+text = "WAVE 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Intro" unique_id=759923380]
+libraries/ = SubResource("AnimationLibrary_yskii")
+autoplay = &"Start"
+
+[node name="Handlers" type="Node" parent="." unique_id=784727724]
+
+[node name="GameHandler" type="Node" parent="Handlers" unique_id=1759678066 node_paths=PackedStringArray("hole_placer", "hole_container", "UI_layer", "countdown", "countdown_bar", "water_node", "respawn_floor", "moneylabel")]
+script = ExtResource("12_55ox1")
+hole_placer = NodePath("../../LevelContents/HolePlacer")
+hole_container = NodePath("../../LevelContents/HoleContainer")
+UI_layer = NodePath("../../UI")
+countdown = NodePath("Timer")
+countdown_bar = NodePath("../../UI/TextureRect2/ProgressBar")
+water_node = NodePath("../../LevelContents/Map/Water")
+next_level = SubResource("Resource_4ofmb")
+respawn_floor = NodePath("../../LevelContents/Map/Area3D")
+moneylabel = NodePath("../../UI/TextureRect2/MoneyLabel")
+shop_ui = ExtResource("13_a0uvd")
+gos = ExtResource("16_f2cns")
+metadata/_custom_type_script = "uid://kw1nigddulp1"
+
+[node name="Timer" type="Timer" parent="Handlers/GameHandler" unique_id=887904763 groups=["Countdown"]]
+process_callback = 0
+wait_time = 90.0
+one_shot = true
+
+[node name="UpgradeHandler" type="Node" parent="Handlers" unique_id=1277491581]
+script = ExtResource("15_td548")
