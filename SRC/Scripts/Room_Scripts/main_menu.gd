@@ -3,6 +3,7 @@ extends Control
 @onready var warning_panel: Control = %Warning_Panel
 
 @export var game_start_scene: String
+@export var game_start_tutorial: String
 @export var credits_scene: String
 
 # Track pending action using StringName or Enum for efficiency
@@ -34,7 +35,7 @@ func _on_fade_trans_fade_completed(_anim: StringName) -> void:
 	match pending_action:
 		&"Start":
 			if game_start_scene:
-				SceneManager.load_scene(game_start_scene)
+				warning_panel.show_warning("Skip The Tutorial?", 2)
 			else:
 				push_error("Save file scene is missing in main_menu.gd!")
 		&"Credits":
@@ -53,11 +54,14 @@ func _on_end_anim_finished(anim_name: StringName) -> void:
 		%Intro_Player.play("intro_start_%d" % anim_count)
 
 func _on_warning_confirm_pressed(_var_id: int) -> void:
-	if _var_id != 1:
-		return
-	%Fade_Trans.fade_in()
-	await %Fade_Trans.fade_completed
-	get_tree().quit()
+	if _var_id == 1:
+		%Fade_Trans.fade_in()
+		await %Fade_Trans.fade_completed
+		get_tree().quit()
+	if _var_id == 2:
+		SceneManager.load_scene(game_start_scene)
 
-func _on_warning_back_pressed() -> void:
+func _on_warning_back_pressed(_var_id: int) -> void:
+	if _var_id == 2:
+		SceneManager.load_scene(game_start_tutorial)
 	print("The back button was pressed inside the warning popup!")

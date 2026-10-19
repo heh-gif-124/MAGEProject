@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://edc7ynsyw3m1" path="res://SRC/Scripts/Room_Scripts/credits.gd" id="1_oqpa2"]
 [ext_resource type="Theme" uid="uid://bnqmjprb05tg8" path="res://SRC/Themes/Main_Theme.tres" id="3_kv684"]
 [ext_resource type="FontFile" uid="uid://ssk57p42865y" path="res://SRC/Fonts/paper_font.fnt" id="3_oqpa2"]
-[ext_resource type="PackedScene" uid="uid://dscw4c7ot41ds" path="res://SRC/Scenes/Anims/Fades/fade_trans.tscn" id="4_jbyo3"]
+[ext_resource type="PackedScene" uid="uid://dscw4c7ot41ds" path="res://SRC/Scenes/Anims/Fades/Fade_Trans.tscn" id="4_jbyo3"]
 [ext_resource type="Material" uid="uid://cc4psqlrys8l4" path="res://SRC/Shader/SQUGGLE.tres" id="5_kv684"]
 [ext_resource type="Texture2D" uid="uid://chmf7vx75fq8e" path="res://SRC/Sprites/Menu/close.png" id="6_jbyo3"]
 
@@ -69,15 +69,13 @@ Lead Developer & Gameplay Programmer
 System Developer
 
 [b]Gisella Anindya Aisha[/b]
-Lead Artist
+Lead Artist & Animator
 
 [color=#aaaaaa]--------------------------------------------------[/color]
 
 [font_size=48][b]EXTERNAL ASSETS & AUDIO[/b][/font_size]
 
-Map Art
-Generated from Fantasy Town Generator
-
+Wowie
 
 [color=#aaaaaa]--------------------------------------------------[/color]
 

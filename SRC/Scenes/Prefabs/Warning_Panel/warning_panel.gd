@@ -13,7 +13,7 @@ func show_warning(message: String, var_id: int = -1) -> void:
 	show()
 
 func _on_back_pressed() -> void:
-	back_pressed.emit()
+	back_pressed.emit(target_var)
 	hide()
 
 func _on_confirm_pressed() -> void:

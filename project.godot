@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="MAGEPROJECT"
-run/main_scene="uid://5nr6evcqr3sj"
+run/main_scene="uid://bdgq72sqtp66p"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://SRC/icon.svg"
 

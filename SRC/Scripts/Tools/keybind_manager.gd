@@ -87,6 +87,8 @@ func _input(event: InputEvent) -> void:
 func _finish_rebind() -> void:
 	if remapping_row:
 		remapping_row.update_key_display()
+	if tutorial:
+		
 	remapping_action = &""
 	remapping_row = null
 

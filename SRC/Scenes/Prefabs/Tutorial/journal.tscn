@@ -1,0 +1,487 @@
+[gd_scene format=3 uid="uid://bdgq72sqtp66p"]
+
+[ext_resource type="Texture2D" uid="uid://civ23y6tf33yb" path="res://SRC/Sprites/UI/Settings/set_panel.png" id="1_1cu1d"]
+[ext_resource type="Script" uid="uid://cwch7ngpp1f6i" path="res://SRC/Scenes/Prefabs/Tutorial/page_turner.gd" id="1_e1ac3"]
+[ext_resource type="Theme" uid="uid://bnqmjprb05tg8" path="res://SRC/Themes/Main_Theme.tres" id="2_oi8kl"]
+[ext_resource type="Material" uid="uid://cc4psqlrys8l4" path="res://SRC/Shader/SQUGGLE.tres" id="3_yf8g6"]
+[ext_resource type="Texture2D" uid="uid://bdbgkfo8jpq3s" path="res://SRC/Sprites/Menu/title.png" id="4_e1ac3"]
+[ext_resource type="Script" uid="uid://du7bb3v8acnea" path="res://SRC/Scenes/Prefabs/Tutorial/key_sync.gd" id="6_42dor"]
+[ext_resource type="Texture2D" uid="uid://b38kvcb2e8fnb" path="res://SRC/Sprites/UI/dark_button.png" id="7_krlyc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xqsm2"]
+texture = ExtResource("7_krlyc")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lh52u"]
+texture = ExtResource("7_krlyc")
+modulate_color = Color(0.5106015, 0.5106012, 0.5106012, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sjp3i"]
+texture = ExtResource("7_krlyc")
+modulate_color = Color(1.8247963, 1.8247963, 1.8247963, 1)
+
+[node name="Journal" type="Control" unique_id=1551852330 node_paths=PackedStringArray("pages", "next_button", "back_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e1ac3")
+pages = [NodePath("Page1_2"), NodePath("Page3_4"), NodePath("Page5_6")]
+next_button = NodePath("VBoxContainer/Next")
+back_button = NodePath("VBoxContainer/Back")
+game_start_scene = "res://SRC/Scenes/Levels/Main.tscn"
+
+[node name="Page1_2" type="Control" parent="." unique_id=1520800888]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Page1" type="NinePatchRect" parent="Page1_2" unique_id=420816321]
+custom_minimum_size = Vector2(450, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -448.0
+offset_top = -300.0
+offset_right = 2.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1cu1d")
+region_rect = Rect2(0, 0, 1233, 853)
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
+
+[node name="Label" type="Label" parent="Page1_2/Page1" unique_id=46552531]
+material = ExtResource("3_yf8g6")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title" type="Label" parent="Page1_2/Page1" unique_id=1679946682]
+material = ExtResource("3_yf8g6")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 100.0
+offset_bottom = -330.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 72
+text = "WELCOME
+TO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Page1_2/Page1" unique_id=454546384]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 180.0
+offset_right = 414.0
+offset_bottom = 552.0
+texture = ExtResource("4_e1ac3")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Page2" type="NinePatchRect" parent="Page1_2" unique_id=2031805545]
+custom_minimum_size = Vector2(450, 500)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -300.0
+offset_right = 447.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1cu1d")
+region_rect = Rect2(0, 0, 1233, 853)
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
+
+[node name="HSeparator4" type="HSeparator" parent="Page1_2/Page2" unique_id=1470553806]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 30.0
+offset_top = 125.0
+offset_right = -30.0
+offset_bottom = 141.0
+grow_horizontal = 2
+theme = ExtResource("2_oi8kl")
+
+[node name="Title" type="Label" parent="Page1_2/Page2" unique_id=1028600290]
+material = ExtResource("3_yf8g6")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -430.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 72
+text = "OBJECTIVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Page1_2/Page2" unique_id=1244447326]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 153.0
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Insert Text"
+horizontal_alignment = 1
+
+[node name="Page3_4" type="Control" parent="." unique_id=1679929881]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Page3" type="NinePatchRect" parent="Page3_4" unique_id=1762230955]
+custom_minimum_size = Vector2(450, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 108.0
+offset_top = 4.0
+offset_right = 558.0
+offset_bottom = 604.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1cu1d")
+region_rect = Rect2(0, 0, 1233, 853)
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
+
+[node name="HSeparator4" type="HSeparator" parent="Page3_4/Page3" unique_id=276003150]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 30.0
+offset_top = 125.0
+offset_right = -30.0
+offset_bottom = 141.0
+grow_horizontal = 2
+theme = ExtResource("2_oi8kl")
+
+[node name="Label" type="Label" parent="Page3_4/Page3" unique_id=761765207]
+material = ExtResource("3_yf8g6")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 152.0
+offset_right = -163.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "[W]
+[A]
+[S]
+[D]
+[SPACE]
+[SHIFT]"
+horizontal_alignment = 1
+script = ExtResource("6_42dor")
+
+[node name="Label2" type="Label" parent="Page3_4/Page3" unique_id=1797743563]
+material = ExtResource("3_yf8g6")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 182.0
+offset_top = 151.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Forward
+Left
+Down
+Right
+Jump
+Run"
+horizontal_alignment = 1
+
+[node name="Title" type="Label" parent="Page3_4/Page3" unique_id=2020022009]
+material = ExtResource("3_yf8g6")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 61.0
+offset_bottom = -483.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 80
+text = "CONTROLS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Page4" type="NinePatchRect" parent="Page3_4" unique_id=1806553273]
+custom_minimum_size = Vector2(450, 500)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 553.0
+offset_top = 4.0
+offset_right = 1003.0
+offset_bottom = 604.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1cu1d")
+region_rect = Rect2(0, 0, 1233, 853)
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
+
+[node name="HSeparator4" type="HSeparator" parent="Page3_4/Page4" unique_id=1916986718]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 30.0
+offset_top = 125.0
+offset_right = -30.0
+offset_bottom = 141.0
+grow_horizontal = 2
+theme = ExtResource("2_oi8kl")
+
+[node name="Title" type="Label" parent="Page3_4/Page4" unique_id=918106791]
+material = ExtResource("3_yf8g6")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -430.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 72
+text = "MINIGAMES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Page3_4/Page4" unique_id=1453066774]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 153.0
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Insert Text"
+horizontal_alignment = 1
+
+[node name="Page5_6" type="Control" parent="." unique_id=1640448978]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Page5" type="NinePatchRect" parent="Page5_6" unique_id=621235340]
+custom_minimum_size = Vector2(450, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 108.0
+offset_top = 4.0
+offset_right = 558.0
+offset_bottom = 604.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1cu1d")
+region_rect = Rect2(0, 0, 1233, 853)
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
+
+[node name="HSeparator4" type="HSeparator" parent="Page5_6/Page5" unique_id=545791317]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 30.0
+offset_top = 125.0
+offset_right = -30.0
+offset_bottom = 141.0
+grow_horizontal = 2
+theme = ExtResource("2_oi8kl")
+
+[node name="Title" type="Label" parent="Page5_6/Page5" unique_id=701637173]
+material = ExtResource("3_yf8g6")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 61.0
+offset_bottom = -483.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 80
+text = "SHOP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Page5_6/Page5" unique_id=1417483734]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 153.0
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Insert Text"
+horizontal_alignment = 1
+
+[node name="Page6" type="NinePatchRect" parent="Page5_6" unique_id=1882044659]
+custom_minimum_size = Vector2(450, 500)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 553.0
+offset_top = 4.0
+offset_right = 1003.0
+offset_bottom = 604.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1cu1d")
+region_rect = Rect2(0, 0, 1233, 853)
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
+
+[node name="HSeparator4" type="HSeparator" parent="Page5_6/Page6" unique_id=1629868440]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 30.0
+offset_top = 125.0
+offset_right = -30.0
+offset_bottom = 141.0
+grow_horizontal = 2
+theme = ExtResource("2_oi8kl")
+
+[node name="Title" type="Label" parent="Page5_6/Page6" unique_id=1354891169]
+material = ExtResource("3_yf8g6")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -430.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 72
+text = "?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Page5_6/Page6" unique_id=1155123690]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 153.0
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Insert Text"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="." unique_id=1674042094]
+custom_minimum_size = Vector2(830, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -415.0
+offset_top = -110.0
+offset_right = 415.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Back" type="Button" parent="VBoxContainer" unique_id=1523424140]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_oi8kl")
+theme_type_variation = &"SettingsButton"
+theme_override_styles/normal = SubResource("StyleBoxTexture_xqsm2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lh52u")
+theme_override_styles/hover = SubResource("StyleBoxTexture_sjp3i")
+text = "<-"
+
+[node name="Spacer" type="Control" parent="VBoxContainer" unique_id=99141789]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Next" type="Button" parent="VBoxContainer" unique_id=767110164]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_oi8kl")
+theme_type_variation = &"SettingsButton"
+theme_override_styles/normal = SubResource("StyleBoxTexture_xqsm2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lh52u")
+theme_override_styles/hover = SubResource("StyleBoxTexture_sjp3i")
+text = "->"
