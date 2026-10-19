@@ -33,7 +33,6 @@ back_button = NodePath("VBoxContainer/Back")
 game_start_scene = "res://SRC/Scenes/Levels/Main.tscn"
 
 [node name="Page1_2" type="Control" parent="." unique_id=1520800888]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -153,13 +152,16 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 26.0
 offset_top = 153.0
 offset_bottom = -96.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 48
-text = "Insert Text"
-horizontal_alignment = 1
+theme_override_font_sizes/font_size = 40
+text = "You are Adi, your main
+objective is to fix the fire hydrants
+Around Paper city! fix them to make
+sure to mitigate the flood!"
 
 [node name="Page3_4" type="Control" parent="." unique_id=1679929881]
 visible = false
@@ -308,15 +310,21 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 153.0
+offset_left = 27.0
+offset_top = 156.0
 offset_bottom = -96.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 48
-text = "Insert Text"
-horizontal_alignment = 1
+text = "Minigames are the main way
+you progress through the game.
+Think of them as like the
+objectives.
+Currently, there are only 3
+Minigames."
 
 [node name="Page5_6" type="Control" parent="." unique_id=1640448978]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -375,13 +383,20 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 26.0
 offset_top = 153.0
 offset_bottom = -96.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 48
-text = "Insert Text"
-horizontal_alignment = 1
+theme_override_font_sizes/font_size = 33
+text = "Shops are the main way to get
+Easier in the game, buying upgrades from the
+shop allows you to progress through the 
+game much smoother.
+
+You might be wondering as to how do you
+gain the money? simple! just finish the
+objectives around the level"
 
 [node name="Page6" type="NinePatchRect" parent="Page5_6" unique_id=1882044659]
 custom_minimum_size = Vector2(450, 500)
@@ -427,7 +442,7 @@ offset_bottom = -430.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 72
-text = "?"
+text = "Have fun!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -441,7 +456,8 @@ offset_bottom = -96.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 48
-text = "Insert Text"
+text = "Paper city is counting
+on you!"
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="HBoxContainer" parent="." unique_id=1674042094]

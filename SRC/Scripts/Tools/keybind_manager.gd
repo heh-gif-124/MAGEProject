@@ -33,15 +33,15 @@ func _create_keybind_rows() -> void:
 	# Clear placeholder nodes if any
 	for child in get_children():
 		child.queue_free()
-		
+
 	# Loop through both arrays using an index
 	for i in range(CONFIG_NAMES.size()):
 		var display_name = CONFIG_NAMES[i]
 		var action = CONFIGURABLE_ACTIONS[i]
-		
+
 		var row = key_row_scene.instantiate()
 		add_child(row)
-		
+
 		# Pass both the display name and the action to your row script
 		row.setup(display_name, action)
 		row.rebind_requested.connect(_on_rebind_requested.bind(row))
@@ -55,40 +55,38 @@ func _on_rebind_requested(action_name: StringName, button_node: Button, row_node
 func _input(event: InputEvent) -> void:
 	if remapping_action == &"":
 		return
-		
+
 	if event is InputEventMouseMotion || !event.is_pressed():
 		return
-		
+
 	if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT:
 		return
-	
+
 	if event.is_action_pressed("ui_cancel"):
 		_finish_rebind()
 		get_viewport().set_input_as_handled()
 		return
-	
+
 	for action in CONFIGURABLE_ACTIONS:
 		if action == remapping_action:
 			continue
-			
+
 		var existing_events = InputMap.action_get_events(action)
 		for old_event in existing_events:
 			# Check if this exact key/button is already bound elsewhere
 			if old_event.is_match(event):
 				# Clear it from the conflicting action so it doesn't have duplicate binds
 				InputMap.action_erase_event(action, old_event)
-	
+
 	InputMap.action_erase_events(remapping_action)
 	InputMap.action_add_event(remapping_action, event)
-	
+
 	_finish_rebind()
 	get_viewport().set_input_as_handled()
 
 func _finish_rebind() -> void:
 	if remapping_row:
 		remapping_row.update_key_display()
-	if tutorial:
-		
 	remapping_action = &""
 	remapping_row = null
 
@@ -108,7 +106,7 @@ func load_keybinds(config: ConfigFile) -> void:
 			if event:
 				InputMap.action_erase_events(action)
 				InputMap.action_add_event(action, event)
-	
+
 	_update_all_row_displays()
 
 # Restores project settings default keybindings

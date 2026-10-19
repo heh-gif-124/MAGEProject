@@ -551,7 +551,7 @@ metadata/_custom_type_script = "uid://kw1nigddulp1"
 
 [node name="Timer" type="Timer" parent="Handlers/GameHandler" unique_id=887904763 groups=["Countdown"]]
 process_callback = 0
-wait_time = 55.0
+wait_time = 69.0
 one_shot = true
 
 [node name="UpgradeHandler" type="Node" parent="Handlers" unique_id=1277491581]

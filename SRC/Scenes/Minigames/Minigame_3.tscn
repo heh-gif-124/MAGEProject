@@ -81,6 +81,7 @@ shape = SubResource("RectangleShape2D_pyuf7")
 debug_color = Color(0.506267, 0.46384728, 0.9036651, 0.41960785)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="MainArea" unique_id=808338654]
+position = Vector2(11, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainArea/StaticBody2D" unique_id=1416096539]
 position = Vector2(386, 0)

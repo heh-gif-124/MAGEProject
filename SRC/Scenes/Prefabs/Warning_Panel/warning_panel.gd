@@ -4,7 +4,7 @@ extends Control
 
 var target_var: int = -1
 
-signal back_pressed
+signal back_pressed(var_id: int)
 signal confirm_pressed(var_id: int)
 
 func show_warning(message: String, var_id: int = -1) -> void:

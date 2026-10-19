@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bph47a2xohha0" path="res://SRC/Scripts/Minigames/minigame_TIMING.gd" id="1_ltejs"]
 [ext_resource type="Texture2D" uid="uid://cpkvnlfxanlok" path="res://SRC/Sprites/UI/rect_01.png" id="2_1tryl"]
 [ext_resource type="FontFile" uid="uid://d1u7d68x5aaso" path="res://SRC/Fonts/juno-filament-regular.ttf" id="3_sel0y"]
-[ext_resource type="Texture2D" uid="uid://ds4jvryp5srno" path="res://SRC/Sprites/Property city/Tak berjudul348_Dipulihkan2_20260919160552.png" id="5_qlbr6"]
+[ext_resource type="Texture2D" uid="uid://ds4jvryp5srno" path="res://SRC/Sprites/Property city/img_hydrant.png" id="5_qlbr6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37eoj"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -195,8 +195,9 @@ theme_override_colors/font_color = Color(0.22352941, 0.1882353, 0.25490198, 1)
 theme_override_colors/font_outline_color = Color(0.22352941, 0.1882353, 0.25490198, 1)
 theme_override_fonts/font = ExtResource("3_sel0y")
 theme_override_font_sizes/font_size = 22
-text = "Time your input at the green zone
-Failing will reduce your progress"
+text = "TIme your input when the number is 5.
+when you fail, you will lose progress.
+you have 3 chances."
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect2" unique_id=518929866]

@@ -67,7 +67,7 @@ func _process(delta: float) -> void:
 	var is_sprinting = false
 
 	if Global.dashing_unlocked:
-		if Input.is_action_just_pressed("Sprint") and not is_dashing and dash_cooldown_timer <= 0.0:
+		if Input.is_action_just_pressed("sprint") and not is_dashing and dash_cooldown_timer <= 0.0:
 			dash_direction = direction if direction != Vector3.ZERO else -player.transform.basis.z
 			is_dashing = true
 			dash_timer = dash_duration
