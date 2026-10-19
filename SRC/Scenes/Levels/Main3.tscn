@@ -215,6 +215,7 @@ metadata/__load_path__ = "res://SRC/Scenes/Levels/Main2.tscn"
 script = ExtResource("1_s2k8s")
 hole_scene = ExtResource("2_v4tc8")
 hole_container = NodePath("../HoleContainer")
+hole_amount = 12
 randomize_rotation_y = false
 
 [node name="Marker3D8" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=2085697858]
@@ -304,6 +305,45 @@ material_override = SubResource("StandardMaterial3D_erja3")
 mesh = SubResource("BoxMesh_r150o")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LevelContents/Map/StaticBody3D4" unique_id=1240685324]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15930179, 0, 3.736142)
+shape = SubResource("BoxShape3D_t5s3b")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="LevelContents/Map" unique_id=1270377225]
+transform = Transform3D(2.0673957, 0, 0, 0, 5.0446715, 0, 0, 0, 0.23788163, 6.6324053, -1.5334654, 15.089157)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelContents/Map/StaticBody3D5" unique_id=333608915]
+transform = Transform3D(0.99998146, 0, 0, 0, 1, 0, 0, 0, 1, -0.15685618, 0, 4.2489624)
+material_override = SubResource("StandardMaterial3D_erja3")
+mesh = SubResource("BoxMesh_r150o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelContents/Map/StaticBody3D5" unique_id=1967079635]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15930179, 0, 3.736142)
+shape = SubResource("BoxShape3D_t5s3b")
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="LevelContents/Map" unique_id=660027957]
+transform = Transform3D(2.0673957, 0, 0, 0, 5.0446715, 0, 0, 0, 0.23788163, -0.06753445, -1.5334654, 15.089157)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelContents/Map/StaticBody3D6" unique_id=213681872]
+transform = Transform3D(0.99998146, 0, 0, 0, 1, 0, 0, 0, 1, -0.15685618, 0, 4.2489624)
+material_override = SubResource("StandardMaterial3D_erja3")
+mesh = SubResource("BoxMesh_r150o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelContents/Map/StaticBody3D6" unique_id=2078961502]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15930179, 0, 3.736142)
+shape = SubResource("BoxShape3D_t5s3b")
+
+[node name="StaticBody3D7" type="StaticBody3D" parent="LevelContents/Map" unique_id=1445357984]
+transform = Transform3D(2.0673957, 0, 0, 0, 5.0446715, 0, 0, 0, 0.23788163, -0.06753445, -1.5334654, 9.744249)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelContents/Map/StaticBody3D7" unique_id=1057147000]
+transform = Transform3D(0.99998146, 0, 0, 0, 1, 0, 0, 0, 1, -0.15685618, 0, 4.2489624)
+material_override = SubResource("StandardMaterial3D_erja3")
+mesh = SubResource("BoxMesh_r150o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelContents/Map/StaticBody3D7" unique_id=1271605072]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15930179, 0, 3.736142)
 shape = SubResource("BoxShape3D_t5s3b")
 
@@ -429,6 +469,21 @@ texture = ExtResource("7_e7x7g")
 
 [node name="Sprite3D13" type="Sprite3D" parent="LevelContents/Map/Properties" unique_id=1158568009]
 transform = Transform3D(0.13152091, 0, 0, 0, 0.13864818, 0, 0, 0, 1, 14.702143, 2.7667851, -6.3535185)
+render_priority = 1
+texture = ExtResource("8_0jcqq")
+
+[node name="Sprite3D14" type="Sprite3D" parent="LevelContents/Map/Properties" unique_id=1276966229]
+transform = Transform3D(0.13152091, 0, 0, 0, 0.13864818, 0, 0, 0, 1, 18.152195, 2.7667851, -6.3535185)
+render_priority = 1
+texture = ExtResource("8_0jcqq")
+
+[node name="Sprite3D15" type="Sprite3D" parent="LevelContents/Map/Properties" unique_id=2066871500]
+transform = Transform3D(0.13152091, 0, 0, 0, 0.13864818, 0, 0, 0, 1, 21.103765, 2.7667851, -6.3535185)
+render_priority = 1
+texture = ExtResource("8_0jcqq")
+
+[node name="Sprite3D16" type="Sprite3D" parent="LevelContents/Map/Properties" unique_id=1600251647]
+transform = Transform3D(0.13152091, 0, 0, 0, 0.13864818, 0, 0, 0, 1, 24.566257, 2.7667851, -6.3535185)
 render_priority = 1
 texture = ExtResource("8_0jcqq")
 
@@ -574,7 +629,7 @@ theme_override_colors/font_outline_color = Color(0.22352941, 0.1882353, 0.254901
 theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("11_1uipq")
 theme_override_font_sizes/font_size = 99
-text = "LEVEL 1"
+text = "LEVEL 3"
 horizontal_alignment = 1
 vertical_alignment = 1
 

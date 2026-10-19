@@ -15,6 +15,7 @@
 [ext_resource type="FontFile" uid="uid://d1u7d68x5aaso" path="res://SRC/Fonts/juno-filament-regular.ttf" id="11_jd7m5"]
 [ext_resource type="PackedScene" uid="uid://dks63g6cp2j6n" path="res://SRC/Scenes/Menus/Shop.tscn" id="13_yq7q0"]
 [ext_resource type="PackedScene" uid="uid://d3jgcgjc00ks7" path="res://SRC/Scenes/GameOver/GameOverScreen.tscn" id="14_3lmkw"]
+[ext_resource type="PackedScene" uid="uid://caor5ip8w5p3f" path="res://SRC/Scenes/Levels/Main3.tscn" id="14_4ofmb"]
 [ext_resource type="Script" uid="uid://drtk42vjyvg4o" path="res://SRC/Scripts/Tools/upgrade_handler.gd" id="15_jgft0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_erja3"]
@@ -203,9 +204,6 @@ _data = {
 &"Start": SubResource("Animation_nmlge")
 }
 
-[sub_resource type="Resource" id="Resource_4ofmb"]
-metadata/__load_path__ = "res://SRC/Scenes/Levels/Main2.tscn"
-
 [node name="Node3D" type="Node3D" unique_id=1885697256]
 
 [node name="LevelContents" type="Node3D" parent="." unique_id=1414247877]
@@ -214,6 +212,7 @@ metadata/__load_path__ = "res://SRC/Scenes/Levels/Main2.tscn"
 script = ExtResource("1_vev2r")
 hole_scene = ExtResource("2_f3r3c")
 hole_container = NodePath("../HoleContainer")
+hole_amount = 9
 randomize_rotation_y = false
 
 [node name="Marker3D7" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=1113178836]
@@ -511,7 +510,7 @@ theme_override_colors/font_outline_color = Color(0.22352941, 0.1882353, 0.254901
 theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("11_jd7m5")
 theme_override_font_sizes/font_size = 99
-text = "LEVEL 1"
+text = "LEVEL 2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -543,7 +542,7 @@ UI_layer = NodePath("../../UI")
 countdown = NodePath("Timer")
 countdown_bar = NodePath("../../UI/TextureRect2/ProgressBar")
 water_node = NodePath("../../LevelContents/Map/Water")
-next_level = SubResource("Resource_4ofmb")
+next_level = ExtResource("14_4ofmb")
 respawn_floor = NodePath("../../LevelContents/Map/Area3D")
 moneylabel = NodePath("../../UI/TextureRect2/MoneyLabel")
 shop_ui = ExtResource("13_yq7q0")
