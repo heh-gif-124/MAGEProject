@@ -11,11 +11,15 @@ var current_number = 0
 @export var numlabel : Label
 @export var numtimer : Timer
 @export var time : float = 1.0
+@export var audio_1 : AudioStreamPlayer2D
+@export var audio_2 : AudioStreamPlayer2D
 
 @export_group("Lose Mechanics")
 @export var max_mistakes : int = 3           # How many wrong hits before instant loss
 @export var fail_label : Label               # Optional Label to display "FAILED!"
 @export var max_wait_time : float = 2.5       # Lose if speed drops below this threshold
+
+
 
 var current_mistakes : int = 0
 var stylebox : StyleBoxFlat
@@ -39,6 +43,8 @@ func _ready() -> void:
 		fail_label.visible = false
 
 	numtimer.timeout.connect(func():
+		audio_1.play()
+		audio_1.pitch_scale = randf_range(1,1.4)
 		if current_number >= 5:
 			current_number = 0
 		else:
@@ -61,6 +67,8 @@ func _process(_delta: float) -> void:
 
 	# Input handling
 	if Input.is_action_just_pressed("interact"):
+		audio_2.play()
+		audio_2.pitch_scale = randf_range(1,1.4)
 		_punch_effect()
 		if current_number == 5:
 			# --- CORRECT HIT ---

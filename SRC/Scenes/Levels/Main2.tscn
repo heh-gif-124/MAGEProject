@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://uosug0sehxq0" path="res://SRC/Sprites/UI/Countdown/Countdown.png" id="9_edp36"]
 [ext_resource type="Material" uid="uid://cc4psqlrys8l4" path="res://SRC/Shader/SQUGGLE.tres" id="10_4ofmb"]
 [ext_resource type="FontFile" uid="uid://d1u7d68x5aaso" path="res://SRC/Fonts/juno-filament-regular.ttf" id="11_jd7m5"]
+[ext_resource type="AudioStream" uid="uid://c12pwgiqc2tne" path="res://SRC/SFX/Music/07_RunFlake.mp3" id="13_jd7m5"]
 [ext_resource type="PackedScene" uid="uid://dks63g6cp2j6n" path="res://SRC/Scenes/Menus/Shop.tscn" id="13_yq7q0"]
 [ext_resource type="PackedScene" uid="uid://d3jgcgjc00ks7" path="res://SRC/Scenes/GameOver/GameOverScreen.tscn" id="14_3lmkw"]
 [ext_resource type="PackedScene" uid="uid://caor5ip8w5p3f" path="res://SRC/Scenes/Levels/Main3.tscn" id="14_4ofmb"]
@@ -143,6 +144,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../Handlers/AudioStreamPlayer2D:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_nmlge"]
 resource_name = "Start"
@@ -197,8 +210,20 @@ tracks/3/keys = {
 "method": &"_start_countdown"
 }]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../Handlers/AudioStreamPlayer2D:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_yskii"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yq7q0"]
 _data = {
 &"RESET": SubResource("Animation_jla0j"),
 &"Start": SubResource("Animation_nmlge")
@@ -528,11 +553,14 @@ text = "WAVE 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Intro" unique_id=759923380]
-libraries/ = SubResource("AnimationLibrary_yskii")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Intro" unique_id=2135918777]
+libraries/ = SubResource("AnimationLibrary_yq7q0")
 autoplay = &"Start"
 
 [node name="Handlers" type="Node" parent="." unique_id=784727724]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Handlers" unique_id=762362131]
+stream = ExtResource("13_jd7m5")
 
 [node name="GameHandler" type="Node" parent="Handlers" unique_id=1759678066 node_paths=PackedStringArray("hole_placer", "hole_container", "UI_layer", "countdown", "countdown_bar", "water_node", "respawn_floor", "moneylabel")]
 script = ExtResource("7_gk8mr")

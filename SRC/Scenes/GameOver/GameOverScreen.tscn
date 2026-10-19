@@ -120,7 +120,7 @@ _data = {
 &"RESET": SubResource("Animation_0fqlr")
 }
 
-[node name="GameOverScreen" type="Control" unique_id=976827129 node_paths=PackedStringArray("yes_button")]
+[node name="GameOverScreen" type="Control" unique_id=976827129 node_paths=PackedStringArray("yes_button", "no_button")]
 z_index = 20
 layout_mode = 3
 anchors_preset = 15
@@ -130,6 +130,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6l0jx")
 yes_button = NodePath("VBoxContainer/Button")
+no_button = NodePath("VBoxContainer/Button2")
+main_menu = "res://SRC/Scenes/Menus/Main_Menu.tscn"
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=734620320]
 layout_mode = 1

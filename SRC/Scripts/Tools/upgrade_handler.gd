@@ -12,6 +12,15 @@ func _ready() -> void:
 		elif i == "DDJ":
 			var t = DoubleJump.new()
 			add_child.call_deferred(t)
+		elif i == "MMS":
+			var t = MovementSpeed.new()
+			add_child.call_deferred(t)
+		elif i == "WMN":
+			var t = water_margin.new()
+			add_child.call_deferred(t)
+		elif i == "JJH":
+			var t = JumpHeight.new()
+			add_child.call_deferred(t)
 	Global.buy.connect(func(upgrade_id):
 		print(Global.upgrade_list)
 	)

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bvjutc6cepano" path="res://SRC/Sprites/Adi character/Hand.png" id="2_x4mlb"]
 [ext_resource type="FontFile" uid="uid://d1u7d68x5aaso" path="res://SRC/Fonts/juno-filament-regular.ttf" id="3_x4mlb"]
 [ext_resource type="Texture2D" uid="uid://cpkvnlfxanlok" path="res://SRC/Sprites/UI/rect_01.png" id="4_1iiuw"]
+[ext_resource type="AudioStream" uid="uid://d38eo56n5jl6g" path="res://SRC/SFX/Sfx/Blub_06.wav" id="5_1iiuw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u3ras"]
 size = Vector2(126, 128)
@@ -14,7 +15,7 @@ size = Vector2(224, 396)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1iiuw"]
 size = Vector2(20, 890)
 
-[node name="Minigame3" type="Control" unique_id=1107472758 node_paths=PackedStringArray("win_area", "mini_player", "winlabel", "faillabel", "countdown", "timerlabel")]
+[node name="Minigame3" type="Control" unique_id=1107472758 node_paths=PackedStringArray("win_area", "mini_player", "winlabel", "faillabel", "countdown", "timerlabel", "audio")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,6 +29,7 @@ winlabel = NodePath("WinLabel")
 faillabel = NodePath("FailLabel")
 countdown = NodePath("Timer")
 timerlabel = NodePath("TimerLabel")
+audio = NodePath("AudioStreamPlayer2D")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1641884536]
 z_index = -2
@@ -189,3 +191,6 @@ theme_override_font_sizes/font_size = 120
 text = "FAILED"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1029768883]
+stream = ExtResource("5_1iiuw")

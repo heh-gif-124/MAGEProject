@@ -63,7 +63,7 @@ func _process(delta: float) -> void:
 	var direction := (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
 	# --- 2. ABILITY: DASH VS SPRINT ---
-	var current_speed = base_speed
+	var current_speed = base_speed + Global.speed_applier
 	var is_sprinting = false
 
 	if Global.dashing_unlocked:
@@ -78,7 +78,7 @@ func _process(delta: float) -> void:
 				dash_particles.emitting = true
 	else:
 		if Input.is_action_pressed("sprint"):
-			current_speed = base_speed * sprint_multiplier
+			current_speed = (base_speed * sprint_multiplier)+ Global.speed_applier
 			is_sprinting = true
 
 	# --- 3. CAMERA FOV EFFECTS ---
@@ -125,13 +125,13 @@ func _process(delta: float) -> void:
 		if jump_buffer_timer > 0.0:
 			if can_ground_jump:
 				# Execute Ground Jump
-				player.velocity.y = jump_velocity
+				player.velocity.y = jump_velocity + Global.jump_applier
 				jump_buffer_timer = 0.0
 				coyote_timer = 0.0 # Consume coyote time
 				can_double_jump = true
 			elif can_air_jump:
 				# Execute Double Jump
-				player.velocity.y = double_jump_velocity
+				player.velocity.y = double_jump_velocity + Global.jump_applier
 				jump_buffer_timer = 0.0
 				can_double_jump = false # Consume double jump capability
 

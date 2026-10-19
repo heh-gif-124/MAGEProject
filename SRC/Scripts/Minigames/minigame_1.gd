@@ -10,6 +10,7 @@ var calibrating : bool = false
 @export var winlabel : Label
 @export var fail_label : Label              # Drag your "FAILED!" label here in the Inspector
 @export var decay_rate : float = 20.0       # Points lost per second
+@export var audio : AudioStreamPlayer2D
 var hydrant : Area3D
 var stylebox : StyleBoxFlat
 
@@ -45,6 +46,8 @@ func _physics_process(delta: float) -> void:
 	# Handle Player Input with Juice Punch
 	if Input.is_action_just_pressed("interact"):
 		threshold += 15.0
+		audio.pitch_scale = randf_range(1,1.4)
+		audio.play()
 		_punch_effect()
 
 	# Check Win Condition

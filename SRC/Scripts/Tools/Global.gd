@@ -10,4 +10,5 @@ var minigames_completed : int = 0
 var currency : int = 0
 var dashing_unlocked : bool = false
 var unlocked_double_jump : bool = false
-var speed_mult : float = 1
+var speed_applier : float = 0
+var jump_applier : float = 0

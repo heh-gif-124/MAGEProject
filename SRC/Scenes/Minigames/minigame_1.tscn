@@ -2,12 +2,13 @@
 
 [ext_resource type="Material" uid="uid://cc4psqlrys8l4" path="res://SRC/Shader/SQUGGLE.tres" id="1_8x4jg"]
 [ext_resource type="Script" uid="uid://bm8d86rl4d1cd" path="res://SRC/Scripts/Minigames/minigame_1.gd" id="1_jfadb"]
-[ext_resource type="Texture2D" uid="uid://cpkvnlfxanlok" path="res://SRC/Sprites/UI/Tak berjudul351_20260926185830.png" id="3_ld0gp"]
+[ext_resource type="Texture2D" uid="uid://cpkvnlfxanlok" path="res://SRC/Sprites/UI/rect_01.png" id="3_ld0gp"]
 [ext_resource type="FontFile" uid="uid://d1u7d68x5aaso" path="res://SRC/Fonts/juno-filament-regular.ttf" id="3_omhgr"]
 [ext_resource type="Texture2D" uid="uid://beb8r351rwrla" path="res://SRC/Sprites/Sampah/Tak berjudul350_20260910184032.png" id="5_vktta"]
 [ext_resource type="Texture2D" uid="uid://df0co7e2k04qc" path="res://SRC/Sprites/Sampah/Tak berjudul350_20260910183942.png" id="5_vpouk"]
 [ext_resource type="Texture2D" uid="uid://dirsdpntw5bwq" path="res://SRC/Sprites/Sampah/Tak berjudul350_20260910184231.png" id="6_p8umd"]
 [ext_resource type="Texture2D" uid="uid://ddehkbw4km1c3" path="res://SRC/Sprites/Sampah/Tak berjudul350_20260910184216.png" id="7_p8umd"]
+[ext_resource type="AudioStream" uid="uid://d38eo56n5jl6g" path="res://SRC/SFX/Sfx/Blub_06.wav" id="9_p3sfn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_odiry"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -28,7 +29,7 @@ corner_radius_top_right = 7
 corner_radius_bottom_right = 7
 corner_radius_bottom_left = 7
 
-[node name="Minigame" type="Control" unique_id=1370748970 node_paths=PackedStringArray("bar", "winlabel", "fail_label")]
+[node name="Minigame" type="Control" unique_id=1370748970 node_paths=PackedStringArray("bar", "winlabel", "fail_label", "audio")]
 material = ExtResource("1_8x4jg")
 layout_mode = 3
 anchors_preset = 15
@@ -40,6 +41,7 @@ script = ExtResource("1_jfadb")
 bar = NodePath("ProgressBar")
 winlabel = NodePath("WinLabel")
 fail_label = NodePath("FailLabel")
+audio = NodePath("AudioStreamPlayer2D")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1563708077]
 z_index = 2
@@ -227,3 +229,6 @@ offset_bottom = 1012.0
 rotation = -0.2617994
 texture = ExtResource("7_p8umd")
 expand_mode = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=736224358]
+stream = ExtResource("9_p3sfn")

@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://cpkvnlfxanlok" path="res://SRC/Sprites/UI/rect_01.png" id="2_1tryl"]
 [ext_resource type="FontFile" uid="uid://d1u7d68x5aaso" path="res://SRC/Fonts/juno-filament-regular.ttf" id="3_sel0y"]
 [ext_resource type="Texture2D" uid="uid://ds4jvryp5srno" path="res://SRC/Sprites/Property city/img_hydrant.png" id="5_qlbr6"]
+[ext_resource type="AudioStream" uid="uid://dfvpcpfb78e13" path="res://SRC/SFX/Sfx/Click_02.wav" id="6_br2qr"]
+[ext_resource type="AudioStream" uid="uid://d38eo56n5jl6g" path="res://SRC/SFX/Sfx/Blub_06.wav" id="7_wbt1f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37eoj"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -25,7 +27,7 @@ corner_radius_top_right = 7
 corner_radius_bottom_right = 7
 corner_radius_bottom_left = 7
 
-[node name="Minigame" type="Control" unique_id=1370748970 node_paths=PackedStringArray("bar", "winlabel", "numlabel", "numtimer", "fail_label")]
+[node name="Minigame" type="Control" unique_id=1370748970 node_paths=PackedStringArray("bar", "winlabel", "numlabel", "numtimer", "audio_1", "audio_2", "fail_label")]
 material = ExtResource("1_37eoj")
 layout_mode = 3
 anchors_preset = 15
@@ -38,6 +40,8 @@ bar = NodePath("ColorRect2/ProgressBar")
 winlabel = NodePath("ColorRect2/WinLabel2")
 numlabel = NodePath("ColorRect2/NumbLabel")
 numtimer = NodePath("NumberTimer")
+audio_1 = NodePath("AudioStreamPlayer2D")
+audio_2 = NodePath("AudioStreamPlayer2D2")
 fail_label = NodePath("ColorRect2/FailLabel")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=655217094]
@@ -221,3 +225,9 @@ expand_mode = 1
 [node name="NumberTimer" type="Timer" parent="." unique_id=1399426182]
 wait_time = 0.64
 ignore_time_scale = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=208893430]
+stream = ExtResource("6_br2qr")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="." unique_id=120541828]
+stream = ExtResource("7_wbt1f")

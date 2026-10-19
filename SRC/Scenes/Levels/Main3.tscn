@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dks63g6cp2j6n" path="res://SRC/Scenes/Menus/Shop.tscn" id="13_a0uvd"]
 [ext_resource type="Script" uid="uid://drtk42vjyvg4o" path="res://SRC/Scripts/Tools/upgrade_handler.gd" id="15_td548"]
 [ext_resource type="PackedScene" uid="uid://d3jgcgjc00ks7" path="res://SRC/Scenes/GameOver/GameOverScreen.tscn" id="16_f2cns"]
+[ext_resource type="AudioStream" uid="uid://c12pwgiqc2tne" path="res://SRC/SFX/Music/07_RunFlake.mp3" id="18_v4tc8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_erja3"]
 albedo_texture = ExtResource("4_e7x7g")
@@ -143,6 +144,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../Handlers/AudioStreamPlayer2D:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_nmlge"]
 resource_name = "Start"
@@ -197,8 +210,20 @@ tracks/3/keys = {
 "method": &"_start_countdown"
 }]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../Handlers/AudioStreamPlayer2D:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_yskii"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v4tc8"]
 _data = {
 &"RESET": SubResource("Animation_jla0j"),
 &"Start": SubResource("Animation_nmlge")
@@ -647,8 +672,8 @@ text = "WAVE 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Intro" unique_id=759923380]
-libraries/ = SubResource("AnimationLibrary_yskii")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Intro" unique_id=454582903]
+libraries/ = SubResource("AnimationLibrary_v4tc8")
 autoplay = &"Start"
 
 [node name="Handlers" type="Node" parent="." unique_id=784727724]
@@ -675,3 +700,6 @@ one_shot = true
 
 [node name="UpgradeHandler" type="Node" parent="Handlers" unique_id=1277491581]
 script = ExtResource("15_td548")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Handlers" unique_id=2091242302]
+stream = ExtResource("18_v4tc8")

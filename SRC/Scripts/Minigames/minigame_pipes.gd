@@ -12,6 +12,7 @@ var lost : bool = false
 @export var timerlabel : Label
 var hydrant : Area3D
 var stylebox : StyleBoxFlat
+@export var audio : AudioStreamPlayer2D
 @export var tape_stopped : bool = false
 
 # Anti-spam protection timer
@@ -73,6 +74,8 @@ func _physics_process(delta: float) -> void:
 			timerlabel.text = str(ceil(countdown.time_left))
 
 		if Input.is_action_just_pressed("ui_right"):
+			audio.pitch_scale = randf_range(1,1.4)
+			audio.play()
 			mini_player.velocity.x += 30
 			_juice_player_stretch(Vector2(1.2, 0.8), 0.08)
 
