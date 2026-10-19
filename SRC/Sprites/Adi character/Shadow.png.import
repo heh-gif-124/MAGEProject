@@ -2,13 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< HEAD:SRC/Sprites/Adi character/Shadow.png.import
-uid="uid://c8v6akgt7pp6v"
+uid="uid://cyjxnyr86nx7j"
 path.s3tc="res://.godot/imported/Shadow.png-741bc7e0649c6ba12f1a5b91627995ee.s3tc.ctex"
-========
-uid="uid://g73vxcp5v4vr"
-path.s3tc="res://.godot/imported/img_lights.png-724deccb26386f6fccf4de7799171fb1.s3tc.ctex"
->>>>>>>> staging:SRC/Sprites/Property city/img_lights.png.import
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -16,13 +11,8 @@ metadata={
 
 [deps]
 
-<<<<<<<< HEAD:SRC/Sprites/Adi character/Shadow.png.import
 source_file="res://SRC/Sprites/Adi character/Shadow.png"
 dest_files=["res://.godot/imported/Shadow.png-741bc7e0649c6ba12f1a5b91627995ee.s3tc.ctex"]
-========
-source_file="res://SRC/Sprites/Property city/img_lights.png"
-dest_files=["res://.godot/imported/img_lights.png-724deccb26386f6fccf4de7799171fb1.s3tc.ctex"]
->>>>>>>> staging:SRC/Sprites/Property city/img_lights.png.import
 
 [params]
 

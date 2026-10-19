@@ -1,25 +1,17 @@
 [gd_scene format=3 uid="uid://dniehoe8suho"]
 
-[ext_resource type="Script" uid="uid://cw8hqlyhr0uqy" path="res://SRC/Scripts/VeryImportant/hole_placer.gd" id="1_0jcqq"]
+[ext_resource type="Script" uid="uid://d0c203mq3bdmg" path="res://SRC/Scripts/VeryImportant/hole_placer.gd" id="1_0jcqq"]
 [ext_resource type="PackedScene" uid="uid://npyn3ymv3tww" path="res://SRC/Objects/Hole/Hole.tscn" id="2_v4tc8"]
 [ext_resource type="PackedScene" uid="uid://bh5xt157myi1h" path="res://SRC/Objects/Player/Player.tscn" id="3_vnerd"]
-[ext_resource type="Texture2D" uid="uid://c3rdmwvjtoslm" path="res://SRC/Sprites/9d3f75194f27bd374b17c3cf13d9f633.jpg" id="4_kyfmh"]
-[ext_resource type="Shader" uid="uid://cpdg636rd2ix6" path="res://SRC/Shader/Main.gdshader" id="5_1uipq"]
-[ext_resource type="PackedScene" uid="uid://6k6nu4wdcjgt" path="res://SRC/Objects/Building/Building.tscn" id="6_55ox1"]
-[ext_resource type="Texture2D" uid="uid://v1d4kuoi07b5" path="res://SRC/Sprites/Property city/Tak berjudul348_Dipulihkan2_20260919160518.png" id="7_a0uvd"]
 [ext_resource type="Texture2D" uid="uid://4bm78ccfr8k6" path="res://SRC/Sprites/Property city/Tak berjudul348_Dipulihkan2_20260919160544.png" id="8_td548"]
-[ext_resource type="Script" uid="uid://56bcgdysi632" path="res://SRC/Scripts/VeryImportant/camera_3d.gd" id="9_tdjfe"]
-[ext_resource type="Shader" uid="uid://d0o44osmwb82j" path="res://SRC/Shader/Rain.gdshader" id="10_2n4np"]
 [ext_resource type="Texture2D" uid="uid://uosug0sehxq0" path="res://SRC/Sprites/UI/Countdown/Countdown.png" id="11_dlsjx"]
 [ext_resource type="Material" uid="uid://cc4psqlrys8l4" path="res://SRC/Shader/SQUGGLE.tres" id="12_ufond"]
-[ext_resource type="FontFile" uid="uid://d1u7d68x5aaso" path="res://SRC/Fonts/juno-filament-regular.ttf" id="13_vqinw"]
-[ext_resource type="Script" uid="uid://kw1nigddulp1" path="res://SRC/Scripts/VeryImportant/game_handler.gd" id="14_kq65u"]
+[ext_resource type="Script" uid="uid://boy4gk8k5p18a" path="res://SRC/Scripts/VeryImportant/game_handler.gd" id="14_kq65u"]
 [ext_resource type="PackedScene" uid="uid://dks63g6cp2j6n" path="res://SRC/Scenes/Shop/Shop.tscn" id="15_3ey73"]
 [ext_resource type="PackedScene" uid="uid://d3jgcgjc00ks7" path="res://SRC/Scenes/GameOver/GameOverScreen.tscn" id="16_f2cns"]
-[ext_resource type="Script" uid="uid://drtk42vjyvg4o" path="res://SRC/Scripts/VeryImportant/upgrade_handler.gd" id="17_2ki2x"]
+[ext_resource type="Script" uid="uid://cemrxbp2gomsg" path="res://SRC/Scripts/VeryImportant/upgrade_handler.gd" id="17_2ki2x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_erja3"]
-albedo_texture = ExtResource("4_kyfmh")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4tg0v"]
 
@@ -31,22 +23,7 @@ size = Vector3(2.0230331, 1, 14.224731)
 [sub_resource type="BoxShape3D" id="BoxShape3D_t5s3b"]
 size = Vector3(2.020752, 1, 15.327759)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_erja3"]
-frequency = 0.0127
-offset = Vector3(0, -280, 0)
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_y20q0"]
-noise = SubResource("FastNoiseLite_erja3")
-seamless = true
-as_normal_map = true
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y20q0"]
-render_priority = -1
-shader = ExtResource("5_1uipq")
-shader_parameter/normal_map = SubResource("NoiseTexture2D_y20q0")
-shader_parameter/color = Color(0.6277665, 0.93998814, 0.9689689, 1)
-shader_parameter/rapid = 0.001
-shader_parameter/transparency = 0.57999998703584
 
 [sub_resource type="BoxMesh" id="BoxMesh_v3oac"]
 material = SubResource("ShaderMaterial_y20q0")
@@ -78,13 +55,6 @@ volumetric_fog_albedo = Color(0.4299947, 0.9077094, 0.9349203, 1)
 volumetric_fog_emission = Color(0.43134022, 0.43134025, 0.43134025, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5bdln"]
-shader = ExtResource("10_2n4np")
-shader_parameter/count = 150
-shader_parameter/slant = 3.259879990946679e-09
-shader_parameter/speed = 50.0
-shader_parameter/blur = 0.002
-shader_parameter/colour = Color(1, 1, 1, 1)
-shader_parameter/size = Vector2(0.01, 0.2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erja3"]
 bg_color = Color(1, 1, 1, 0.85882354)
@@ -262,6 +232,7 @@ axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 slide_on_ceiling = false
+script = null
 
 [node name="Map" type="Node3D" parent="LevelContents" unique_id=1758475655]
 
@@ -333,28 +304,28 @@ shape = SubResource("BoxShape3D_nmd57")
 
 [node name="Building" type="Node" parent="LevelContents/Map" unique_id=1293439064]
 
-[node name="Building11" parent="LevelContents/Map/Building" unique_id=1423734849 instance=ExtResource("6_55ox1")]
+[node name="Building11" parent="LevelContents/Map/Building" unique_id=1423734849]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -7.292406, 1.0055475, -7.911534)
 
-[node name="Building12" parent="LevelContents/Map/Building" unique_id=1593064874 instance=ExtResource("6_55ox1")]
+[node name="Building12" parent="LevelContents/Map/Building" unique_id=1593064874]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -3.2604542, 1.0055475, -7.911534)
 
-[node name="Building13" parent="LevelContents/Map/Building" unique_id=1994144463 instance=ExtResource("6_55ox1")]
+[node name="Building13" parent="LevelContents/Map/Building" unique_id=1994144463]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.7604561, 1.0055475, -7.911534)
 
-[node name="Building14" parent="LevelContents/Map/Building" unique_id=81595211 instance=ExtResource("6_55ox1")]
+[node name="Building14" parent="LevelContents/Map/Building" unique_id=81595211]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 4.749256, 1.0055475, -7.911534)
 
-[node name="Building15" parent="LevelContents/Map/Building" unique_id=629387501 instance=ExtResource("6_55ox1")]
+[node name="Building15" parent="LevelContents/Map/Building" unique_id=629387501]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 15.216942, 1.0055475, -7.911534)
 
-[node name="Building16" parent="LevelContents/Map/Building" unique_id=891171959 instance=ExtResource("6_55ox1")]
+[node name="Building16" parent="LevelContents/Map/Building" unique_id=891171959]
 transform = Transform3D(-1.3113416e-07, 0, -3, 0, 3, 0, 3, 0, -1.3113416e-07, 17.216274, 1.0055475, -5.8669653)
 
-[node name="Building17" parent="LevelContents/Map/Building" unique_id=981486949 instance=ExtResource("6_55ox1")]
+[node name="Building17" parent="LevelContents/Map/Building" unique_id=981486949]
 transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -19.520191, 1.0055475, -5.8895836)
 
-[node name="Building18" parent="LevelContents/Map/Building" unique_id=240711616 instance=ExtResource("6_55ox1")]
+[node name="Building18" parent="LevelContents/Map/Building" unique_id=240711616]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -17.475624, 1.0055475, -7.888916)
 
 [node name="Property" type="Node" parent="LevelContents/Map" unique_id=1984408038]
@@ -363,31 +334,26 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -17.475624, 1.0055475, -7.888
 transform = Transform3D(0.13114768, 0, 0, 0, 0.091642395, 0, 0, 0, 1.8650557, -5.0189114, 2.223434, 0)
 layers = 4
 sorting_offset = 20.0
-texture = ExtResource("7_a0uvd")
 
 [node name="Sprite3D2" type="Sprite3D" parent="LevelContents/Map/Property" unique_id=1024449581]
 transform = Transform3D(0.13114768, 0, 0, 0, 0.091642395, 0, 0, 0, 1.8650557, 3.2997618, 2.223434, 0)
 layers = 4
 sorting_offset = 20.0
-texture = ExtResource("7_a0uvd")
 
 [node name="Sprite3D3" type="Sprite3D" parent="LevelContents/Map/Property" unique_id=1018551503]
 transform = Transform3D(0.13114768, 0, 0, 0, 0.091642395, 0, 0, 0, 1.8650557, -5.0189114, 2.223434, -3.7633357)
 layers = 4
 sorting_offset = 20.0
-texture = ExtResource("7_a0uvd")
 
 [node name="Sprite3D4" type="Sprite3D" parent="LevelContents/Map/Property" unique_id=2117026727]
 transform = Transform3D(0.13114768, 0, 0, 0, 0.091642395, 0, 0, 0, 1.8650557, 3.2997618, 2.223434, -3.7633357)
 layers = 4
 sorting_offset = 20.0
-texture = ExtResource("7_a0uvd")
 
 [node name="Sprite3D7" type="Sprite3D" parent="LevelContents/Map/Property" unique_id=1099772096]
 transform = Transform3D(0.13114768, 0, 0, 0, 0.091642395, 0, 0, 0, 1.8650557, 3.2997618, 2.223434, -3.7633357)
 layers = 4
 sorting_offset = 20.0
-texture = ExtResource("7_a0uvd")
 
 [node name="Sprite3D8" type="Sprite3D" parent="LevelContents/Map/Property" unique_id=500251199]
 transform = Transform3D(0.13114768, 0, 0, 0, 0.091642395, 0, 0, 0, 1.8650557, 15.492331, 1.4124302, -6.4835496)
@@ -423,13 +389,11 @@ texture = ExtResource("8_td548")
 transform = Transform3D(0.13114768, 0, 0, 0, 0.091642395, 0, 0, 0, 1.8650557, -5.0189114, 2.223434, 3.6950674)
 layers = 4
 sorting_offset = 20.0
-texture = ExtResource("7_a0uvd")
 
 [node name="Sprite3D6" type="Sprite3D" parent="LevelContents/Map/Property" unique_id=1760638023]
 transform = Transform3D(0.13114768, 0, 0, 0, 0.091642395, 0, 0, 0, 1.8650557, 3.2997618, 2.223434, 3.6950674)
 layers = 4
 sorting_offset = 20.0
-texture = ExtResource("7_a0uvd")
 
 [node name="HoleContainer" type="Node3D" parent="LevelContents" unique_id=355860309]
 
@@ -439,12 +403,9 @@ environment = SubResource("Environment_r150o")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=229835751]
 transform = Transform3D(1, 0, 0, 0, 0.30961666, 0.95086145, 0, -0.95086145, 0.30961666, 0, 11.195955, 2.8206744)
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=2001668656 node_paths=PackedStringArray("target")]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2001668656]
 transform = Transform3D(-1.3550135e-06, -0.16173328, 0.9868345, 0, 0.9868345, 0.16173328, -1, 2.1915079e-07, -1.3371741e-06, 19.434174, 1.8096497, -2.0658896)
 environment = SubResource("Environment_8s7kp")
-script = ExtResource("9_tdjfe")
-target = NodePath("../LevelContents/CharacterBody3D")
-offset = Vector3(0, 3, 5)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=2142865420 groups=["UILayer"]]
 
@@ -533,7 +494,6 @@ grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.22352941, 0.1882353, 0.25490198, 1)
 theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("13_vqinw")
 theme_override_font_sizes/font_size = 22
 text = "TESTALALALA "
 
@@ -570,7 +530,6 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.22352941, 0.1882353, 0.25490198, 1)
 theme_override_constants/outline_size = 12
-theme_override_fonts/font = ExtResource("13_vqinw")
 theme_override_font_sizes/font_size = 99
 text = "LEVEL 2"
 horizontal_alignment = 1
@@ -584,7 +543,6 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.22352941, 0.1882353, 0.25490198, 1)
 theme_override_constants/outline_size = 12
-theme_override_fonts/font = ExtResource("13_vqinw")
 theme_override_font_sizes/font_size = 99
 text = "WAVE 1"
 horizontal_alignment = 1
@@ -609,7 +567,6 @@ respawn_floor = NodePath("../../LevelContents/Map/Area3D")
 moneylabel = NodePath("../../UI/TextureRect2/MoneyLabel")
 shop_ui = ExtResource("15_3ey73")
 gos = ExtResource("16_f2cns")
-metadata/_custom_type_script = "uid://kw1nigddulp1"
 
 [node name="Timer" type="Timer" parent="Handlers/GameHandler" unique_id=887904763 groups=["Countdown"]]
 process_callback = 0
