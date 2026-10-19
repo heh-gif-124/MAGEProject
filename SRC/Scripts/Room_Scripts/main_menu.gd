@@ -3,7 +3,7 @@ extends Control
 @onready var warning_panel: Control = %Warning_Panel
 
 @export var game_start_scene: String
-@export var game_start_tutorial: String
+@export var game_tutorial_scene: String
 @export var credits_scene: String
 
 # Track pending action using StringName or Enum for efficiency
@@ -63,5 +63,5 @@ func _on_warning_confirm_pressed(_var_id: int) -> void:
 
 func _on_warning_back_pressed(_var_id: int) -> void:
 	if _var_id == 2:
-		SceneManager.load_scene(game_start_tutorial)
+		SceneManager.load_scene(game_tutorial_scene)
 	print("The back button was pressed inside the warning popup!")

@@ -8,8 +8,7 @@ var target_scene: String = ""
 var extra_assets: Array[String] = []
 
 func _ready() -> void:
-	#load_scene(MAIN_MENU)
-	pass
+	load_scene(MAIN_MENU)
 
 # Call this from ANYWHERE in the game to transition
 func load_scene(scene_path: String, assets_to_preload: Array[String] = []) -> void:
