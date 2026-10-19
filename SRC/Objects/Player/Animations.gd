@@ -42,7 +42,7 @@ func _process(delta: float) -> void:
 
 	# 2. State & Animation Setup
 	var is_moving : bool = parent.velocity.x != 0 or parent.velocity.z != 0
-	var is_sprinting : bool = is_moving and Input.is_action_pressed("Sprint")
+	var is_sprinting : bool = is_moving and Input.is_action_pressed("sprint")
 	var is_on_floor : bool = parent.is_on_floor()
 
 	# --- JUMP JUICE DETECTORS ---

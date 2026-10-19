@@ -138,7 +138,7 @@ func _trigger_win() -> void:
 	await get_tree().create_timer(1.2, true, false, true).timeout
 	Global.minigame_initiated = false
 	Global.minigame_finished.emit.call_deferred()
-	Global.currency += 300
+	Global.currency += 250
 
 	if is_instance_valid(hydrant):
 		hydrant.queue_free()

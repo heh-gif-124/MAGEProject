@@ -8,17 +8,18 @@ var target_scene: String = ""
 var extra_assets: Array[String] = []
 
 func _ready() -> void:
-	load_scene(MAIN_MENU)
+	# load_scene(MAIN_MENU)
+	pass
 
 # Call this from ANYWHERE in the game to transition
 func load_scene(scene_path: String, assets_to_preload: Array[String] = []) -> void:
 	target_scene = scene_path
 	extra_assets = assets_to_preload
-	
+
 	# Check if the main scene is already fully loaded in memory!
 	var dummy_progress = []
 	var status = ResourceLoader.load_threaded_get_status(scene_path, dummy_progress)
-	
+
 	if status == ResourceLoader.THREAD_LOAD_LOADED:
 		# It's already cached! Skip the loading screen entirely.
 		print("Scene was preloaded silently. Instant transition!")

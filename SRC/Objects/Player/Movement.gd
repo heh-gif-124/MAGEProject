@@ -77,7 +77,7 @@ func _process(delta: float) -> void:
 				dash_particles.restart()
 				dash_particles.emitting = true
 	else:
-		if Input.is_action_pressed("Sprint"):
+		if Input.is_action_pressed("sprint"):
 			current_speed = base_speed * sprint_multiplier
 			is_sprinting = true
 

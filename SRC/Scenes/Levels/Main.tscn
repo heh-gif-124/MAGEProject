@@ -8,6 +8,7 @@
 [ext_resource type="Shader" uid="uid://cpdg636rd2ix6" path="res://SRC/Shader/Main.gdshader" id="4_v3oac"]
 [ext_resource type="Texture2D" uid="uid://c3rdmwvjtoslm" path="res://SRC/Sprites/UI/rect_02.jpg" id="4_y20q0"]
 [ext_resource type="Shader" uid="uid://d0o44osmwb82j" path="res://SRC/Shader/Rain.gdshader" id="6_8s7kp"]
+[ext_resource type="Texture2D" uid="uid://v1d4kuoi07b5" path="res://SRC/Sprites/Property city/img_.png" id="7_nmlge"]
 [ext_resource type="PackedScene" uid="uid://6k6nu4wdcjgt" path="res://SRC/Objects/Building/Building.tscn" id="8_bcwvo"]
 [ext_resource type="Texture2D" uid="uid://uosug0sehxq0" path="res://SRC/Sprites/UI/Countdown/Countdown.png" id="9_4tg0v"]
 [ext_resource type="PackedScene" uid="uid://dks63g6cp2j6n" path="res://SRC/Scenes/Menus/Shop.tscn" id="10_bcwvo"]
@@ -275,26 +276,57 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.4865494, 0, -6.19483, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5707855, 0, -4.6679993)
 shape = SubResource("BoxShape3D_nmd57")
 
-[node name="Building11" parent="LevelContents/Map" unique_id=1423734849 instance=ExtResource("8_bcwvo")]
+[node name="Building" type="Node" parent="LevelContents/Map" unique_id=254365646]
+
+[node name="Building11" parent="LevelContents/Map/Building" unique_id=1423734849 instance=ExtResource("8_bcwvo")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -7.292406, 1.0055475, -7.911534)
 
-[node name="Building15" parent="LevelContents/Map" unique_id=629387501 instance=ExtResource("8_bcwvo")]
-transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -9.448101, 1.0055475, -6.0759296)
+[node name="Building15" parent="LevelContents/Map/Building" unique_id=629387501 instance=ExtResource("8_bcwvo")]
+transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -9.216365, 1.0055475, -5.7565217)
 
-[node name="Building16" parent="LevelContents/Map" unique_id=252184026 instance=ExtResource("8_bcwvo")]
-transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -9.448101, 1.0055475, -2.0561986)
+[node name="Building16" parent="LevelContents/Map/Building" unique_id=1283139375 instance=ExtResource("8_bcwvo")]
+transform = Transform3D(-1.3113416e-07, 0, -3, 0, 3, 0, 3, 0, -1.3113416e-07, 6.632044, 1.0055475, -5.7565217)
 
-[node name="Building17" parent="LevelContents/Map" unique_id=116678893 instance=ExtResource("8_bcwvo")]
-transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -9.448101, 1.0055475, 1.966224)
-
-[node name="Building12" parent="LevelContents/Map" unique_id=1593064874 instance=ExtResource("8_bcwvo")]
+[node name="Building12" parent="LevelContents/Map/Building" unique_id=1593064874 instance=ExtResource("8_bcwvo")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -3.2604542, 1.0055475, -7.911534)
 
-[node name="Building13" parent="LevelContents/Map" unique_id=1994144463 instance=ExtResource("8_bcwvo")]
+[node name="Building14" parent="LevelContents/Map/Building" unique_id=81595211 instance=ExtResource("8_bcwvo")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 4.749256, 1.0055475, -7.911534)
+
+[node name="Building13" parent="LevelContents/Map/Building" unique_id=1994144463 instance=ExtResource("8_bcwvo")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.7604561, 1.0055475, -7.911534)
 
-[node name="Building14" parent="LevelContents/Map" unique_id=81595211 instance=ExtResource("8_bcwvo")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 4.749256, 1.0055475, -7.911534)
+[node name="Properties" type="Node" parent="LevelContents/Map" unique_id=673537901]
+
+[node name="Sprite3D" type="Sprite3D" parent="LevelContents/Map/Properties" unique_id=55320291]
+transform = Transform3D(0.13152091, 0, 0, 0, 0.13864818, 0, 0, 0, 1, -4.8506975, 2.821268, -3.3823118)
+render_priority = 1
+texture = ExtResource("7_nmlge")
+
+[node name="Sprite3D2" type="Sprite3D" parent="LevelContents/Map/Properties" unique_id=216266873]
+transform = Transform3D(0.13152091, 0, 0, 0, 0.13864818, 0, 0, 0, 1, -4.8506975, 2.821268, 1.5459511)
+render_priority = 1
+texture = ExtResource("7_nmlge")
+
+[node name="Sprite3D3" type="Sprite3D" parent="LevelContents/Map/Properties" unique_id=721896137]
+transform = Transform3D(0.13152091, 0, 0, 0, 0.13864818, 0, 0, 0, 1, 2.6191864, 2.821268, -3.3823118)
+render_priority = 1
+texture = ExtResource("7_nmlge")
+
+[node name="Sprite3D4" type="Sprite3D" parent="LevelContents/Map/Properties" unique_id=1196785423]
+transform = Transform3D(0.13152091, 0, 0, 0, 0.13864818, 0, 0, 0, 1, 2.6191864, 2.821268, 1.5459511)
+render_priority = 1
+texture = ExtResource("7_nmlge")
+
+[node name="Sprite3D5" type="Sprite3D" parent="LevelContents/Map/Properties" unique_id=844321075]
+transform = Transform3D(0.13152091, 0, 0, 0, 0.13864818, 0, 0, 0, 1, -4.8506975, 2.821268, -0.8030374)
+render_priority = 1
+texture = ExtResource("7_nmlge")
+
+[node name="Sprite3D6" type="Sprite3D" parent="LevelContents/Map/Properties" unique_id=1090836826]
+transform = Transform3D(0.13152091, 0, 0, 0, 0.13864818, 0, 0, 0, 1, 2.6191864, 2.821268, -0.8030374)
+render_priority = 1
+texture = ExtResource("7_nmlge")
 
 [node name="HoleContainer" type="Node3D" parent="LevelContents" unique_id=355860309]
 

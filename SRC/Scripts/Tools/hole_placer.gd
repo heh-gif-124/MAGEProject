@@ -81,7 +81,9 @@ func _place_holes() -> void:
 		_animate_hole_spawn(g, final_scale)
 
 		if staggered_spawn and spawn_delay > 0.0:
-			await get_tree().create_timer(spawn_delay).timeout
+			var tree = get_tree()
+			if tree:
+					await tree.create_timer(spawn_delay).timeout
 
 	holes_spawned.emit()
 

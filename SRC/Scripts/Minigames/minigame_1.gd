@@ -60,7 +60,7 @@ func _physics_process(delta: float) -> void:
 
 		Global.minigame_initiated = false
 		Global.minigame_finished.emit.call_deferred()
-		Global.currency += 100
+		Global.currency += 30
 		print("Money: " + str(Global.currency))
 
 		if is_instance_valid(hydrant):

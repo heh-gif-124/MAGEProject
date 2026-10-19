@@ -3,7 +3,9 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	get_tree().get_first_node_in_group("MinigameHolder").queue_free()
+	var minigameholder = get_tree().get_first_node_in_group("MinigameHolder")
+	if minigameholder:
+		minigameholder.queue_free()
 	yes_button.pressed.connect(func():
 		total_soft_reset()
 	)
