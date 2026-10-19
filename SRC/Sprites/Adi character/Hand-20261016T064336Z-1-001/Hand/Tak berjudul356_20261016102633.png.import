@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://da1tmv5jmn767"
-path.s3tc="res://.godot/imported/IDLE.png-24bfe69d4411414fc2a487bc07b89ab4.s3tc.ctex"
+uid="uid://igvr2b13evkx"
+path="res://.godot/imported/Tak berjudul356_20261016102633.png-b5e9bc494775245cb03220abf891b9e5.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://SRC/Sprites/Player/FREE_Samurai 2D Pixel Art v1.2/Sprites/IDLE.png"
-dest_files=["res://.godot/imported/IDLE.png-24bfe69d4411414fc2a487bc07b89ab4.s3tc.ctex"]
+source_file="res://SRC/Sprites/Adi character/Hand-20261016T064336Z-1-001/Hand/Tak berjudul356_20261016102633.png"
+dest_files=["res://.godot/imported/Tak berjudul356_20261016102633.png-b5e9bc494775245cb03220abf891b9e5.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -24,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -38,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

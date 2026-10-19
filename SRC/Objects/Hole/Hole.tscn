@@ -33,7 +33,7 @@ outline_size = 22
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=696124960]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 2.3572025, 0)
-sorting_offset = 6.0
+sorting_offset = -2.0
 texture = ExtResource("5_ulwtk")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=947462317]

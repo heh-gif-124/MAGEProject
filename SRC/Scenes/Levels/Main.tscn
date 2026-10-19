@@ -8,6 +8,7 @@
 [ext_resource type="Shader" uid="uid://cpdg636rd2ix6" path="res://SRC/Shader/Main.gdshader" id="4_v3oac"]
 [ext_resource type="Texture2D" uid="uid://c3rdmwvjtoslm" path="res://SRC/Sprites/9d3f75194f27bd374b17c3cf13d9f633.jpg" id="4_y20q0"]
 [ext_resource type="Shader" uid="uid://d0o44osmwb82j" path="res://SRC/Shader/Rain.gdshader" id="6_8s7kp"]
+[ext_resource type="Texture2D" uid="uid://v1d4kuoi07b5" path="res://SRC/Sprites/Property city/Tak berjudul348_Dipulihkan2_20260919160518.png" id="7_nmlge"]
 [ext_resource type="PackedScene" uid="uid://6k6nu4wdcjgt" path="res://SRC/Objects/Building/Building.tscn" id="8_bcwvo"]
 [ext_resource type="Texture2D" uid="uid://uosug0sehxq0" path="res://SRC/Sprites/UI/Countdown/Countdown.png" id="9_4tg0v"]
 [ext_resource type="PackedScene" uid="uid://dks63g6cp2j6n" path="res://SRC/Scenes/Shop/Shop.tscn" id="10_bcwvo"]
@@ -251,6 +252,7 @@ slide_on_ceiling = false
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="LevelContents/Map" unique_id=302129770]
 transform = Transform3D(8.005055, 0, 0, 0, 5.0446715, 0, 0, 0, 0.98035586, 0, -1.5334654, -5.1568747)
+metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="LevelContents/Map/StaticBody3D2" unique_id=56880617]
 transform = Transform3D(0.99998146, 0, 0, 0, 1, 0, 0, 0, 1, -0.15685618, 0, 4.2489624)
@@ -258,6 +260,19 @@ material_override = SubResource("StandardMaterial3D_erja3")
 mesh = SubResource("BoxMesh_r150o")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LevelContents/Map/StaticBody3D2" unique_id=1853568331]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15930179, 0, 3.736142)
+shape = SubResource("BoxShape3D_t5s3b")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="LevelContents/Map" unique_id=582246893]
+transform = Transform3D(8.005055, 0, 0, 0, 5.0446715, 0, 0, 0, 0.98035586, 0, -1.5334654, -5.1568747)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelContents/Map/StaticBody3D3" unique_id=1414492426]
+transform = Transform3D(0.99998146, 0, 0, 0, 1, 0, 0, 0, 1, -0.15685618, 0, 4.2489624)
+material_override = SubResource("StandardMaterial3D_erja3")
+mesh = SubResource("BoxMesh_r150o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelContents/Map/StaticBody3D3" unique_id=1073463025]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15930179, 0, 3.736142)
 shape = SubResource("BoxShape3D_t5s3b")
 
@@ -275,26 +290,57 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.4865494, 0, -6.19483, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5707855, 0, -4.6679993)
 shape = SubResource("BoxShape3D_nmd57")
 
-[node name="Building11" parent="LevelContents/Map" unique_id=1423734849 instance=ExtResource("8_bcwvo")]
+[node name="Building" type="Node" parent="LevelContents/Map" unique_id=1293439064]
+
+[node name="Building11" parent="LevelContents/Map/Building" unique_id=1423734849 instance=ExtResource("8_bcwvo")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -7.292406, 1.0055475, -7.911534)
 
-[node name="Building15" parent="LevelContents/Map" unique_id=629387501 instance=ExtResource("8_bcwvo")]
-transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -9.448101, 1.0055475, -6.0759296)
-
-[node name="Building16" parent="LevelContents/Map" unique_id=252184026 instance=ExtResource("8_bcwvo")]
-transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -9.448101, 1.0055475, -2.0561986)
-
-[node name="Building17" parent="LevelContents/Map" unique_id=116678893 instance=ExtResource("8_bcwvo")]
-transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -9.448101, 1.0055475, 1.966224)
-
-[node name="Building12" parent="LevelContents/Map" unique_id=1593064874 instance=ExtResource("8_bcwvo")]
+[node name="Building12" parent="LevelContents/Map/Building" unique_id=1593064874 instance=ExtResource("8_bcwvo")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -3.2604542, 1.0055475, -7.911534)
 
-[node name="Building13" parent="LevelContents/Map" unique_id=1994144463 instance=ExtResource("8_bcwvo")]
+[node name="Building13" parent="LevelContents/Map/Building" unique_id=1994144463 instance=ExtResource("8_bcwvo")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.7604561, 1.0055475, -7.911534)
 
-[node name="Building14" parent="LevelContents/Map" unique_id=81595211 instance=ExtResource("8_bcwvo")]
+[node name="Building14" parent="LevelContents/Map/Building" unique_id=81595211 instance=ExtResource("8_bcwvo")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 4.749256, 1.0055475, -7.911534)
+
+[node name="Property" type="Node" parent="LevelContents/Map" unique_id=1984408038]
+
+[node name="Sprite3D" type="Sprite3D" parent="LevelContents/Map/Property" unique_id=2122259801]
+transform = Transform3D(0.13114768, 0, 0, 0, 0.091642395, 0, 0, 0, 1.8650557, -5.0189114, 2.223434, 0)
+layers = 4
+sorting_offset = 20.0
+texture = ExtResource("7_nmlge")
+
+[node name="Sprite3D2" type="Sprite3D" parent="LevelContents/Map/Property" unique_id=1024449581]
+transform = Transform3D(0.13114768, 0, 0, 0, 0.091642395, 0, 0, 0, 1.8650557, 3.2997618, 2.223434, 0)
+layers = 4
+sorting_offset = 20.0
+texture = ExtResource("7_nmlge")
+
+[node name="Sprite3D3" type="Sprite3D" parent="LevelContents/Map/Property" unique_id=1018551503]
+transform = Transform3D(0.13114768, 0, 0, 0, 0.091642395, 0, 0, 0, 1.8650557, -5.0189114, 2.223434, -3.7633357)
+layers = 4
+sorting_offset = 20.0
+texture = ExtResource("7_nmlge")
+
+[node name="Sprite3D4" type="Sprite3D" parent="LevelContents/Map/Property" unique_id=2117026727]
+transform = Transform3D(0.13114768, 0, 0, 0, 0.091642395, 0, 0, 0, 1.8650557, 3.2997618, 2.223434, -3.7633357)
+layers = 4
+sorting_offset = 20.0
+texture = ExtResource("7_nmlge")
+
+[node name="Sprite3D5" type="Sprite3D" parent="LevelContents/Map/Property" unique_id=767811723]
+transform = Transform3D(0.13114768, 0, 0, 0, 0.091642395, 0, 0, 0, 1.8650557, -5.0189114, 2.223434, 3.6950674)
+layers = 4
+sorting_offset = 20.0
+texture = ExtResource("7_nmlge")
+
+[node name="Sprite3D6" type="Sprite3D" parent="LevelContents/Map/Property" unique_id=1760638023]
+transform = Transform3D(0.13114768, 0, 0, 0, 0.091642395, 0, 0, 0, 1.8650557, 3.2997618, 2.223434, 3.6950674)
+layers = 4
+sorting_offset = 20.0
+texture = ExtResource("7_nmlge")
 
 [node name="HoleContainer" type="Node3D" parent="LevelContents" unique_id=355860309]
 
@@ -370,16 +416,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 117.5
-offset_top = -95.5
-offset_right = 138.5
-offset_bottom = 21.5
+offset_left = -82.5
+offset_top = -33.5
+offset_right = 60.5
+offset_bottom = -18.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_erja3")
 theme_override_styles/fill = SubResource("StyleBoxFlat_qtryu")
 value = 100.0
-fill_mode = 3
 show_percentage = false
 
 [node name="MoneyLabel" type="Label" parent="UI/TextureRect2" unique_id=1498604901]

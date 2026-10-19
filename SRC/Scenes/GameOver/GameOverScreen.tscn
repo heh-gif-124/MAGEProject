@@ -3,12 +3,74 @@
 [ext_resource type="Script" uid="uid://dowkfm2uide6u" path="res://SRC/Scripts/VeryImportant/game_over_screen.gd" id="1_6l0jx"]
 [ext_resource type="Texture2D" uid="uid://bahbg6gpex85u" path="res://SRC/Sprites/UI/Game Over/Tak berjudul351_20260910102241.png" id="1_f8sq0"]
 [ext_resource type="FontFile" uid="uid://d1u7d68x5aaso" path="res://SRC/Fonts/juno-filament-regular.ttf" id="2_6gudl"]
+[ext_resource type="Texture2D" uid="uid://cayi7x2ex5011" path="res://SRC/Sprites/Adi character/Pingsan-20261016T064337Z-1-001/Pingsan/Tak berjudul333_Dipulihkan9_20261016111215.png" id="4_b03ie"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5bdln"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmd57"]
 bg_color = Color(0.52156866, 0.52156866, 0.52156866, 0)
+
+[sub_resource type="Animation" id="Animation_0fqlr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(185.75, -780)]
+}
+
+[sub_resource type="Animation" id="Animation_b03ie"]
+resource_name = "new_animation"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.53),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.5529412)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.66, 3, 3.01),
+"transitions": PackedFloat32Array(0.37892905, 1, 1),
+"update": 0,
+"values": [Vector2(185.75, -780), Vector2(185.75, -77), Vector2(185.75, -66.25)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0fqlr"]
+_data = {
+&"RESET": SubResource("Animation_0fqlr"),
+&"new_animation": SubResource("Animation_b03ie")
+}
 
 [node name="GameOverScreen" type="Control" unique_id=976827129 node_paths=PackedStringArray("yes_button")]
 z_index = 20
@@ -19,7 +81,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6l0jx")
-yes_button = NodePath("VBoxContainer/Button")
+yes_button = NodePath("TextureRect/VBoxContainer/Button")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=734620320]
 layout_mode = 1
@@ -29,37 +91,32 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -390.25
-offset_top = -390.25
+offset_top = -1104.0
 offset_right = 390.25
-offset_bottom = 390.25
+offset_bottom = -323.49988
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_f8sq0")
 expand_mode = 1
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=9878647]
-z_index = -1
+[node name="TextureRect2" type="TextureRect" parent="TextureRect" unique_id=1813439580]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.0
+offset_top = 48.0
+offset_right = 181.0
+offset_bottom = 410.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.14117648)
+mouse_filter = 2
+texture = ExtResource("4_b03ie")
+expand_mode = 1
 
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=94477201]
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.14117648)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=432872091]
-
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1990631872]
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect" unique_id=1990631872]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -73,7 +130,7 @@ offset_bottom = 161.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=396275743]
+[node name="Button" type="Button" parent="TextureRect/VBoxContainer" unique_id=396275743]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_6gudl")
 theme_override_font_sizes/font_size = 44
@@ -81,10 +138,24 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_5bdln")
 theme_override_styles/hover = SubResource("StyleBoxFlat_nmd57")
 text = "YES"
 
-[node name="Button2" type="Button" parent="VBoxContainer" unique_id=2136001259]
+[node name="Button2" type="Button" parent="TextureRect/VBoxContainer" unique_id=2136001259]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_6gudl")
 theme_override_font_sizes/font_size = 44
 theme_override_styles/normal = SubResource("StyleBoxFlat_5bdln")
 theme_override_styles/hover = SubResource("StyleBoxFlat_nmd57")
 text = "NO "
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=9878647]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=432872091]
+libraries/ = SubResource("AnimationLibrary_0fqlr")
+autoplay = &"new_animation"

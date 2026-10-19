@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://0vwmvhlf15bm"]
 
 [ext_resource type="Script" uid="uid://bgltmq6qxes5c" path="res://SRC/Scripts/Minigames/minigame_pipes.gd" id="1_u3ras"]
-[ext_resource type="Texture2D" uid="uid://dvlt3bgvn7h8f" path="res://icon.svg" id="2_c4q5d"]
+[ext_resource type="Texture2D" uid="uid://igvr2b13evkx" path="res://SRC/Sprites/Adi character/Hand-20261016T064336Z-1-001/Hand/Tak berjudul356_20261016102633.png" id="2_x4mlb"]
 [ext_resource type="FontFile" uid="uid://d1u7d68x5aaso" path="res://SRC/Fonts/juno-filament-regular.ttf" id="3_x4mlb"]
 [ext_resource type="Texture2D" uid="uid://cpkvnlfxanlok" path="res://SRC/Sprites/UI/Tak berjudul351_20260926185830.png" id="4_1iiuw"]
 
@@ -11,7 +11,10 @@ size = Vector2(126, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pyuf7"]
 size = Vector2(224, 396)
 
-[node name="Minigame3" type="Control" unique_id=1107472758 node_paths=PackedStringArray("win_area", "mini_player", "winlabel")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x4mlb"]
+size = Vector2(20, 610)
+
+[node name="Minigame3" type="Control" unique_id=1107472758 node_paths=PackedStringArray("win_area", "mini_player", "winlabel", "faillabel", "countdownstopped", "countdown")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +24,10 @@ grow_vertical = 2
 script = ExtResource("1_u3ras")
 win_area = NodePath("MainArea/Area2D")
 mini_player = NodePath("MainArea/Player")
-winlabel = NodePath("Instruction")
+winlabel = NodePath("WinLabel")
+faillabel = NodePath("FailLabel")
+countdownstopped = NodePath("TimerLabel")
+countdown = NodePath("Timer")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1641884536]
 z_index = -2
@@ -55,7 +61,7 @@ physics_interpolation_mode = 1
 position = Vector2(682, 307)
 
 [node name="Player" type="CharacterBody2D" parent="MainArea" unique_id=1214942214]
-position = Vector2(-218, 0)
+position = Vector2(-467, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainArea/Player" unique_id=5167625]
 z_index = 1
@@ -63,7 +69,9 @@ position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_u3ras")
 
 [node name="Sprite2D" type="Sprite2D" parent="MainArea/Player" unique_id=2022785864]
-texture = ExtResource("2_c4q5d")
+position = Vector2(0, 41.000004)
+scale = Vector2(0.38134763, 0.38134763)
+texture = ExtResource("2_x4mlb")
 
 [node name="Area2D" type="Area2D" parent="MainArea" unique_id=2025024133]
 visible = false
@@ -72,6 +80,12 @@ position = Vector2(277, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainArea/Area2D" unique_id=1706292201]
 shape = SubResource("RectangleShape2D_pyuf7")
 debug_color = Color(0.506267, 0.46384728, 0.9036651, 0.41960785)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MainArea" unique_id=349173293]
+position = Vector2(387, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainArea/StaticBody2D" unique_id=942545368]
+shape = SubResource("RectangleShape2D_x4mlb")
 
 [node name="Instruction" type="Label" parent="." unique_id=65320029]
 layout_mode = 1
@@ -115,6 +129,7 @@ vertical_alignment = 1
 [node name="Timer" type="Timer" parent="." unique_id=1940188809]
 wait_time = 7.0
 one_shot = true
+autostart = true
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1890915674]
 z_index = -1

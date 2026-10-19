@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://du0swpcxbaplp" path="res://SRC/Sprites/Adi character/1. Idle/Frame 1.png" id="4_5gom3"]
 [ext_resource type="Texture2D" uid="uid://d3vs63wqc43c2" path="res://SRC/Sprites/Adi character/1. Idle/Frame 2.png" id="5_4tog1"]
 [ext_resource type="Script" uid="uid://df2mr73kh3ad8" path="res://SRC/Objects/Player/Animations.gd" id="5_nc1dg"]
-[ext_resource type="Texture2D" uid="uid://c2yuou06jkic8" path="res://SRC/Sprites/Player/Shadow.png" id="6_5gom3"]
 [ext_resource type="Texture2D" uid="uid://csq3y1mk7vi20" path="res://SRC/Sprites/Adi character/1. Idle/Frame 3.png" id="6_bspf1"]
 [ext_resource type="Texture2D" uid="uid://cfhld6q7nqf7" path="res://SRC/Sprites/Adi character/2. Walk/Frame 1.png" id="7_hxbmk"]
 [ext_resource type="Texture2D" uid="uid://cb4210x12jxeq" path="res://SRC/Sprites/Adi character/4 Jump/Jump 1/Frame 3.png" id="7_sssbg"]
@@ -18,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bk8beh1783nyr" path="res://SRC/Sprites/Adi character/3. Run/Frame 3.png" id="10_uxc8u"]
 [ext_resource type="Texture2D" uid="uid://dc433h6doar07" path="res://SRC/Sprites/Adi character/3. Run/Frame 4.png" id="11_2jsmj"]
 [ext_resource type="Texture2D" uid="uid://bob77kfp767d3" path="res://SRC/Sprites/Adi character/2. Walk/Frame 5.png" id="11_ryc0l"]
+[ext_resource type="Texture2D" uid="uid://c8v6akgt7pp6v" path="res://SRC/Sprites/Adi character/Shadow.png" id="16_0qwuv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5bdln"]
 radius = 0.3232422
@@ -172,7 +172,7 @@ shape = SubResource("CapsuleShape3D_5bdln")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1830645034]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.08897269, 0)
-sorting_offset = 99.0
+sorting_offset = 4.0
 pixel_size = 0.001
 sprite_frames = SubResource("SpriteFrames_ch2j5")
 animation = &"Dashing"
@@ -182,7 +182,7 @@ frame_progress = 0.7756015
 transform = Transform3D(0.3, 0, 0, 0, -1.3113417e-08, -0.3, 0, 0.3, -1.3113417e-08, 0, -0.36352253, 0)
 sorting_use_aabb_center = false
 modulate = Color(1, 1, 1, 0.5137255)
-texture = ExtResource("6_5gom3")
+texture = ExtResource("16_0qwuv")
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=80461961]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8614177, 0)

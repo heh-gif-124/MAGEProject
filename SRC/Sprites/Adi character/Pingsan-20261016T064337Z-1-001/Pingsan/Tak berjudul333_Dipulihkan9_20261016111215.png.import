@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://esl2nrcnvqne"
-path.s3tc="res://.godot/imported/RUN.png-3da18a8ea53d46bdf66fc1845e012243.s3tc.ctex"
+uid="uid://cayi7x2ex5011"
+path="res://.godot/imported/Tak berjudul333_Dipulihkan9_20261016111215.png-1da148ddda96541ced88218e400d2f8f.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://SRC/Sprites/Player/FREE_Samurai 2D Pixel Art v1.2/Sprites/RUN.png"
-dest_files=["res://.godot/imported/RUN.png-3da18a8ea53d46bdf66fc1845e012243.s3tc.ctex"]
+source_file="res://SRC/Sprites/Adi character/Pingsan-20261016T064337Z-1-001/Pingsan/Tak berjudul333_Dipulihkan9_20261016111215.png"
+dest_files=["res://.godot/imported/Tak berjudul333_Dipulihkan9_20261016111215.png-1da148ddda96541ced88218e400d2f8f.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -24,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -38,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
