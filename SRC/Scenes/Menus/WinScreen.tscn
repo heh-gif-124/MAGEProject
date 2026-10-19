@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://dm451t3h4vj76"]
+
+[ext_resource type="Script" uid="uid://dqitu232kgx41" path="res://SRC/Scripts/Room_Scripts/win_screen.gd" id="1_2tq4l"]
+[ext_resource type="Texture2D" uid="uid://civ23y6tf33yb" path="res://SRC/Sprites/UI/Settings/set_panel.png" id="1_8ai4y"]
+[ext_resource type="FontFile" uid="uid://d1u7d68x5aaso" path="res://SRC/Fonts/juno-filament-regular.ttf" id="2_pmfnb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2tq4l"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w25m4"]
+bg_color = Color(0.52156866, 0.52156866, 0.52156866, 0)
+
+[node name="WinScreen" type="Control" unique_id=1935704720 node_paths=PackedStringArray("yes_button", "no_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2tq4l")
+yes_button = NodePath("VBoxContainer/Button")
+no_button = NodePath("VBoxContainer/Button2")
+main_menu = "res://SRC/Scenes/Menus/Main_Menu.tscn"
+level_1 = "res://SRC/Scenes/Levels/Main.tscn"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1213937479]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -347.27814
+offset_top = -240.25
+offset_right = 347.27814
+offset_bottom = 240.25
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8ai4y")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="." unique_id=431400095]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -194.0
+offset_top = -219.0
+offset_right = 194.0
+offset_bottom = -80.25
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 120
+text = "YOU WIN! "
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=2132779939]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -228.0
+offset_top = -148.0
+offset_right = 160.0
+offset_bottom = -9.25
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 66
+text = "Thanks for playing!"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="." unique_id=312225495]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -318.0
+offset_top = -112.0
+offset_right = 70.0
+offset_bottom = 26.75
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 66
+text = "Play Again?"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=274867726]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.0
+offset_top = -8.0
+offset_right = -157.0
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=527217099]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pmfnb")
+theme_override_font_sizes/font_size = 44
+theme_override_styles/normal = SubResource("StyleBoxFlat_2tq4l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w25m4")
+text = "YES"
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1115127013]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pmfnb")
+theme_override_font_sizes/font_size = 44
+theme_override_styles/normal = SubResource("StyleBoxFlat_2tq4l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w25m4")
+text = "NO "

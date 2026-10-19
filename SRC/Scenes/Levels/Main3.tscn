@@ -16,6 +16,7 @@
 [ext_resource type="Material" uid="uid://cc4psqlrys8l4" path="res://SRC/Shader/SQUGGLE.tres" id="12_ufond"]
 [ext_resource type="PackedScene" uid="uid://dks63g6cp2j6n" path="res://SRC/Scenes/Menus/Shop.tscn" id="13_a0uvd"]
 [ext_resource type="Script" uid="uid://drtk42vjyvg4o" path="res://SRC/Scripts/Tools/upgrade_handler.gd" id="15_td548"]
+[ext_resource type="PackedScene" uid="uid://dm451t3h4vj76" path="res://SRC/Scenes/Menus/WinScreen.tscn" id="15_vnerd"]
 [ext_resource type="PackedScene" uid="uid://d3jgcgjc00ks7" path="res://SRC/Scenes/GameOver/GameOverScreen.tscn" id="16_f2cns"]
 [ext_resource type="AudioStream" uid="uid://c12pwgiqc2tne" path="res://SRC/SFX/Music/07_RunFlake.mp3" id="18_v4tc8"]
 
@@ -228,9 +229,6 @@ _data = {
 &"RESET": SubResource("Animation_jla0j"),
 &"Start": SubResource("Animation_nmlge")
 }
-
-[sub_resource type="Resource" id="Resource_4ofmb"]
-metadata/__load_path__ = "res://SRC/Scenes/Levels/Main2.tscn"
 
 [node name="Node3D" type="Node3D" unique_id=1885697256]
 
@@ -686,7 +684,9 @@ UI_layer = NodePath("../../UI")
 countdown = NodePath("Timer")
 countdown_bar = NodePath("../../UI/TextureRect2/ProgressBar")
 water_node = NodePath("../../LevelContents/Map/Water")
-next_level = SubResource("Resource_4ofmb")
+has_shop = false
+next_level = ExtResource("15_vnerd")
+waves = 5
 respawn_floor = NodePath("../../LevelContents/Map/Area3D")
 moneylabel = NodePath("../../UI/TextureRect2/MoneyLabel")
 shop_ui = ExtResource("13_a0uvd")

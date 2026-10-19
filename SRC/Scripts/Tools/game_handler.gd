@@ -19,6 +19,7 @@ class_name GameHandler
 @export var move_respawn_floor_with_water : bool = true
 
 @export_subgroup("next Level")
+@export var has_shop : bool = true
 @export var next_level : PackedScene
 
 @export_subgroup("waves")
@@ -93,9 +94,12 @@ func _physics_process(delta: float) -> void:
 			# Optionally move the respawn floor up with the water so the kill plane stays aligned
 
 	if current_wave > waves and shop_phase == false:
-		shop_phase = true
-		var yt = shop_ui.instantiate()
-		UI_layer.add_child.call_deferred(yt)
+		if has_shop == true:
+			shop_phase = true
+			var yt = shop_ui.instantiate()
+			UI_layer.add_child.call_deferred(yt)
+		elif has_shop == false:
+			get_tree().change_scene_to_packed(next_level)
 
 func _start_new_wave():
 	if hole_container.get_child_count() <= 0 and current_wave <= waves:
