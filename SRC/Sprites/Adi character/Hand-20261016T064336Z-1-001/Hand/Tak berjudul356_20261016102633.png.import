@@ -2,16 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<<< HEAD:SRC/Sprites/Adi character/Hand-20261016T064336Z-1-001/Hand/Tak berjudul356_20261016102633.png.import
 uid="uid://igvr2b13evkx"
 path="res://.godot/imported/Tak berjudul356_20261016102633.png-b5e9bc494775245cb03220abf891b9e5.ctex"
+========
+uid="uid://c3rdmwvjtoslm"
+path.s3tc="res://.godot/imported/rect_02.jpg-7517670b5abf812d7036b41f3aef7a3d.s3tc.ctex"
+>>>>>>>> staging:SRC/Sprites/UI/rect_02.jpg.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<<< HEAD:SRC/Sprites/Adi character/Hand-20261016T064336Z-1-001/Hand/Tak berjudul356_20261016102633.png.import
 source_file="res://SRC/Sprites/Adi character/Hand-20261016T064336Z-1-001/Hand/Tak berjudul356_20261016102633.png"
 dest_files=["res://.godot/imported/Tak berjudul356_20261016102633.png-b5e9bc494775245cb03220abf891b9e5.ctex"]
+========
+source_file="res://SRC/Sprites/UI/rect_02.jpg"
+dest_files=["res://.godot/imported/rect_02.jpg-7517670b5abf812d7036b41f3aef7a3d.s3tc.ctex"]
+>>>>>>>> staging:SRC/Sprites/UI/rect_02.jpg.import
 
 [params]
 

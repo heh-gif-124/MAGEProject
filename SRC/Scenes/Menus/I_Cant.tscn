@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://c73wnlcdjsdgn"]
+
+[ext_resource type="Script" uid="uid://diq0i1emf2qjw" path="res://SRC/Scripts/Room_Scripts/i_cant.gd" id="1_qafnh"]
+[ext_resource type="Texture2D" uid="uid://dda7twtu0q5il" path="res://SRC/Sprites/Adi character/pain.png" id="3_qafnh"]
+[ext_resource type="PackedScene" uid="uid://dscw4c7ot41ds" path="res://SRC/Scenes/Anims/Fades/Fade_Trans.tscn" id="4_g05w4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xrivr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_13qdw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b1lj4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_njqwk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wi6ju"]
+
+[node name="I_Cant" type="Control" unique_id=228071706]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qafnh")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1483936625]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Check_Room" type="TextureButton" parent="." unique_id=292916275]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Fade_Trans" parent="." unique_id=346146234 instance=ExtResource("4_g05w4")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Pain" type="TextureRect" parent="." unique_id=1590369180]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 230.0
+offset_right = 1006.0
+offset_bottom = 849.0
+texture = ExtResource("3_qafnh")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="." unique_id=1195893392]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.5
+offset_top = -28.0
+offset_right = 189.5
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xrivr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_13qdw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_b1lj4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_njqwk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wi6ju")
+text = "Oops... Something went wrong."
+
+[connection signal="pressed" from="Check_Room" to="." method="_on_check_room_pressed"]

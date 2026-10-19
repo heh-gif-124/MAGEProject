@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://cpwlg0sh8ghji"]
+
+[ext_resource type="Script" uid="uid://bn4fxsmpf2kbi" path="res://SRC/Scripts/Room_Scripts/load.gd" id="1_5nvgd"]
+[ext_resource type="Texture2D" uid="uid://5p81xi0dseqk" path="res://SRC/Sprites/Adi character/Silhouette/Frame_1.png" id="2_p31vr"]
+[ext_resource type="PackedScene" uid="uid://dscw4c7ot41ds" path="res://SRC/Scenes/Anims/Fades/Fade_Trans.tscn" id="2_vj0jx"]
+[ext_resource type="Texture2D" uid="uid://b56epvmitxf1a" path="res://SRC/Sprites/Adi character/Silhouette/Frame_2.png" id="3_ao7ob"]
+[ext_resource type="Texture2D" uid="uid://bjiumxhu41bmr" path="res://SRC/Sprites/Adi character/Silhouette/Frame_3.png" id="4_s5bux"]
+[ext_resource type="Texture2D" uid="uid://mpks7ikq5edm" path="res://SRC/Sprites/Adi character/Silhouette/Frame_4.png" id="5_hx0ve"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5nvgd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.22352941, 0.1882353, 0.25490198, 1)
+expand_margin_left = 12.0
+expand_margin_top = 12.0
+expand_margin_right = 12.0
+expand_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vj0jx"]
+bg_color = Color(0.7058824, 0.7058824, 0.7058824, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xrivr"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("2_p31vr")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_ao7ob")
+}, {
+"duration": 0.5,
+"texture": ExtResource("4_s5bux")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_hx0ve")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="Loading_Screen" type="Control" unique_id=1424662124]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5nvgd")
+
+[node name="Background" type="ColorRect" parent="." unique_id=2085700112]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=132920362]
+z_index = 2
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.419
+offset_top = 222.0
+offset_right = 384.41815
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_5nvgd")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vj0jx")
+show_percentage = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ProgressBar" unique_id=1392201229]
+unique_name_in_owner = true
+position = Vector2(5.418976, -55)
+scale = Vector2(0.056, 0.05)
+sprite_frames = SubResource("SpriteFrames_xrivr")
+animation = &"run"
+frame_progress = 0.4566724
+
+[node name="ProgressPercent" type="Label" parent="." unique_id=287574167]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 530.0
+offset_right = 176.0
+offset_bottom = 604.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 64
+text = "0%"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Fade_Trans" parent="." unique_id=346146234 instance=ExtResource("2_vj0jx")]
+unique_name_in_owner = true
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[connection signal="fade_completed" from="Fade_Trans" to="." method="_on_fade_completed"]
