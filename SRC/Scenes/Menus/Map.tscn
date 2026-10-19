@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://pkqjp2xo66s0" path="res://SRC/Scripts/Room_Scripts/map.gd" id="1_x8el6"]
 [ext_resource type="Texture2D" uid="uid://dvu286wg4nar0" path="res://SRC/Sprites/Map/Paperfold_City.png" id="2_v5e8b"]
 [ext_resource type="Texture2D" uid="uid://dvlt3bgvn7h8f" path="res://SRC/icon.svg" id="3_nvvf1"]
-[ext_resource type="PackedScene" uid="uid://dscw4c7ot41ds" path="res://SRC/Scenes/Anims/Fades/fade_trans.tscn" id="4_b3jt5"]
+[ext_resource type="Texture2D" uid="uid://gbls4uwuxuu4" path="res://SRC/Sprites/Map/paper_texture.jpg" id="3_v5e8b"]
+[ext_resource type="PackedScene" uid="uid://dscw4c7ot41ds" path="res://SRC/Scenes/Anims/Fades/Fade_Trans.tscn" id="4_b3jt5"]
 
 [node name="Map" type="Node2D" unique_id=1470246169]
 script = ExtResource("1_x8el6")
@@ -14,6 +15,20 @@ def_zoom = Vector2(0.5, 0.5)
 scale = Vector2(1, 1.014)
 texture = ExtResource("2_v5e8b")
 metadata/_edit_lock_ = true
+
+[node name="Paper_Overlay" type="TextureRect" parent="City_Map" unique_id=366346603]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1440.0
+offset_top = -1440.0
+offset_right = -3636.9778
+offset_bottom = -3111.0825
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.272189, 2.4506903)
+texture = ExtResource("3_v5e8b")
+expand_mode = 1
 
 [node name="Regions" type="Node2D" parent="." unique_id=899306752]
 
@@ -85,6 +100,7 @@ text = "Return"
 
 [node name="Fade_Trans" parent="CanvasLayer" unique_id=346146234 instance=ExtResource("4_b3jt5")]
 unique_name_in_owner = true
+visible = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1923777294]
 position = Vector2(0, -600)

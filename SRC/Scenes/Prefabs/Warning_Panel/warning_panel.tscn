@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://cd5xiu2vch26o"]
 
 [ext_resource type="Script" uid="uid://bvtf33hurpoyu" path="res://SRC/Scenes/Prefabs/Warning_Panel/warning_panel.gd" id="1_nqmfa"]
+[ext_resource type="Texture2D" uid="uid://civ23y6tf33yb" path="res://SRC/Sprites/UI/Settings/set_panel.png" id="2_0k8id"]
 [ext_resource type="Theme" uid="uid://bnqmjprb05tg8" path="res://SRC/Themes/Main_Theme.tres" id="2_wjf3g"]
+[ext_resource type="Material" uid="uid://cc4psqlrys8l4" path="res://SRC/Shader/SQUGGLE.tres" id="3_g1m6w"]
 [ext_resource type="Texture2D" uid="uid://b38kvcb2e8fnb" path="res://SRC/Sprites/UI/dark_button.png" id="3_jgdtq"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2njl"]
-bg_color = Color(0.2123048, 0.21230489, 0.21230471, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2n5ou"]
 texture = ExtResource("3_jgdtq")
@@ -18,8 +17,9 @@ modulate_color = Color(0.5370987, 0.5370987, 0.5370987, 1)
 texture = ExtResource("3_jgdtq")
 modulate_color = Color(1.353256, 1.353256, 1.353256, 1)
 
-[node name="Warning_Panel" type="Panel" unique_id=491861862]
+[node name="Warning_Panel" type="Control" unique_id=1011378247]
 custom_minimum_size = Vector2(600, 400)
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -29,10 +29,31 @@ offset_right = -279.0
 offset_bottom = -189.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_g2njl")
 script = ExtResource("1_nqmfa")
 
+[node name="Frame" type="NinePatchRect" parent="." unique_id=1757580160]
+custom_minimum_size = Vector2(550, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -290.5
+offset_top = -187.0
+offset_right = 290.5
+offset_bottom = 235.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0k8id")
+region_rect = Rect2(0, 0, 1233, 853)
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
+
 [node name="Label" type="Label" parent="." unique_id=1298751472]
+material = ExtResource("3_g1m6w")
 custom_minimum_size = Vector2(400, 48)
 propagate_maximum_size = true
 layout_mode = 1
@@ -70,6 +91,7 @@ grow_vertical = 0
 alignment = 1
 
 [node name="Back" type="Button" parent="Action_Buttons" unique_id=1807256261]
+material = ExtResource("3_g1m6w")
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -84,6 +106,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Confirm" type="Button" parent="Action_Buttons" unique_id=1895640579]
+material = ExtResource("3_g1m6w")
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4

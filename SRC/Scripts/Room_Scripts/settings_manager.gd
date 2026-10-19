@@ -39,7 +39,7 @@ func _on_settings_button(button_name: String) -> void:
 		"apply":
 			_save_settings()
 		"resettodefault":
-			warning_panel.show_warning("Reset Settings?")
+			warning_panel.show_warning("Reset Settings?", 0)
 
 # 2. Sliders
 func _on_settings_slider(value: float, slider_name: String) -> void:
@@ -84,6 +84,17 @@ func _on_settings_toggle(toggled_on: bool, toggle_name: String) -> void:
 		"vsync":
 			var vsync_mode = DisplayServer.VSYNC_ENABLED if toggled_on else DisplayServer.VSYNC_DISABLED
 			DisplayServer.window_set_vsync_mode(vsync_mode)
+		"zoomtoggle":
+			# Safely update the live map IF it currently exists in the current scene tree
+			var active_map = get_tree().root.find_child("Game_Map", true, false)
+			if active_map and active_map is TextureRect:
+				active_map.zoom_to_cursor = toggled_on
+				
+			# Safely update the ConfigFile
+			var config = ConfigFile.new()
+			config.load(SAVE_PATH) # Load existing file
+			config.set_value("game", "cursor_zoom", toggled_on)
+			config.save(SAVE_PATH)
 		"mastermute", "mutemaster":
 			var bus_idx = AudioServer.get_bus_index("Master")
 			AudioServer.set_bus_mute(bus_idx, toggled_on)
@@ -148,8 +159,10 @@ func _save_settings() -> void:
 	if has_node("%Frame_Rate_Slider"): config.set_value("video", "fps_limit", %Frame_Rate_Slider.value)
 	if has_node("%Resolution_Dropdown"): config.set_value("video", "resolution", %Resolution_Dropdown.selected)
 	
+	if has_node("%Zoom_Toggle"): config.set_value("game", "cursor_zoom", %Zoom_Toggle.button_pressed)
+	
 	# Keybind Settings
-	if has_node("%KeybindManager"):
+	if has_node("%Keybind_Manager"):
 		%Keybind_Manager.save_keybinds(config)
 	
 	config.save(SAVE_PATH)
@@ -195,36 +208,52 @@ func _load_settings() -> void:
 		# Manually trigger option signal since setting 'selected' via script doesn't auto-emit item_selected
 		_on_settings_option(%Resolution_Dropdown.selected, "resolution")
 	
+	if has_node("%Zoom_Toggle"):
+		%Zoom_Toggle.button_pressed = config.get_value("game", "cursor_zoom", true)
+	
 	# Apply Keybind values to UI controls
-	if has_node("%KeybindManager"):
+	if has_node("%Keybind_Manager"):
 		%Keybind_Manager.load_keybinds(config)
 
 func _reset_settings_to_default() -> void:
-	# Delete the save file if it exists
-	if FileAccess.file_exists(SAVE_PATH):
-		DirAccess.remove_absolute(SAVE_PATH)
+	var config = ConfigFile.new()
 	
-	# Reset UI Controls to defaults (triggers signals to re-apply)
-	if has_node("%Master_Slider"): %Master_Slider.value = 0.6
-	if has_node("%Master_Mute"): %Master_Mute.button_pressed = false
-	if has_node("%SFX_Slider"): %SFX_Slider.value = 1.0
-	if has_node("%SFX_Mute"): %SFX_Mute.button_pressed = false
-	if has_node("%Music_Slider"): %Music_Slider.value = 1.0
-	if has_node("%Music_Mute"): %Music_Mute.button_pressed = false
-	if has_node("%UI_Slider"): %UI_Slider.value = 1.0
-	if has_node("%UI_Mute"): %UI_Mute.button_pressed = false
-	if has_node("%Display_Mode_Dropdown"): 
-		%Resolution_Dropdown.selected = 0
-		_on_settings_option(0, "resolution")
-	if has_node("%VSync"): %VSync.button_pressed = false
-	if has_node("%Frame_Rate_Slider"): %Frame_Rate_Slider.value = 30.0
-	if has_node("%Resolution_Dropdown"):
-		%Resolution_Dropdown.selected = 0
-		_on_settings_option(0, "displaymode")
+	# 1. Populate the config with clean default values
+	# Audio Defaults
+	config.set_value("audio", "master_volume", 1.0)
+	config.set_value("audio", "master_mute", false)
+	config.set_value("audio", "sfx_volume", 1.0)
+	config.set_value("audio", "sfx_mute", false)
+	config.set_value("audio", "music_volume", 1.0)
+	config.set_value("audio", "music_mute", false)
+	config.set_value("audio", "ui_volume", 1.0)
+	config.set_value("audio", "ui_mute", false)
 	
-	# Reset Keybinds back to InputMap defaults
-	if has_node("%KeybindManager"):
+	# Video Defaults
+	config.set_value("video", "display_mode", 0)
+	config.set_value("video", "vsync", false)
+	config.set_value("video", "fps_limit", 60.0)
+	config.set_value("video", "resolution", 0)
+	
+	# Game Preference Defaults
+	config.set_value("game", "cursor_zoom", true)
+	
+	# 2. Reset Keybinds back to defaults in the InputMap
+	if has_node("%Keybind_Manager"):
 		%Keybind_Manager.reset_keybinds_to_default()
+		%Keybind_Manager.save_keybinds(config)
+	
+	# 3. Ensure directory exists and save the fresh default config
+	var dir_path = SAVE_PATH.get_base_dir()
+	if !DirAccess.dir_exists_absolute(dir_path):
+		DirAccess.make_dir_recursive_absolute(dir_path)
+	config.save(SAVE_PATH)
+	
+	# 4. Instantly load the config, which forces every UI control 
+	# to update its visual state and fire its signal!
+	_load_settings()
+	
+	print("Settings successfully reset to defaults and updated visually!")
 
 func _on_warning_confirm_pressed(_var_id: int) -> void:
 	if _var_id == 0:

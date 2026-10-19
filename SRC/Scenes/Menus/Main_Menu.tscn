@@ -208,7 +208,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_d74a3")
-save_file_scene = "res://SRC/Scenes/Menus/Save_Files.tscn"
+game_start_scene = "res://SRC/Scenes/Menus/Game_Map.tscn"
 credits_scene = "res://SRC/Scenes/Menus/Credits.tscn"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2094323901]

@@ -8,6 +8,7 @@ const CONFIG_NAMES: Array[StringName] = [
 	"left_input",
 	"right_input",
 	"jump",
+	"interact",
 	"sprint"
 ]
 
@@ -17,6 +18,7 @@ const CONFIGURABLE_ACTIONS: Array[StringName] = [
 	&"walk_left",
 	&"walk_right",
 	&"jump",
+	&"interact",
 	&"sprint"
 ]
 
@@ -43,6 +45,7 @@ func _create_keybind_rows() -> void:
 		# Pass both the display name and the action to your row script
 		row.setup(display_name, action)
 		row.rebind_requested.connect(_on_rebind_requested.bind(row))
+	_update_all_row_displays()
 
 func _on_rebind_requested(action_name: StringName, button_node: Button, row_node: HBoxContainer) -> void:
 	remapping_action = action_name
