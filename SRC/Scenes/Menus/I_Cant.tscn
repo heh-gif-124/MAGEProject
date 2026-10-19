@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://diq0i1emf2qjw" path="res://SRC/Scripts/Resources/i_cant.gd" id="1_qafnh"]
 [ext_resource type="Texture2D" uid="uid://dda7twtu0q5il" path="res://SRC/Sprites/Adi character/pain.png" id="3_qafnh"]
-[ext_resource type="PackedScene" uid="uid://dscw4c7ot41ds" path="res://SRC/Scenes/Anims/Fades/fade_trans.tscn" id="4_g05w4"]
+[ext_resource type="PackedScene" uid="uid://dscw4c7ot41ds" path="res://SRC/Scenes/Anims/Fades/Fade_Trans.tscn" id="4_g05w4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xrivr"]
 

@@ -14,6 +14,7 @@
 [ext_resource type="Material" uid="uid://cc4psqlrys8l4" path="res://SRC/Shader/SQUGGLE.tres" id="10_vdfs3"]
 [ext_resource type="PackedScene" uid="uid://cd5xiu2vch26o" path="res://SRC/Scenes/Prefabs/Warning_Panel/warning_panel.tscn" id="11_qetmh"]
 [ext_resource type="Texture2D" uid="uid://chmf7vx75fq8e" path="res://SRC/Sprites/Menu/close.png" id="11_vdfs3"]
+[ext_resource type="AudioStream" uid="uid://k2pnj1i1nw51" path="res://SRC/SFX/Music/calm_town.mp3" id="15_4qcjs"]
 
 [sub_resource type="Animation" id="Animation_loo7a"]
 length = 0.001
@@ -208,7 +209,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_d74a3")
-game_start_scene = "res://SRC/Scenes/Menus/Game_Map.tscn"
+game_start_scene = "res://SRC/Scenes/Levels/Main.tscn"
 credits_scene = "res://SRC/Scenes/Menus/Credits.tscn"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2094323901]
@@ -405,6 +406,10 @@ offset_left = -300.0
 offset_top = -200.0
 offset_right = 300.0
 offset_bottom = 200.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1421082741]
+stream = ExtResource("15_4qcjs")
+autoplay = true
 
 [connection signal="animation_finished" from="CanvasLayer/Background/Intro_Player" to="." method="_on_end_anim_finished"]
 [connection signal="pressed" from="CanvasLayer/Menu/Start" to="." method="_on_start_pressed"]

@@ -243,6 +243,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2678514, 1.3829628, 1.9949
 [node name="Marker3D15" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=1996449869]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8475013, 1.3829628, 1.9949918)
 
+[node name="Marker3D16" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=444300194]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2380486, 1.3829628, 20.407934)
+
+[node name="Marker3D17" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=1186112730]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2678514, 1.3829628, 20.407934)
+
+[node name="Marker3D18" type="Marker3D" parent="LevelContents/HolePlacer" unique_id=493657819]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8475013, 1.3829628, 20.407934)
+
 [node name="CharacterBody3D" parent="LevelContents" unique_id=1875201734 instance=ExtResource("3_ykroi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23323941, 1.7618587, -0.35880136)
 axis_lock_angular_x = true
@@ -254,6 +263,7 @@ slide_on_ceiling = false
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="LevelContents/Map" unique_id=302129770]
 transform = Transform3D(8.005055, 0, 0, 0, 5.0446715, 0, 0, 0, 0.98035586, 0, -1.5334654, -5.1568747)
+metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="LevelContents/Map/StaticBody3D2" unique_id=56880617]
 transform = Transform3D(0.99998146, 0, 0, 0, 1, 0, 0, 0, 1, -0.15685618, 0, 4.2489624)
@@ -261,6 +271,19 @@ material_override = SubResource("StandardMaterial3D_erja3")
 mesh = SubResource("BoxMesh_r150o")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LevelContents/Map/StaticBody3D2" unique_id=1853568331]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15930179, 0, 3.736142)
+shape = SubResource("BoxShape3D_t5s3b")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="LevelContents/Map" unique_id=4150857]
+transform = Transform3D(8.005055, 0, 0, 0, 5.0446715, 0, 0, 0, 0.98035586, 0, -1.5334654, 13.874054)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelContents/Map/StaticBody3D3" unique_id=2120433403]
+transform = Transform3D(0.99998146, 0, 0, 0, 1, 0, 0, 0, 1, -0.15685618, 0, 4.2489624)
+material_override = SubResource("StandardMaterial3D_erja3")
+mesh = SubResource("BoxMesh_r150o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelContents/Map/StaticBody3D3" unique_id=975758045]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15930179, 0, 3.736142)
 shape = SubResource("BoxShape3D_t5s3b")
 
@@ -298,6 +321,12 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 4.749256, 1.0055475, -7.91153
 [node name="Building13" parent="LevelContents/Map/Building" unique_id=1994144463 instance=ExtResource("4_fn2nb")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.7604561, 1.0055475, -7.911534)
 
+[node name="Building18" parent="LevelContents/Map/Building" unique_id=791494293 instance=ExtResource("4_fn2nb")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -3.2604542, 1.0055475, 16.07198)
+
+[node name="Building20" parent="LevelContents/Map/Building" unique_id=1819764569 instance=ExtResource("4_fn2nb")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.7604561, 1.0055475, 16.07198)
+
 [node name="Properties" type="Node" parent="LevelContents/Map" unique_id=673537901]
 
 [node name="Sprite3D" type="Sprite3D" parent="LevelContents/Map/Properties" unique_id=55320291]
@@ -317,6 +346,16 @@ texture = ExtResource("7_0ifsc")
 
 [node name="Sprite3D4" type="Sprite3D" parent="LevelContents/Map/Properties" unique_id=1196785423]
 transform = Transform3D(0.13152091, 0, 0, 0, 0.13864818, 0, 0, 0, 1, 2.6191864, 2.821268, 1.5459511)
+render_priority = 1
+texture = ExtResource("7_0ifsc")
+
+[node name="Sprite3D7" type="Sprite3D" parent="LevelContents/Map/Properties" unique_id=2035604331]
+transform = Transform3D(0.13152091, 0, 0, 0, 0.13864818, 0, 0, 0, 1, -4.8506975, 2.821268, 17.487759)
+render_priority = 1
+texture = ExtResource("7_0ifsc")
+
+[node name="Sprite3D8" type="Sprite3D" parent="LevelContents/Map/Properties" unique_id=101686488]
+transform = Transform3D(0.13152091, 0, 0, 0, 0.13864818, 0, 0, 0, 1, 2.6191864, 2.821268, 17.487759)
 render_priority = 1
 texture = ExtResource("7_0ifsc")
 
